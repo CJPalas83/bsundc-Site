@@ -75,18 +75,19 @@ export default function AboutPage() {
               variants={fadeUp}
               className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-text-main"
             >
-              European <em className="text-accent not-italic">Expertise</em>,
+              European Bathroom and Kitchen{" "}
+              <em className="text-accent italic">Product Development</em>
               <br />
-              Global <em className="text-accent italic">Reach</em>
+              for Southeast Asian <em className="text-accent italic">Markets</em>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               className="font-body text-base md:text-lg text-text-body leading-relaxed max-w-xl"
             >
-              Engineered in Germany &amp; Denmark. Trusted across Southeast
-              Asia. BSC delivers cutting-edge solutions for the building
-              industry.
+              BSC develops, engineers, and supplies bathroom, kitchen, and
+              retrofit shower solutions designed in Germany and Denmark and
+              produced through qualified subcontracting partners in China.
             </motion.p>
           </motion.div>
         </div>
@@ -133,21 +134,20 @@ export default function AboutPage() {
               variants={fadeUp}
               className="font-body text-base md:text-lg text-text-body leading-relaxed mb-8 drop-cap"
             >
-              At BSC, we specialize in delivering cutting-edge solutions for the
-              building industry, with a primary focus on bathroom and kitchen
-              applications. Our products are thoughtfully developed, engineered,
-              and designed in Germany and Denmark, ensuring exceptional quality
-              and innovation.
+              BSC develops, engineers, and supplies bathroom, kitchen, and
+              retrofit shower solutions for the building industry. Products are
+              designed in Germany and Denmark, ensuring consistent quality
+              standards and engineering rigour.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="font-body text-base md:text-lg text-text-body leading-relaxed mb-10"
             >
-              To maintain cost efficiency, our certified production is entrusted
-              to reliable sub-contractors in China. Our sales and marketing
-              efforts are strategically focused on Southeast Asia, with a strong
-              presence in the Philippines, Korea, Malaysia, Brunei, and
+              To maintain cost efficiency, certified production is entrusted
+              to reliable sub-contractors in China. Sales and marketing
+              efforts are focused on Southeast Asia, with a presence
+              in the Philippines, Korea, Malaysia, Brunei, and
               Singapore.
             </motion.p>
 
@@ -155,8 +155,9 @@ export default function AboutPage() {
               variants={fadeUp}
               className="font-body text-sm md:text-base text-text-main font-medium leading-relaxed border-l-2 border-accent pl-6"
             >
-              Discover how BSC combines European expertise with global reach to
-              bring superior solutions to your projects.
+              BSC combines European product development capability with
+              qualified manufacturing and regional market knowledge to
+              deliver dependable bathroom and kitchen solutions.
             </motion.p>
           </motion.div>
         </div>
@@ -262,30 +263,30 @@ export default function AboutPage() {
               variants={fadeUp}
               className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8 text-text-main"
             >
-              Identification of
+              Practical Solutions,
               <br />
-              Tomorrow&apos;s <em className="text-accent italic">Trend</em>
+              Proven <em className="text-accent italic">Standards</em>
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="font-body text-base md:text-lg text-text-body leading-relaxed mb-8"
             >
-              At BSC, our mission is to lead the water tap industry with
-              innovative, high-quality solutions that meet the needs of
-              today&apos;s world. We are committed to sustainability,
-              efficiency, and exceptional design, ensuring that our products,
-              like the DUET, deliver both superior performance and reduced
-              environmental impact.
+              BSC’s mission is to develop and supply dependable bathroom and
+              kitchen products that meet the practical requirements of
+              Southeast Asian building projects. The company is committed to
+              consistent quality, efficient production, and functional design
+              that performs reliably across residential, commercial, and
+              hospitality applications.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="font-body text-base md:text-lg text-text-body leading-relaxed mb-10"
             >
-              By continually advancing technology and production processes, we
-              strive to set new standards of excellence, enhance customer
-              satisfaction, and contribute to a more sustainable future.
+              By maintaining close control over engineering standards and
+              production processes, BSC works to deliver measurable value
+              to its partners and end users.
             </motion.p>
 
             {/* Key pillars */}

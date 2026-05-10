@@ -222,7 +222,7 @@ export const ttsCollections: CollectionProduct[] = [
           {
             title: "Certification",
             items: [
-              { label: "Certified", value: "CB IEC 60335" },
+              { label: "Certified", value: "CB IEC 60335 (water heater)" },
             ]
           }
         ]
@@ -255,7 +255,7 @@ export const ttsCollections: CollectionProduct[] = [
           {
             title: "Certification",
             items: [
-              { label: "Certified", value: "CE & CB IEC 60335" },
+              { label: "Certified", value: "CE & CB IEC 60335 (water heater)" },
             ]
           }
         ]
@@ -287,7 +287,7 @@ export const ttsCollections: CollectionProduct[] = [
           { label: "Waterproof", value: "IPX4" },
           { label: "Auto Shut-Off", value: "60 °C" },
           { label: "Circuit Breaker", value: "Min. 20A" },
-          { label: "Certification", value: "CE and CB IEC 60335" },
+          { label: "Certification", value: "CE and CB IEC 60335 (water heater)" },
         ]
       },
       {

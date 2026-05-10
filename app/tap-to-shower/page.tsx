@@ -208,7 +208,7 @@ export default function TapToShowerCollection() {
             {[
               { icon: Clock, title: "30–45 Min Install" },
               { icon: ShieldCheck, title: "3-Year Limited Warranty" },
-              { icon: Layers, title: "CB IEC 60335 Certified" },
+              { icon: Layers, title: "CB Certified Heater*" },
               { icon: Wrench, title: "Single-Line PEX Retrofit" },
               { icon: Palette, title: "Chrome · Black · Brushed SS" }
             ].map((feat, i) => (
@@ -263,35 +263,60 @@ export default function TapToShowerCollection() {
             {[
               { 
                 title: "Retailers / Distributors", 
-                desc: "Stock a single-line shower upgrade with a verified 3-year tap warranty and ready packaging. No assembly, no staff training required.",
+                headline: "Stock a Product That Explains Itself at the Shelf",
+                bullets: [
+                  "Ready retail package with clear value-for-money story",
+                  "Strong shelf-level product explanation — no staff training required",
+                  "Margin and turnover relevance in cold-water bathroom markets"
+                ],
                 cta: "Ask About Retail Packages",
                 type: "retail"
               },
               { 
                 title: "Developers / Builders", 
-                desc: "Specify hot water for single-line bathrooms without adding plumbing runs or redesigning the layout.",
+                headline: "Specify Now. Let Buyers Upgrade Later.",
+                bullets: [
+                  "Single-line bathroom compatibility — no floor plan redesign",
+                  "No additional plumbing runs or concealed pipework required",
+                  "Cost and project simplicity with optional buyer upgrade logic"
+                ],
                 cta: "Ask About Project Solutions",
                 type: "developer"
               },
               { 
                 title: "Architects / Specifiers", 
-                desc: "Specify a CB IEC 60335-certified shower system for single-line bathrooms. Full technical datasheets and dimensional drawings available on request.",
+                headline: "No Need to Redraw Single-Line Bathroom Concepts",
+                bullets: [
+                  "Specification-friendly — suitable for homes, condos, and hospitality",
+                  "Clean and compact installation with no concealed pipe requirement",
+                  "Technical support, dimensional drawings, and datasheets available"
+                ],
                 cta: "Request Specification Support",
                 type: "architect"
               },
               { 
                 title: "End Consumers", 
-                desc: "Get a hot shower without opening your wall.",
+                headline: "Hot Shower Comfort Without Opening Your Wall",
+                bullets: [
+                  "Neat visible installation in approximately 30 to 45 minutes",
+                  "Available in Chrome, Matt Black, and Brushed Stainless Steel",
+                  "3-year limited warranty on the tap"
+                ],
                 cta: "Find Out Where to Buy",
                 type: "consumer"
               }
             ].map((group, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="bg-bg-main p-8 border border-text-main/10 flex flex-col h-full shadow-sm hover:shadow-md transition-shadow duration-200">
-                <h3 className="font-heading text-2xl text-text-main mb-3">{group.title}</h3>
-                <p className="font-body text-text-body leading-relaxed flex-grow mb-8">{group.desc}</p>
-                {/* [CJ] — Consumer goes to /where-to-buy (COPY-001 path a).
-                     B2B types use scrollToInquiry() — sets buyer type + smooth scrolls.
-                     href="#inquiry" kept as fallback if JS is disabled. */}
+                <h3 className="font-heading text-2xl text-text-main mb-2">{group.title}</h3>
+                <p className="font-body text-sm font-medium text-accent mb-4 italic">{group.headline}</p>
+                <ul className="space-y-2 mb-8 flex-grow">
+                  {group.bullets.map((bullet, bi) => (
+                    <li key={bi} className="flex items-start gap-3">
+                      <span className="block w-1.5 h-1.5 mt-2 bg-accent shrink-0" />
+                      <span className="font-body text-sm text-text-body leading-relaxed">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
                 <a
                   href={group.type === "consumer" ? "/where-to-buy" : "#inquiry"}
                   onClick={group.type !== "consumer" ? (e) => { e.preventDefault(); scrollToInquiry(group.type); } : undefined}
@@ -327,7 +352,7 @@ export default function TapToShowerCollection() {
               <div className="space-y-8">
                  {[
                    { title: "3-year limited warranty", desc: "Brass HP59 body and ceramic cartridges, covered for three years from date of purchase." },
-                   { title: "CB IEC 60335 certified", desc: "Instant water heaters meet international electrical safety standards under IEC 60335-2-35." },
+                   { title: "CB Certified Heater*", desc: "Compatible instant water heater models may be supplied with CB certification according to IEC 60335-2-35, subject to model and market." },
                    { title: "Worldbex 2026", desc: "Featured exhibitor at Worldbex 2026, SMX Convention Center, Pasay City, Philippines." }
                  ].map((signal, i) => (
                    <motion.div key={i} variants={fadeUp} className="flex gap-5">
@@ -369,6 +394,19 @@ export default function TapToShowerCollection() {
           </motion.div>
         </SectionWrapper>
 
+        {/* ===== DIFFERENTIATOR (F06) ===== */}
+        <SectionWrapper id="differentiator" className="border-t border-text-main/10">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
+            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Difference</Overline></motion.div>
+            <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-8 text-text-main">
+              Not Just a Heater. A Complete Shower <em className="text-accent italic">Solution.</em>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
+              A standard instant water heater typically provides one outlet — usually a hand shower. Tap-to-Shower™ creates a more complete hot and cold shower solution: tap control, overhead shower, hand shower, and a cleaner visual result for single-line bathrooms. The difference is not the heat source. It is the shower experience it makes possible.
+            </motion.p>
+          </motion.div>
+        </SectionWrapper>
+
         {/* ===== 7. FAQ ===== */}
         <SectionWrapper id="faq" className="bg-bg-alt border-t border-text-main/10 mt-1">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-4xl mx-auto">
@@ -380,13 +418,16 @@ export default function TapToShowerCollection() {
             </motion.div>
             <div className="space-y-4">
               {[
-                { q: "Is the PEX tube durable enough for hot water?", a: "Yes. The PEX tubing is rated for high-temperature and high-pressure applications and handles the output of the 3.5-kilowatt heater." },
-                { q: "Do I need a professional plumber?", a: "The system is designed for professional installation. A certified plumber or electrician is required to validate the warranty." },
-                // [CJ] \u2014 COPY-005 Q3: removed "contact us" pronoun violation.
-                //        "us" is first-person in a narrative FAQ section \u2014 not permitted.
-                //        Replaced with direct email address. Also removes the second em-dash on the page.
-                { q: "Can I use my existing water heater?", a: "Tap-to-Shower\u2122 is optimised for the BSC instant water heater range. Compatibility with other systems depends on connection type and pressure rating \u2014 contact info@bsundc.com for confirmation before purchase." },
-                { q: "What finishes are available?", a: "Tap bodies are available in Chrome, Matt Black, and Brushed Stainless Steel." }
+                { q: "What is Tap-to-Shower™?", a: "Tap-to-Shower™ is a shower concept for bathrooms with only one cold-water outlet. When connected to a suitable instant single-point water heater, it allows hot and cold water to be controlled at the tap without opening the wall or adding concealed pipework." },
+                { q: "Does the tap itself heat the water?", a: "No. The tap connects to an instant single-point water heater via a flexible PEX tube. The heater warms the water; the Tap-to-Shower™ tap controls the mix and flow at the shower point." },
+                { q: "Which water heater can be used?", a: "Tap-to-Shower™ is compatible with suitable instant single-point water heaters with a G½\" connection. The included connection set is designed for this purpose." },
+                { q: "Is any wall work required?", a: "No major wall modification is required. The PEX tube routes along the wall surface and is fixed with the included brackets and clips. No concealed pipework needs to be added." },
+                { q: "Does installation need a plumber?", a: "BSC recommends installation by a qualified professional plumber and, where applicable, a qualified electrician for the water heater connection." },
+                { q: "What water pressure is required?", a: "The system requires a minimum water pressure suitable for the connected instant water heater. It is not suitable for very low pressure or gravity-fed roof-tank installations." },
+                { q: "What finishes are available?", a: "Chrome, Matt Black, and Brushed Stainless Steel." },
+                { q: "What warranty applies?", a: "The Tap-to-Shower™ tap carries a 3-year limited warranty. Compatible instant water heater models may carry their own warranty — please confirm with BSC at time of order." },
+                { q: "Where can it be purchased in the Philippines?", a: "Philippine availability is currently being prepared. Please contact BSC directly for purchasing and distribution enquiries." },
+                { q: "Can it be used for retail distribution or project supply?", a: "Yes. BSC supplies Tap-to-Shower™ for retail stocking, project specification, and distribution. Contact BSC to discuss commercial terms." }
               ].map((faq, i) => (
                 <FAQAccordion key={i} question={faq.q} answer={faq.a} />
               ))}

@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import SectionWrapper from "../components/SectionWrapper";
 import Overline from "../components/Overline";
 import Button from "../components/Button";
-import { Mail } from "lucide-react";
+import Link from "next/link";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -47,39 +47,33 @@ export default function WhereToBuy() {
               variants={fadeUp}
               className="font-heading text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-8 text-text-main"
             >
-              Where to <em className="text-accent italic">Buy</em>
+              Retail and Distribution{" "}
+              <em className="text-accent italic">Availability</em>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="font-body text-lg md:text-xl text-text-body leading-relaxed mb-4"
+              className="font-body text-lg md:text-xl text-text-body leading-relaxed mb-12"
             >
-              Hot and cold shower available in select locations across the
-              Philippines. Stockist information coming soon.
-            </motion.p>
-
-            <motion.p
-              variants={fadeUp}
-              className="font-body text-base text-text-body/70 leading-relaxed mb-12"
-            >
-              For purchasing enquiries: info@bsundc.com
+              Retail and distribution availability across the Philippines is
+              currently being prepared. For project, retail, or consumer
+              purchasing enquiries, please contact BSC directly.
             </motion.p>
 
             <motion.div
               variants={fadeUp}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <a href="mailto:info@bsundc.com?subject=Where to Buy — Tap-to-Shower">
+              <Link href="/contact">
                 <Button variant="primary" size="lg">
-                  <Mail className="w-4 h-4 mr-3" />
-                  Email info@bsundc.com
+                  Request Information
                 </Button>
-              </a>
-              <a href="/tap-to-shower">
+              </Link>
+              <Link href="/contact">
                 <Button variant="secondary" size="lg">
-                  Back to Tap-to-Shower™
+                  Ask About Availability
                 </Button>
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </SectionWrapper>

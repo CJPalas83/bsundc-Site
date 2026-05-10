@@ -15,6 +15,14 @@ interface CollectionItem {
 
 const collections: CollectionItem[] = [
   {
+    image: "/images/carousel/shower-product.png",
+    overline: "Shower Systems",
+    title: "Tap-to-Shower Collection",
+    description:
+      "Complete kits, tap-only options, upgrade sets, and water heaters.",
+    href: "/tap-to-shower",
+  },
+  {
     image: "/images/carousel/duet.png",
     overline: "Smart Technology",
     title: "DUET Collection",
@@ -34,14 +42,6 @@ const collections: CollectionItem[] = [
     title: "SUS Collection",
     description:
       "Crafted from premium 304 stainless steel — enduring elegance.",
-  },
-  {
-    image: "/images/carousel/shower-product.png",
-    overline: "Shower Systems",
-    title: "Tap-to-Shower Collection",
-    description:
-      "Complete kits, tap-only options, upgrade sets, and water heaters.",
-    href: "/tap-to-shower",
   },
   {
     image: "/images/carousel/line.png",
@@ -100,6 +100,7 @@ const collections: CollectionItem[] = [
       "Angle valves, drainage systems, and concealed fittings — the invisible backbone.",
   },
 ];
+
 
 const CARD_WIDTH = 340;
 const CARD_GAP = 24;
