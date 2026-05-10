@@ -100,7 +100,7 @@ Fix all 11 tickets from Schaefer's May 8 feedback before Monday May 11, 17:30.
 The current homepage structure is:
 1. Flagship TTS product block (lines 74–252) 
 2. Video Showcase (line 255)
-3. Hero + 4-lane router (lines 299–483) ← this should be FIRST
+3. Hero + 4-lane router (lines 299–483) ← this should be FIRrST
 4. Proof block / stats (lines 491–555)
 
 **Restructure to match Schaefer's required order:**
