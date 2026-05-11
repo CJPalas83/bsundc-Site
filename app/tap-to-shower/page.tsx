@@ -218,6 +218,9 @@ export default function TapToShowerCollection() {
               </motion.div>
             ))}
           </div>
+          <p className="font-body text-[10px] text-text-body/50 text-center mt-6">
+            * Compatible instant water heater models may be supplied with CB certification according to IEC 60335-2-35, subject to model and market.
+          </p>
         </SectionWrapper>
 
         {/* ===== 3. HOW IT WORKS ===== */}

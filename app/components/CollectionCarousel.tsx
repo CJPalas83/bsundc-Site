@@ -27,7 +27,7 @@ const collections: CollectionItem[] = [
     overline: "Smart Technology",
     title: "DUET Collection",
     description:
-      "Intelligent sensor taps that unite soap and water in a single, seamless gesture.",
+      "Intelligent sensor taps that unite soap and water in a single gesture.",
   },
   {
     image: "/images/carousel/s2.png",
