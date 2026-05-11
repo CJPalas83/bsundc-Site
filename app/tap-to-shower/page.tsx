@@ -44,8 +44,8 @@ const FAQAccordion = ({ question, answer }: { question: string, answer: string }
   const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.div variants={fadeUp} className="border border-text-main/10 bg-bg-main overflow-hidden">
-      <button 
-        onClick={() => setIsOpen(!isOpen)} 
+      <button
+        onClick={() => setIsOpen(!isOpen)}
         className="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none cursor-pointer"
       >
         <span className="font-heading text-xl text-text-main pr-8">{question}</span>
@@ -53,9 +53,9 @@ const FAQAccordion = ({ question, answer }: { question: string, answer: string }
       </button>
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
-            initial={{ height: 0, opacity: 0 }} 
-            animate={{ height: "auto", opacity: 1 }} 
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
@@ -125,7 +125,7 @@ export default function TapToShowerCollection() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
           >
             <div className="lg:col-span-6">
-              <motion.h1 
+              <motion.h1
                 variants={fadeUp}
                 className="font-heading text-5xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tight mb-8 text-text-main"
               >
@@ -133,7 +133,7 @@ export default function TapToShowerCollection() {
                 into a <em className="text-accent italic">Hot</em> Shower.
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 variants={fadeUp}
                 className="font-body text-lg md:text-xl text-text-body leading-relaxed max-w-lg mb-3"
               >
@@ -146,7 +146,7 @@ export default function TapToShowerCollection() {
               >
                 Engineered in Germany and Denmark. Available across the Philippines.
               </motion.p>
-              
+
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
                 <a href="#inquiry" className="w-full sm:w-auto">
                   <Button variant="primary" className="w-full">Request Product Information</Button>
@@ -160,15 +160,15 @@ export default function TapToShowerCollection() {
             </div>
 
             <div className="lg:col-span-6">
-               <motion.div variants={revealImage} className="relative overflow-hidden w-full aspect-[16/9]">
-                  <EditorialImage 
-                    src="/images/shower.png" 
-                    alt="Tap-to-Shower retrofit system installed in a bathroom" 
-                    aspect="16/9"
-                    priority
-                    className="object-cover"
-                  />
-               </motion.div>
+              <motion.div variants={revealImage} className="relative overflow-hidden w-full aspect-[16/9]">
+                <EditorialImage
+                  src="/images/shower.png"
+                  alt="Tap-to-Shower retrofit system installed in a bathroom"
+                  aspect="16/9"
+                  priority
+                  className="object-cover"
+                />
+              </motion.div>
             </div>
           </motion.div>
         </SectionWrapper>
@@ -199,10 +199,10 @@ export default function TapToShowerCollection() {
         {/* ===== 2. THE FACTS ===== */}
         <SectionWrapper id="features">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
-             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Facts</Overline></motion.div>
-             <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
-                Five Things to <em className="text-accent italic">Know</em>
-             </motion.h2>
+            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Facts</Overline></motion.div>
+            <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
+              Five Things to <em className="text-accent italic">Know</em>
+            </motion.h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
@@ -242,14 +242,14 @@ export default function TapToShowerCollection() {
                   "The retrofit is complete. Hot and cold water at the tap."
                 ].map((step, i) => (
                   <motion.div key={i} variants={fadeUp} className="flex gap-6 items-start">
-                     <span className="font-heading text-3xl text-accent leading-none">0{i+1}</span>
-                     <p className="font-body text-bg-main/90 pt-1">{step}</p>
+                    <span className="font-heading text-3xl text-accent leading-none">0{i + 1}</span>
+                    <p className="font-body text-bg-main/90 pt-1">{step}</p>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="lg:col-span-7 aspect-square">
-               <EditorialImage src="/images/carousel/fittings.png" alt="Installation process" aspect="1/1" className="opacity-90 rounded-sm" />
+              <EditorialImage src="/images/carousel/fittings.png" alt="Installation process" aspect="1/1" className="opacity-90 rounded-sm" />
             </motion.div>
           </div>
         </SectionWrapper>
@@ -257,15 +257,15 @@ export default function TapToShowerCollection() {
         {/* ===== 4. WHO IT'S FOR ===== */}
         <SectionWrapper id="who-its-for" className="bg-bg-feature border-y border-text-main/10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
-             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>For You</Overline></motion.div>
-             <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
-                Who It&apos;s <em className="text-accent italic">For</em>
-             </motion.h2>
+            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>For You</Overline></motion.div>
+            <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
+              Who It&apos;s <em className="text-accent italic">For</em>
+            </motion.h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { 
-                title: "Retailers / Distributors", 
+              {
+                title: "Retailers / Distributors",
                 headline: "Stock a Product That Explains Itself at the Shelf",
                 bullets: [
                   "Ready retail package with clear value-for-money story",
@@ -275,8 +275,8 @@ export default function TapToShowerCollection() {
                 cta: "Ask About Retail Packages",
                 type: "retail"
               },
-              { 
-                title: "Developers / Builders", 
+              {
+                title: "Developers / Builders",
                 headline: "Specify Now. Let Buyers Upgrade Later.",
                 bullets: [
                   "Single-line bathroom compatibility — no floor plan redesign",
@@ -286,8 +286,8 @@ export default function TapToShowerCollection() {
                 cta: "Ask About Project Solutions",
                 type: "developer"
               },
-              { 
-                title: "Architects / Specifiers", 
+              {
+                title: "Architects / Specifiers",
                 headline: "No Need to Redraw Single-Line Bathroom Concepts",
                 bullets: [
                   "Specification-friendly — suitable for homes, condos, and hospitality",
@@ -297,8 +297,8 @@ export default function TapToShowerCollection() {
                 cta: "Request Specification Support",
                 type: "architect"
               },
-              { 
-                title: "End Consumers", 
+              {
+                title: "End Consumers",
                 headline: "Hot Shower Comfort Without Opening Your Wall",
                 bullets: [
                   "Neat visible installation in approximately 30 to 45 minutes",
@@ -339,12 +339,12 @@ export default function TapToShowerCollection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="lg:col-span-6 relative">
               <div className="aspect-square bg-bg-alt flex items-center justify-center p-12 border border-text-main/5">
-                 <ShieldCheck className="w-full h-full max-w-[240px] text-text-main/5" strokeWidth={0.5} />
-                 <div className="absolute inset-0 flex items-center justify-center p-8 text-center backdrop-blur-sm">
-                    <p className="font-heading text-4xl md:text-5xl text-text-main max-w-sm tracking-tight leading-tight">
-                       IEC 60335. <br/><em className="text-accent italic">Worldbex.</em> <br/>Three years.
-                    </p>
-                 </div>
+                <ShieldCheck className="w-full h-full max-w-[240px] text-text-main/5" strokeWidth={0.5} />
+                <div className="absolute inset-0 flex items-center justify-center p-8 text-center backdrop-blur-sm">
+                  <p className="font-heading text-4xl md:text-5xl text-text-main max-w-sm tracking-tight leading-tight">
+                    IEC 60335. <br /><em className="text-accent italic">Worldbex.</em> <br />Three years.
+                  </p>
+                </div>
               </div>
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-6">
@@ -353,19 +353,19 @@ export default function TapToShowerCollection() {
                 Why This <em className="text-accent italic">System</em>
               </motion.h2>
               <div className="space-y-8">
-                 {[
-                   { title: "3-year limited warranty", desc: "Brass HP59 body and ceramic cartridges, covered for three years from date of purchase." },
-                   { title: "CB Certified Heater*", desc: "Compatible instant water heater models may be supplied with CB certification according to IEC 60335-2-35, subject to model and market." },
-                   { title: "Worldbex 2026", desc: "Featured exhibitor at Worldbex 2026, SMX Convention Center, Pasay City, Philippines." }
-                 ].map((signal, i) => (
-                   <motion.div key={i} variants={fadeUp} className="flex gap-5">
-                      <CheckCircle2 className="w-6 h-6 text-accent shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-body font-medium text-text-main text-lg mb-2">{signal.title}</h4>
-                        <p className="font-body text-text-body leading-relaxed">{signal.desc}</p>
-                      </div>
-                   </motion.div>
-                 ))}
+                {[
+                  { title: "3-year limited warranty", desc: "Brass HP59 body and ceramic cartridges, covered for three years from date of purchase." },
+                  { title: "CB Certified Heater*", desc: "Compatible instant water heater models may be supplied with CB certification according to IEC 60335-2-35, subject to model and market." },
+                  { title: "Worldbex 2026", desc: "Featured exhibitor at Worldbex 2026, SMX Convention Center, Pasay City, Philippines." }
+                ].map((signal, i) => (
+                  <motion.div key={i} variants={fadeUp} className="flex gap-5">
+                    <CheckCircle2 className="w-6 h-6 text-accent shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-body font-medium text-text-main text-lg mb-2">{signal.title}</h4>
+                      <p className="font-body text-text-body leading-relaxed">{signal.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -385,11 +385,11 @@ export default function TapToShowerCollection() {
                 { src: "/images/hero.png", alt: "Tap-to-Shower installed and operational" }
               ].map((img, i) => (
                 <motion.div key={i} variants={fadeUp} className="aspect-square bg-bg-alt relative overflow-hidden group">
-                  <EditorialImage 
-                    src={img.src} 
-                    alt={img.alt} 
-                    aspect="1/1" 
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-600" 
+                  <EditorialImage
+                    src={img.src}
+                    alt={img.alt}
+                    aspect="1/1"
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-600"
                   />
                 </motion.div>
               ))}
@@ -427,7 +427,7 @@ export default function TapToShowerCollection() {
                 { q: "Is any wall work required?", a: "No major wall modification is required. The PEX tube routes along the wall surface and is fixed with the included brackets and clips. No concealed pipework needs to be added." },
                 { q: "Does installation need a plumber?", a: "BSC recommends installation by a qualified professional plumber and, where applicable, a qualified electrician for the water heater connection." },
                 { q: "What water pressure is required?", a: "The system requires a minimum water pressure suitable for the connected instant water heater. It is not suitable for very low pressure or gravity-fed roof-tank installations." },
-                { q: "What finishes are available?", a: "Chrome, Matt Black, and Brushed Stainless Steel." },
+                { q: "What finishes are available?", a: "Chrome, Matte Black, and Brushed Stainless Steel." },
                 { q: "What warranty applies?", a: "The Tap-to-Shower™ tap carries a 3-year limited warranty. Compatible instant water heater models may carry their own warranty — please confirm with BSC at time of order." },
                 { q: "Where can it be purchased in the Philippines?", a: "Philippine availability is currently being prepared. Please contact BSC directly for purchasing and distribution enquiries." },
                 { q: "Can it be used for retail distribution or project supply?", a: "Yes. BSC supplies Tap-to-Shower™ for retail stocking, project specification, and distribution. Contact BSC to discuss commercial terms." }
@@ -440,103 +440,103 @@ export default function TapToShowerCollection() {
 
         {/* ===== 7. LEAD CAPTURE FORM ===== */}
         <section id="inquiry" className="bg-bg-alt border-t border-text-main/10">
-             <SectionWrapper pt="pt-24 lg:pt-32" pb="pb-24 lg:pb-32">
-                <div className="relative z-10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-                  <motion.div
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    variants={stagger}
-                    className="lg:col-span-5"
-                  >
-                    <motion.div variants={fadeUp}>
-                      <Overline withLine className="mb-6">Get In Touch</Overline>
-                    </motion.div>
-                    <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-main tracking-tight mb-8">
-                       Submit an <br/><em className="text-accent italic">Enquiry</em>
-                    </motion.h2>
-                    <motion.p variants={fadeUp} className="font-body text-text-body text-lg mb-10 leading-relaxed">
-                       Specifications, technical drawings, and project pricing available on request. Submit an enquiry below or contact info@bsundc.com directly.
-                    </motion.p>
-                    <motion.div variants={fadeUp} className="space-y-6">
-                       <div className="flex items-center gap-4 text-text-body">
-                          <Check className="w-5 h-5 text-accent" />
-                          <span className="font-body text-sm uppercase tracking-widest">Professional Technical Support</span>
-                       </div>
-                       <div className="flex items-center gap-4 text-text-body">
-                          <Check className="w-5 h-5 text-accent" />
-                          <span className="font-body text-sm uppercase tracking-widest">Bulk pricing and project rates available on request</span>
-                       </div>
-                       <div className="flex items-center gap-4 text-text-body">
-                          <Check className="w-5 h-5 text-accent" />
-                          <span className="font-body text-sm uppercase tracking-widest">CAD / BIM Files Available</span>
-                       </div>
-                    </motion.div>
-                  </motion.div>
+          <SectionWrapper pt="pt-24 lg:pt-32" pb="pb-24 lg:pb-32">
+            <div className="relative z-10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={stagger}
+                className="lg:col-span-5"
+              >
+                <motion.div variants={fadeUp}>
+                  <Overline withLine className="mb-6">Get In Touch</Overline>
+                </motion.div>
+                <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-main tracking-tight mb-8">
+                  Submit an <br /><em className="text-accent italic">Enquiry</em>
+                </motion.h2>
+                <motion.p variants={fadeUp} className="font-body text-text-body text-lg mb-10 leading-relaxed">
+                  Specifications, technical drawings, and project pricing available on request. Submit an enquiry below or contact info@bsundc.com directly.
+                </motion.p>
+                <motion.div variants={fadeUp} className="space-y-6">
+                  <div className="flex items-center gap-4 text-text-body">
+                    <Check className="w-5 h-5 text-accent" />
+                    <span className="font-body text-sm uppercase tracking-widest">Professional Technical Support</span>
+                  </div>
+                  <div className="flex items-center gap-4 text-text-body">
+                    <Check className="w-5 h-5 text-accent" />
+                    <span className="font-body text-sm uppercase tracking-widest">Bulk pricing and project rates available on request</span>
+                  </div>
+                  <div className="flex items-center gap-4 text-text-body">
+                    <Check className="w-5 h-5 text-accent" />
+                    <span className="font-body text-sm uppercase tracking-widest">CAD / BIM Files Available</span>
+                  </div>
+                </motion.div>
+              </motion.div>
 
-                  <motion.div
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    variants={fadeUp}
-                    className="lg:col-span-7"
-                  >
-                    <div className="bg-bg-main border border-text-main/10 shadow-sm p-8 md:p-12 lg:p-16">
-                      <div className="space-y-8">
-                        <div>
-                          <label htmlFor="buyerType" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Enquiry Type</label>
-                          <select 
-                            id="buyerType" 
-                            name="buyerType" 
-                            value={buyerType}
-                            onChange={(e) => handleBuyerTypeChange(e.target.value)}
-                            disabled
-                            className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none disabled:opacity-60 disabled:cursor-not-allowed"
-                          >
-                            <option value="">Select an option</option>
-                            <option value="retailer">Retailer / Distributor</option>
-                            <option value="developer">Developer / Builder</option>
-                            <option value="architect">Architect / Specifier</option>
-                            <option value="consumer">End Consumer</option>
-                            <option value="general">General Enquiry</option>
-                          </select>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                          <div>
-                            <label htmlFor="inquiry-name" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Full Name</label>
-                            <input type="text" id="inquiry-name" name="name" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
-                          </div>
-                          <div>
-                            <label htmlFor="inquiry-email" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Email Address</label>
-                            <input type="email" id="inquiry-email" name="email" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
-                          </div>
-                        </div>
-                        {showCompany && (
-                          <div>
-                            <label htmlFor="inquiry-company" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Company <span className="text-text-body/50 normal-case tracking-normal">(optional)</span></label>
-                            <input type="text" id="inquiry-company" name="company" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
-                          </div>
-                        )}
-                        <div>
-                          <label htmlFor="inquiry-message" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Message</label>
-                          <textarea id="inquiry-message" name="message" rows={5} disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all resize-y disabled:opacity-60 disabled:cursor-not-allowed" placeholder="Tell us about your project or enquiry."></textarea>
-                        </div>
-                        <div className="bg-bg-alt border border-text-main/10 p-6 text-center">
-                          <p className="font-body text-sm text-text-body mb-4">
-                            The online enquiry form is in finalisation. Direct contact: info@bsundc.com or +86 158 21 48 42 72.
-                          </p>
-                          <a href="mailto:info@bsundc.com?subject=Tap-to-Shower Enquiry" className="inline-flex">
-                            <Button variant="primary" size="lg" className="w-full sm:w-auto">
-                              <Mail className="w-4 h-4 mr-3" />
-                              Email info@bsundc.com
-                            </Button>
-                          </a>
-                        </div>
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="lg:col-span-7"
+              >
+                <div className="bg-bg-main border border-text-main/10 shadow-sm p-8 md:p-12 lg:p-16">
+                  <div className="space-y-8">
+                    <div>
+                      <label htmlFor="buyerType" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Enquiry Type</label>
+                      <select
+                        id="buyerType"
+                        name="buyerType"
+                        value={buyerType}
+                        onChange={(e) => handleBuyerTypeChange(e.target.value)}
+                        disabled
+                        className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none disabled:opacity-60 disabled:cursor-not-allowed"
+                      >
+                        <option value="">Select an option</option>
+                        <option value="retailer">Retailer / Distributor</option>
+                        <option value="developer">Developer / Builder</option>
+                        <option value="architect">Architect / Specifier</option>
+                        <option value="consumer">End Consumer</option>
+                        <option value="general">General Enquiry</option>
+                      </select>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div>
+                        <label htmlFor="inquiry-name" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Full Name</label>
+                        <input type="text" id="inquiry-name" name="name" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
+                      </div>
+                      <div>
+                        <label htmlFor="inquiry-email" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Email Address</label>
+                        <input type="email" id="inquiry-email" name="email" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
                       </div>
                     </div>
-                  </motion.div>
+                    {showCompany && (
+                      <div>
+                        <label htmlFor="inquiry-company" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Company <span className="text-text-body/50 normal-case tracking-normal">(optional)</span></label>
+                        <input type="text" id="inquiry-company" name="company" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
+                      </div>
+                    )}
+                    <div>
+                      <label htmlFor="inquiry-message" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Message</label>
+                      <textarea id="inquiry-message" name="message" rows={5} disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all resize-y disabled:opacity-60 disabled:cursor-not-allowed" placeholder="Tell us about your project or enquiry."></textarea>
+                    </div>
+                    <div className="bg-bg-alt border border-text-main/10 p-6 text-center">
+                      <p className="font-body text-sm text-text-body mb-4">
+                        The online enquiry form is in finalisation. Direct contact: info@bsundc.com or +86 158 21 48 42 72.
+                      </p>
+                      <a href="mailto:info@bsundc.com?subject=Tap-to-Shower Enquiry" className="inline-flex">
+                        <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                          <Mail className="w-4 h-4 mr-3" />
+                          Email info@bsundc.com
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-             </SectionWrapper>
+              </motion.div>
+            </div>
+          </SectionWrapper>
         </section>
       </main>
 

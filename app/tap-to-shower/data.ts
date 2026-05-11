@@ -27,7 +27,7 @@ export interface CollectionProduct {
   heroImage?: string;
   ctaText: string;
   detailsPath: string;
-  
+
   // Detailed specs for PDP
   heroDescription?: string;
   specGroups?: SpecGroup[];
