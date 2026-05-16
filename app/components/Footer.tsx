@@ -19,9 +19,13 @@ export default function Footer() {
           <div>
             <Link
               href="/"
-              className="font-heading text-3xl italic text-bg-main tracking-tight"
+              className="inline-block"
             >
-              BSC
+              <img 
+                src="/images/BSC%20Background%20Removed.png" 
+                alt="BSC" 
+                className="h-8 md:h-10 w-auto object-contain brightness-0 invert" 
+              />
             </Link>
             {/* [CJ] — Tagline corrected: BSC = Bathroom and Kitchen Solutions.
                  Previous "Bathroom · Sanitary · Construction" was wrong on every page. */}

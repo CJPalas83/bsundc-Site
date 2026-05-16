@@ -71,9 +71,13 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="/"
-          className="font-heading text-2xl md:text-3xl tracking-tight text-text-main italic"
+          className="flex items-center"
         >
-          BSC
+          <img 
+            src="/images/BSC%20Background%20Removed.png" 
+            alt="BSC" 
+            className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_1px_5px_rgba(0,0,0,0.8)]" 
+          />
         </a>
 
         {/* Desktop Links */}
