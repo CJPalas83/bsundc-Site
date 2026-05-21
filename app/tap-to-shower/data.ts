@@ -27,6 +27,7 @@ export interface CollectionProduct {
   heroImage?: string;
   ctaText: string;
   detailsPath: string;
+  systemBlurb?: string;
 
   // Detailed specs for PDP
   heroDescription?: string;
@@ -51,6 +52,7 @@ export const ttsCollections: CollectionProduct[] = [
     heroImage: "/images/shower.png",
     ctaText: "View Complete Kit",
     detailsPath: "/tap-to-shower/complete-kit",
+    systemBlurb: "The easiest entry point for retail stocking and project supply. Includes the tap, connection set, and a compatible water heater — everything required for a complete installation.",
     specGroups: [
       {
         title: "Tap-to-Shower Faucet",
@@ -100,6 +102,7 @@ export const ttsCollections: CollectionProduct[] = [
     heroImage: "/images/shower.png",
     ctaText: "Explore Configurations",
     detailsPath: "/tap-to-shower/tap-only",
+    systemBlurb: "For customers or projects that already have a suitable instant single-point water heater. Pair with the Tap-to-Shower™ connection set for a complete installation.",
     specGroups: [
       {
         title: "Core Specifications",
@@ -147,6 +150,7 @@ export const ttsCollections: CollectionProduct[] = [
     heroImage: "/images/shower.png",
     ctaText: "View Hardware Specs",
     detailsPath: "/tap-to-shower/connection-set",
+    systemBlurb: "Includes 6m white PEX tube, push connectors, wall brackets, flow restrictor, safety valve, and installation instructions. Routes neatly along the wall surface — no concealed pipework.",
     specGroups: [
       {
         title: "Push Connectors (×2)",
@@ -193,6 +197,7 @@ export const ttsCollections: CollectionProduct[] = [
     heroImage: "/images/shower.png",
     ctaText: "Compare Models",
     detailsPath: "/tap-to-shower/instant-heater",
+    systemBlurb: "Compatible with the Tap-to-Shower™ system. Final performance depends on heater model, electrical circuit, water pressure, and site conditions.",
     variants: [
       {
         name: "Model A — ABS",
@@ -273,6 +278,7 @@ export const ttsCollections: CollectionProduct[] = [
     heroImage: "/images/shower.png",
     ctaText: "View Upgrade Kit",
     detailsPath: "/tap-to-shower/upgrade-kit",
+    systemBlurb: "Includes 6m white PEX tube, push connectors, wall brackets, flow restrictor, safety valve, and installation instructions. Routes neatly along the wall surface — no concealed pipework.",
     specGroups: [
       {
         title: "Instant Water Heater 3.5kW",

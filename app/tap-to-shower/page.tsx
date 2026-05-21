@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-import { Check, ChevronDown, Clock, ShieldCheck, Wrench, Layers, Palette, ArrowRight, CheckCircle2, Mail } from "lucide-react";
+import { Check, ChevronDown, Clock, ShieldCheck, Wrench, Layers, Palette, ArrowRight, CheckCircle2 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SectionWrapper from "../components/SectionWrapper";
@@ -72,6 +72,7 @@ const FAQAccordion = ({ question, answer }: { question: string, answer: string }
 export default function TapToShowerCollection() {
   const [buyerType, setBuyerType] = useState("");
   const [showCompany, setShowCompany] = useState(true);
+  const [inquiryStatus, setInquiryStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   // [CJ] — Fixed: was reading window.location.hash which broke type pre-selection
   //        on in-page navigation. Now reads search params (?type=retail) so direct
@@ -109,6 +110,32 @@ export default function TapToShowerCollection() {
     setBuyerType(typeMap[type] || "");
     setShowCompany(true);
     document.getElementById("inquiry")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleInquirySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setInquiryStatus("submitting");
+    const fd = new FormData(e.currentTarget);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          enquiryType: buyerType || "general",
+          firstName: (fd.get("name") as string) || "",
+          lastName: "",
+          company: (fd.get("company") as string) || "",
+          email: (fd.get("email") as string) || "",
+          phone: "",
+          message: (fd.get("message") as string) || "",
+          sourcePage: "Tap-to-Shower page",
+        }),
+      });
+      if (!res.ok) throw new Error();
+      setInquiryStatus("success");
+    } catch {
+      setInquiryStatus("error");
+    }
   };
 
   return (
@@ -187,7 +214,7 @@ export default function TapToShowerCollection() {
               {/* [CJ] — ™ dropped on second mention per house style:
                    ™ on first mention per section only (first mention is the H2 above). */}
               <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
-                Tap-to-Shower is a retrofit system. An external PEX line and a specialised connection kit convert a single cold-water line into a thermostatic-ready hot and cold shower without concealing new plumbing behind walls.
+                Tap-to-Shower is a retrofit system. An external PEX line and a specialised connection kit convert a single cold-water line into a hot and cold shower without concealing new plumbing behind walls. Hot and cold water mixed and controlled at the tap.
               </motion.p>
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="relative aspect-square">
@@ -305,7 +332,7 @@ export default function TapToShowerCollection() {
                   "Available in Chrome, Matt Black, and Brushed Stainless Steel",
                   "3-year limited warranty on the tap"
                 ],
-                cta: "Find Out Where to Buy",
+                cta: "Request Information",
                 type: "consumer"
               }
             ].map((group, i) => (
@@ -321,7 +348,7 @@ export default function TapToShowerCollection() {
                   ))}
                 </ul>
                 <a
-                  href={group.type === "consumer" ? "/where-to-buy" : "#inquiry"}
+                  href={group.type === "consumer" ? "/contact?type=consumer" : "#inquiry"}
                   onClick={group.type !== "consumer" ? (e) => { e.preventDefault(); scrollToInquiry(group.type); } : undefined}
                   className="mt-auto inline-flex w-fit"
                 >
@@ -342,7 +369,7 @@ export default function TapToShowerCollection() {
                 <ShieldCheck className="w-full h-full max-w-[240px] text-text-main/5" strokeWidth={0.5} />
                 <div className="absolute inset-0 flex items-center justify-center p-8 text-center backdrop-blur-sm">
                   <p className="font-heading text-4xl md:text-5xl text-text-main max-w-sm tracking-tight leading-tight">
-                    IEC 60335. <br /><em className="text-accent italic">Worldbex.</em> <br />Three years.
+                    <em className="text-accent italic">Worldbex.</em> <br />Three years.
                   </p>
                 </div>
               </div>
@@ -421,20 +448,35 @@ export default function TapToShowerCollection() {
             </motion.div>
             <div className="space-y-4">
               {[
-                { q: "What is Tap-to-Shower™?", a: "Tap-to-Shower™ is a shower concept for bathrooms with only one cold-water outlet. When connected to a suitable instant single-point water heater, it allows hot and cold water to be controlled at the tap without opening the wall or adding concealed pipework." },
-                { q: "Does the tap itself heat the water?", a: "No. The tap connects to an instant single-point water heater via a flexible PEX tube. The heater warms the water; the Tap-to-Shower™ tap controls the mix and flow at the shower point." },
-                { q: "Which water heater can be used?", a: "Tap-to-Shower™ is compatible with suitable instant single-point water heaters with a G½\" connection. The included connection set is designed for this purpose." },
-                { q: "Is any wall work required?", a: "No major wall modification is required. The PEX tube routes along the wall surface and is fixed with the included brackets and clips. No concealed pipework needs to be added." },
-                { q: "Does installation need a plumber?", a: "BSC recommends installation by a qualified professional plumber and, where applicable, a qualified electrician for the water heater connection." },
-                { q: "What water pressure is required?", a: "The system requires a minimum water pressure suitable for the connected instant water heater. It is not suitable for very low pressure or gravity-fed roof-tank installations." },
-                { q: "What finishes are available?", a: "Chrome, Matte Black, and Brushed Stainless Steel." },
-                { q: "What warranty applies?", a: "The Tap-to-Shower™ tap carries a 3-year limited warranty. Compatible instant water heater models may carry their own warranty — please confirm with BSC at time of order." },
-                { q: "Where can it be purchased in the Philippines?", a: "Philippine availability is currently being prepared. Please contact BSC directly for purchasing and distribution enquiries." },
-                { q: "Can it be used for retail distribution or project supply?", a: "Yes. BSC supplies Tap-to-Shower™ for retail stocking, project specification, and distribution. Contact BSC to discuss commercial terms." }
+                { q: "What is Tap-to-Shower™?", a: "Tap-to-Shower™ is a shower concept for single-line (cold-water only) bathrooms. When connected to a suitable instant single-point water heater, it allows hot and cold water to be controlled at the tap without opening the wall or adding concealed pipework." },
+                { q: "How is it different from a normal instant water heater shower?", a: "A standard instant water heater typically provides one outlet — a hand shower. Tap-to-Shower™ provides the complete shower interface: tap control, overhead shower, hand shower, and a column rail — with temperature and flow adjusted at the tap, not the heater." },
+                { q: "Do I need to open the wall or change concealed plumbing?", a: "No concealed pipe rerouting or wall opening is required under suitable site conditions. The PEX tube routes neatly along the wall surface and is fixed with included brackets and clips." },
+                { q: "What heater type is suitable?", a: "Tap-to-Shower™ is compatible with suitable instant single-point water heaters with a G½\" connection. Booster-pump configured heaters are generally not suitable." },
+                { q: "How does the user adjust temperature and flow?", a: "Set the water heater to its operating temperature once at installation. After that, open the tap and adjust both flow and temperature at the shower point — from cold to hot — just like a conventional mixer shower." },
+                { q: "Can it be sold with or without a heater?", a: "Yes. Tap-to-Shower™ is available as a tap only (TTS-01), a connection set (TF01-C), or as a complete kit with a compatible water heater." },
+                { q: "What finishes are available?", a: "Chrome, Matt Black, and Brushed Stainless Steel." },
+                { q: "What water pressure is required?", a: "The system requires a minimum water pressure suitable for the connected instant water heater. Very low pressure and rooftop tank-fed installations are generally not suitable unless a specific approved configuration is confirmed." },
+                { q: "Is it suitable for rooftop tank-fed installations?", a: "Generally not suitable. Rooftop gravity-fed systems typically do not produce the minimum pressure required for the instant water heater to operate correctly." },
+                { q: "Can it be used with booster-pump configured instant heaters?", a: "Not unless a specific approved package is confirmed. Booster-pump heater configurations can affect flow and pressure compatibility." },
+                { q: "What warranty is available?", a: "The Tap-to-Shower™ tap carries a 3-year limited warranty. Compatible instant water heater models may carry their own warranty — confirm with BSC at time of order." },
+                { q: "Where can retailers, developers, or homeowners enquire?", a: "Contact BSC directly through the enquiry form on this page or via the Contact page. Enquiry type selection routes your message to the right person." }
               ].map((faq, i) => (
                 <FAQAccordion key={i} question={faq.q} answer={faq.a} />
               ))}
             </div>
+          </motion.div>
+        </SectionWrapper>
+
+        {/* ===== SUITABILITY ===== */}
+        <SectionWrapper id="suitability" className="border-t border-text-main/10">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
+            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>Suitability</Overline></motion.div>
+            <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-8 text-text-main">
+              Before You Specify or <em className="text-accent italic">Install</em>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
+              Tap-to-Shower™ requires a minimum water pressure suitable for the connected instant water heater. It is not suitable for very low pressure supplies or rooftop gravity-tank-fed installations unless a specific approved configuration is confirmed. It is not suitable for booster-pump configured instant heaters unless approved. Electrical installation of the water heater must be carried out by a qualified person.
+            </motion.p>
           </motion.div>
         </SectionWrapper>
 
@@ -482,57 +524,66 @@ export default function TapToShowerCollection() {
                 className="lg:col-span-7"
               >
                 <div className="bg-bg-main border border-text-main/10 shadow-sm p-8 md:p-12 lg:p-16">
-                  <div className="space-y-8">
-                    <div>
-                      <label htmlFor="buyerType" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Enquiry Type</label>
-                      <select
-                        id="buyerType"
-                        name="buyerType"
-                        value={buyerType}
-                        onChange={(e) => handleBuyerTypeChange(e.target.value)}
-                        disabled
-                        className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none disabled:opacity-60 disabled:cursor-not-allowed"
-                      >
-                        <option value="">Select an option</option>
-                        <option value="retailer">Retailer / Distributor</option>
-                        <option value="developer">Developer / Builder</option>
-                        <option value="architect">Architect / Specifier</option>
-                        <option value="consumer">End Consumer</option>
-                        <option value="general">General Enquiry</option>
-                      </select>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div>
-                        <label htmlFor="inquiry-name" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Full Name</label>
-                        <input type="text" id="inquiry-name" name="name" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
+                  {inquiryStatus === "success" ? (
+                    <div className="text-center py-10">
+                      <div className="w-14 h-14 mx-auto mb-6 rounded-full bg-accent/10 flex items-center justify-center">
+                        <CheckCircle2 className="w-7 h-7 text-accent" strokeWidth={1.5} />
                       </div>
-                      <div>
-                        <label htmlFor="inquiry-email" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Email Address</label>
-                        <input type="email" id="inquiry-email" name="email" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
-                      </div>
-                    </div>
-                    {showCompany && (
-                      <div>
-                        <label htmlFor="inquiry-company" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Company <span className="text-text-body/50 normal-case tracking-normal">(optional)</span></label>
-                        <input type="text" id="inquiry-company" name="company" disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all disabled:opacity-60 disabled:cursor-not-allowed" />
-                      </div>
-                    )}
-                    <div>
-                      <label htmlFor="inquiry-message" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Message</label>
-                      <textarea id="inquiry-message" name="message" rows={5} disabled className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main transition-all resize-y disabled:opacity-60 disabled:cursor-not-allowed" placeholder="Tell us about your project or enquiry."></textarea>
-                    </div>
-                    <div className="bg-bg-alt border border-text-main/10 p-6 text-center">
-                      <p className="font-body text-sm text-text-body mb-4">
-                        The online enquiry form is in finalisation. Direct contact: info@bsundc.com or +86 158 21 48 42 72.
+                      <h3 className="font-heading text-2xl text-text-main mb-3">Thank you</h3>
+                      <p className="font-body text-text-body max-w-md mx-auto leading-relaxed">
+                        Thank you. We received your enquiry and will respond as soon as possible.
                       </p>
-                      <a href="mailto:info@bsundc.com?subject=Tap-to-Shower Enquiry" className="inline-flex">
-                        <Button variant="primary" size="lg" className="w-full sm:w-auto">
-                          <Mail className="w-4 h-4 mr-3" />
-                          Email info@bsundc.com
-                        </Button>
-                      </a>
                     </div>
-                  </div>
+                  ) : (
+                    <form onSubmit={handleInquirySubmit} className="space-y-8">
+                      <div>
+                        <label htmlFor="buyerType" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Enquiry Type</label>
+                        <select
+                          id="buyerType"
+                          name="buyerType"
+                          value={buyerType}
+                          onChange={(e) => handleBuyerTypeChange(e.target.value)}
+                          className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all appearance-none"
+                        >
+                          <option value="">Select an option</option>
+                          <option value="retailer">Retailer / Distributor</option>
+                          <option value="developer">Developer / Builder</option>
+                          <option value="architect">Architect / Specifier</option>
+                          <option value="consumer">End Consumer</option>
+                          <option value="general">General Enquiry</option>
+                        </select>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                          <label htmlFor="inquiry-name" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Full Name</label>
+                          <input type="text" id="inquiry-name" name="name" required className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all" />
+                        </div>
+                        <div>
+                          <label htmlFor="inquiry-email" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Email Address</label>
+                          <input type="email" id="inquiry-email" name="email" required className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all" />
+                        </div>
+                      </div>
+                      {showCompany && (
+                        <div>
+                          <label htmlFor="inquiry-company" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Company <span className="text-text-body/50 normal-case tracking-normal">(optional)</span></label>
+                          <input type="text" id="inquiry-company" name="company" className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all" />
+                        </div>
+                      )}
+                      <div>
+                        <label htmlFor="inquiry-message" className="block font-body text-xs font-medium uppercase tracking-[0.15em] text-text-main mb-3">Message</label>
+                        <textarea id="inquiry-message" name="message" rows={5} required className="w-full bg-bg-alt border border-text-main/10 px-5 py-4 font-body text-sm text-text-main focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all resize-y" placeholder="Tell us about your project or enquiry."></textarea>
+                      </div>
+                      {inquiryStatus === "error" && (
+                        <p className="font-body text-sm text-red-600">Something went wrong. Please email info@bsundc.com directly.</p>
+                      )}
+                      <p className="font-body text-xs text-text-body/70">
+                        By submitting this form, you agree to our <a href="/privacy" className="text-accent hover:underline">Privacy Policy</a>.
+                      </p>
+                      <Button type="submit" variant="primary" size="lg" disabled={inquiryStatus === "submitting"} className="w-full sm:w-auto">
+                        {inquiryStatus === "submitting" ? "Submitting…" : "Submit Enquiry"}
+                      </Button>
+                    </form>
+                  )}
                 </div>
               </motion.div>
             </div>

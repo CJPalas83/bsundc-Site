@@ -4,26 +4,26 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://bsundc.com"),
   title: {
-    default: "BSC — Premium Bathroom, Kitchen & Building Products",
+    default: "BSC — Bathroom and Kitchen Products. Designed in Germany and Denmark.",
     template: "%s · BSC",
   },
   description:
-    "Engineered in Germany & Denmark. BSC delivers premium faucets, fixtures, and sanitary products that unite precision engineering with refined design for residential and commercial spaces across Southeast Asia.",
+    "BSC develops and supplies bathroom, kitchen, and retrofit shower products for residential and commercial projects across Southeast Asia. Enquire directly.",
   applicationName: "BSC",
   authors: [{ name: "Bastian Schaefer Consulting" }],
   openGraph: {
-    title: "BSC — Engineered Precision, Designed Beauty",
+    title: "BSC — Bathroom and Kitchen Products. Designed in Germany and Denmark.",
     description:
-      "Premium bathroom, kitchen & building products. German-Danish engineering. Trusted across Southeast Asia.",
+      "BSC develops and supplies bathroom, kitchen, and retrofit shower products for residential and commercial projects across Southeast Asia. Enquire directly.",
     type: "website",
     siteName: "BSC",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BSC — Engineered Precision, Designed Beauty",
+    title: "BSC — Bathroom and Kitchen Products. Designed in Germany and Denmark.",
     description:
-      "Premium bathroom, kitchen & building products. German-Danish engineering.",
+      "BSC develops and supplies bathroom, kitchen, and retrofit shower products for residential and commercial projects across Southeast Asia.",
   },
   robots: {
     index: true,

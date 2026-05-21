@@ -143,9 +143,20 @@ export default function ProductDetailPage() {
                 {product.heroDescription || product.description}
               </motion.p>
 
+              {product.systemBlurb && (
+                <motion.div variants={fadeUp} className="mb-10 border-l-2 border-accent pl-5 max-w-xl">
+                  <span className="block font-body text-[10px] font-medium uppercase tracking-[0.25em] text-accent mb-2">
+                    Part of the Tap-to-Shower™ single-line hot &amp; cold shower upgrade system.
+                  </span>
+                  <p className="font-body text-sm text-text-body leading-relaxed">
+                    {product.systemBlurb}
+                  </p>
+                </motion.div>
+              )}
+
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-                 <Button>Inquire About This Product</Button>
-                 <Button variant="secondary">Technical Datasheet</Button>
+                 <Button>Request Product Information</Button>
+                 <Button variant="secondary">Request Specification Support</Button>
               </motion.div>
             </div>
 
@@ -342,14 +353,14 @@ export default function ProductDetailPage() {
               <div className="max-w-2xl">
                  <Overline withLine className="mb-6">Global Sales</Overline>
                  <h2 className="font-heading text-4xl md:text-6xl text-text-main tracking-tight mb-4">
-                    Request a <em className="text-accent italic">Quotation</em>
+                    Request <em className="text-accent italic">Information</em>
                  </h2>
                  <p className="font-body text-text-body text-lg">
                     Interested in {product.name} for your project? Contact our sales team for pricing and availability.
                  </p>
               </div>
               <div className="flex gap-4">
-                 <Button size="lg">Send Inquiry</Button>
+                 <Button size="lg">Submit Enquiry</Button>
                  <a href="/tap-to-shower">
                    <Button 
                     variant="secondary" 

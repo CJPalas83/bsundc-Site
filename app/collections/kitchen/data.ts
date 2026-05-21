@@ -105,7 +105,7 @@ export const sections: Section[] = [
       },
       {
         name: "Kitchen Quartz Composite Sink",
-        desc: "Elevate your kitchen with premium quartz composite sinks—heat-resistant, durable, non-porous, and designed to retain their vibrant color. Offering versatile installation options, these sinks seamlessly blend style with everyday practicality.",
+        desc: "Elevate your kitchen with premium quartz composite sinks—heat-resistant, durable, non-porous, and designed to retain their vibrant color. Offering versatile installation options, these sinks blend style with everyday practicality.",
         specs: [
           "Finish Matt Black",
           "Dimension 800 x 480 x 210mm",

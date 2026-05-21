@@ -86,8 +86,8 @@ export default function AboutPage() {
               className="font-body text-base md:text-lg text-text-body leading-relaxed max-w-xl"
             >
               BSC develops, engineers, and supplies bathroom, kitchen, and
-              retrofit shower solutions designed in Germany and Denmark and
-              produced through qualified subcontracting partners in China.
+              retrofit shower solutions — designed in Germany and Denmark,
+              produced through qualified partners in China.
             </motion.p>
           </motion.div>
         </div>
@@ -263,9 +263,9 @@ export default function AboutPage() {
               variants={fadeUp}
               className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8 text-text-main"
             >
-              Practical Solutions,
+              Practical Innovation for
               <br />
-              Proven <em className="text-accent italic">Standards</em>
+              Real Market <em className="text-accent italic">Needs</em>
             </motion.h2>
 
             <motion.p
@@ -375,9 +375,7 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="font-body text-base md:text-lg text-text-body leading-relaxed mb-6"
               >
-                BSC, founded by Bastian Schaefer, a seasoned professional with
-                over 30 years of experience in the building products industry,
-                specializes in kitchen and bathroom products. Offering ODM and
+                BSC, founded by Bastian Schaefer, specializes in kitchen and bathroom products. Offering ODM and
                 OEM solutions to clients in Southeast Asia and Europe.
               </motion.p>
 
@@ -424,105 +422,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== CERTIFICATIONS =====
-           [CJ] — Cert images sourced from bsundc.com pending higher-resolution
-           assets from BSC. Kept in pre-production to demonstrate intended layout
-           and visual treatment. Flag to BSC at handover. */}
-      <section className="bg-bg-alt border-b border-text-main/10 px-6 md:px-16 py-20 md:py-28">
-        <div className="mx-auto max-w-400">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-            className="text-center mb-16"
-          >
-            <motion.div variants={fadeUp}>
-              <Overline withLine className="mb-6 justify-center">
-                Quality Assurance
-              </Overline>
-            </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-text-main"
-            >
-              Certified <em className="text-accent italic">Excellence</em>
-            </motion.h2>
-          </motion.div>
-
-          {/* Certificates grid */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={stagger}
-          >
-            {/* ISO 9001 */}
-            <motion.div
-              variants={fadeUp}
-              className="group relative bg-bg-main overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-shadow duration-700"
-            >
-              <div className="relative aspect-4/3 overflow-hidden bg-[#f5f5f5]">
-                <Image
-                  src="/images/about/ISO 9001.webp"
-                  alt="ISO 9001:2015 Quality Management System Certificate"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6 border-t border-text-main/5">
-                <h3 className="font-heading text-lg tracking-tight text-text-main mb-1">
-                  ISO 9001:2015
-                </h3>
-                <p className="font-body text-[11px] uppercase tracking-[0.2em] text-text-body/60">
-                  Quality Management System
-                </p>
-              </div>
-            </motion.div>
-
-            {/* ISO 14001 */}
-            <motion.div
-              variants={fadeUp}
-              className="group relative bg-bg-main overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-shadow duration-700"
-            >
-              <div className="relative aspect-4/3 overflow-hidden bg-[#f5f5f5]">
-                <Image
-                  src="/images/about/ISO 14001.webp"
-                  alt="ISO 14001:2015 Environmental Management System Certificate"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6 border-t border-text-main/5">
-                <h3 className="font-heading text-lg tracking-tight text-text-main mb-1">
-                  ISO 14001:2015
-                </h3>
-                <p className="font-body text-[11px] uppercase tracking-[0.2em] text-text-body/60">
-                  Environmental Management System
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* ===== STATS BAR ===== */}
       <section className="bg-text-main px-6 md:px-16 py-16 md:py-24">
         <div className="mx-auto max-w-400">
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12"
+            className="grid grid-cols-2 gap-8 md:gap-12"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-60px" }}
             variants={stagger}
           >
             {[
-              { number: "30+", label: "Years of Experience" },
               { number: "5+", label: "Countries Served" },
-              { number: "ISO", label: "9001 & 14001 Certified" },
               { number: "ODM", label: "& OEM Solutions" },
             ].map((stat, i, arr) => (
               <motion.div

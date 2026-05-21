@@ -397,7 +397,7 @@ export const sections: Section[] = [
       },
       {
         name: "Raiser Rail / Sliding Bar",
-        desc: "Enhance your shower or bath-shower experience with a versatile raiser rail, offering flexible height installation to perfectly complement your faucet or seamlessly integrate into a concealed shower system for added convenience and style.",
+        desc: "Enhance your shower or bath-shower experience with a versatile raiser rail, offering flexible height installation to perfectly complement your faucet or integrate into a concealed shower system for added convenience and style.",
         specs: [
           "Material Brass / Stainless Steel / ABS",
           "Finishes Chrome, Matt Black, PVD",

@@ -32,6 +32,15 @@
   --ease-default: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* ===== TYPOGRAPHY SCALE (fixed reference; matches the revision spec) ===== */
+:root {
+  --text-h1: 44px;    --lh-h1: 1.15;
+  --text-h2: 32px;    --lh-h2: 1.20;
+  --text-h3: 24px;    --lh-h3: 1.25;
+  --text-intro: 21px; --lh-intro: 1.45;
+  --text-body: 17px;  --lh-body: 1.55;
+  --text-small: 14px; --lh-small: 1.45;
+}
 
 /* ===== BASE STYLES ===== */
 *,
@@ -51,6 +60,8 @@ body {
   background-color: var(--color-alabaster);
   color: var(--color-charcoal);
   font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
   overflow-x: hidden;
 }
 
@@ -70,6 +81,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .font-body {
   font-family: var(--font-body);
+}
+
+/* Fixed typography-scale helpers — for pages built/updated in this revision.
+   Existing collection pages intentionally keep their own type. */
+.type-h1 { font-size: var(--text-h1); line-height: var(--lh-h1); }
+.type-h2 { font-size: var(--text-h2); line-height: var(--lh-h2); }
+.type-h3 { font-size: var(--text-h3); line-height: var(--lh-h3); }
+.type-intro { font-size: var(--text-intro); line-height: var(--lh-intro); }
+.type-body { font-size: var(--text-body); line-height: var(--lh-body); }
+.type-small { font-size: var(--text-small); line-height: var(--lh-small); }
+
+/* Body-copy line-length cap — stops text running too wide on large screens */
+.measure-body { max-width: 680px; }
+
+/* Consistent section rhythm: 96px desktop / 64px mobile */
+.section-rhythm { padding-top: 96px; padding-bottom: 96px; }
+@media (max-width: 768px) {
+  .section-rhythm { padding-top: 64px; padding-bottom: 64px; }
 }
 
 /* Drop Cap */

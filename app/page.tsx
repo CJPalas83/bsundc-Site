@@ -96,7 +96,7 @@ export default function Home() {
                   </Link>
                   <Link href="/contact" className="w-full sm:w-auto">
                     <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-                      Contact BSC
+                      Contact Us
                     </Button>
                   </Link>
                 </div>
@@ -311,10 +311,10 @@ export default function Home() {
             variants={stagger}
           >
             {[
-              { title: "Easy Upgrade", desc: "Retrofit any single-line bathroom in 30 to 45 minutes without concealed pipework or wall work." },
-              { title: "Hot & Cold Control", desc: "Single lever ceramic cartridge controls hot and cold water at the shower point — no separate mixer required." },
-              { title: "Clean Installation", desc: "External PEX tube routes neatly along the wall surface with included brackets and clips. No tiles broken." },
-              { title: "Value for Money", desc: "Complete kit, tap-only, or upgrade set — three entry points for every budget and project type." },
+              { title: "Easy Upgrade", desc: "Retrofit any single-line bathroom without concealed pipework or wall work." },
+              { title: "Hot & Cold Control", desc: "Single lever ceramic cartridge controls temperature at the shower point." },
+              { title: "Clean Installation", desc: "PEX tube routes neatly along the wall surface with included brackets and clips." },
+              { title: "Value for Money", desc: "Available as tap only, connection set, or complete kit with water heater." },
             ].map((card, i) => (
               <motion.div
                 key={i}
@@ -363,7 +363,7 @@ export default function Home() {
             {/* RETAILER */}
             <motion.div variants={fadeUp}>
               <Link
-                href="/tap-to-shower?type=retail#inquiry"
+                href="/for-your-project/retailers"
                 className="group block bg-bg-main border-2 border-accent/40 hover:border-accent p-6 md:p-8 transition-colors duration-200"
               >
                 <div className="flex items-baseline justify-between mb-3 gap-4">
@@ -401,7 +401,7 @@ export default function Home() {
                   Verified warranty terms. Ready packaging. No assembly, no staff training.
                 </p>
                 <span className="inline-flex items-center gap-2 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent group-hover:gap-3 transition-all duration-200">
-                  Stockist Enquiry <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                  Ask About Retail Packages <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </span>
               </Link>
             </motion.div>
@@ -409,7 +409,7 @@ export default function Home() {
             {/* DEVELOPER */}
             <motion.div variants={fadeUp}>
               <Link
-                href="/tap-to-shower?type=developer#inquiry"
+                href="/for-your-project/developers"
                 className="group block bg-bg-main border border-text-main/15 hover:border-accent/50 p-5 md:p-6 transition-colors duration-200"
               >
                 <div className="flex items-baseline justify-between mb-2 gap-4">
@@ -427,7 +427,7 @@ export default function Home() {
                   Bathroom and kitchen systems specifiable without redesign or plumbing rework. Single-line retrofit available for cold-water markets.
                 </p>
                 <span className="inline-flex items-center gap-2 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent group-hover:gap-3 transition-all duration-200">
-                  Request Project Guide <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                  Ask About Project Solutions <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </span>
               </Link>
             </motion.div>
@@ -435,7 +435,7 @@ export default function Home() {
             {/* ARCHITECT */}
             <motion.div variants={fadeUp}>
               <Link
-                href="/tap-to-shower?type=architect#inquiry"
+                href="/for-your-project/architects"
                 className="group block bg-bg-main border border-text-main/15 hover:border-accent/50 p-4 md:p-5 transition-colors duration-200"
               >
                 <div className="flex items-baseline justify-between mb-2 gap-4">
@@ -453,7 +453,7 @@ export default function Home() {
                   Full datasheets, dimensional drawings, CAD and BIM files. Compatible water heaters may be supplied with CB certification according to IEC 60335-2-35, subject to model and market.
                 </p>
                 <span className="inline-flex items-center gap-2 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent group-hover:gap-3 transition-all duration-200">
-                  Request Datasheets <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                  Request Specification Support <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </span>
               </Link>
             </motion.div>
@@ -461,7 +461,7 @@ export default function Home() {
             {/* HOMEOWNER */}
             <motion.div variants={fadeUp}>
               <Link
-                href="/where-to-buy"
+                href="/for-your-project/consumers"
                 className="group block bg-bg-alt border border-text-main/10 hover:border-accent/40 p-4 transition-colors duration-200"
               >
                 <div className="flex items-baseline justify-between gap-4">
@@ -474,7 +474,7 @@ export default function Home() {
                     </p>
                   </div>
                   <span className="inline-flex items-center gap-1.5 font-body text-[10px] font-medium uppercase tracking-[0.2em] text-accent shrink-0 group-hover:gap-2 transition-all duration-200">
-                    Where to Buy <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
+                    Request Information <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>

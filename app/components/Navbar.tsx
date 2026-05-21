@@ -6,7 +6,33 @@ import { ChevronDown } from "lucide-react";
 
 const navLinks = [
   {
-    label: "Products Collection",
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "Tap-to-Shower™",
+    href: "/tap-to-shower",
+    items: [
+      { label: "Overview", href: "/tap-to-shower" },
+      { label: "Complete Kit", href: "/tap-to-shower/complete-kit" },
+      { label: "Tap Only", href: "/tap-to-shower/tap-only" },
+      { label: "Upgrade Kit", href: "/tap-to-shower/upgrade-kit" },
+      { label: "Connection Set", href: "/tap-to-shower/connection-set" },
+      { label: "Instant Water Heater", href: "/tap-to-shower/instant-heater" },
+    ],
+  },
+  {
+    label: "For Your Project",
+    href: "/for-your-project/retailers",
+    items: [
+      { label: "Retailers & Distributors", href: "/for-your-project/retailers" },
+      { label: "Developers & Builders", href: "/for-your-project/developers" },
+      { label: "Architects & Specifiers", href: "/for-your-project/architects" },
+      { label: "End Consumers / Homeowners", href: "/for-your-project/consumers" },
+    ],
+  },
+  {
+    label: "Product Range",
     href: "/collections",
     items: [
       { label: "S2 Collection", href: "/collections/s2" },
@@ -23,19 +49,7 @@ const navLinks = [
     ],
   },
   {
-    label: "Tap-to-Shower",
-    href: "/tap-to-shower",
-    items: [
-      { label: "Overview", href: "/tap-to-shower" },
-      { label: "Complete Kit", href: "/tap-to-shower/complete-kit" },
-      { label: "Tap Only", href: "/tap-to-shower/tap-only" },
-      { label: "Upgrade Kit", href: "/tap-to-shower/upgrade-kit" },
-      { label: "Connection Set", href: "/tap-to-shower/connection-set" },
-      { label: "Instant Water Heater", href: "/tap-to-shower/instant-heater" },
-    ],
-  },
-  {
-    label: "About",
+    label: "About BS&C",
     href: "/about",
   },
   {
