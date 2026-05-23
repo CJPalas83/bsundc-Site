@@ -20,6 +20,8 @@ export default function DevelopersPage() {
       ]}
       ctaLabel="Ask About Project Solutions"
       ctaHref="/contact?type=developer"
+      image="/images/webp_1920/tts-chrome-mattblack-1.webp"
+      imageAlt="Tap-to-Shower installed in a bathroom — Chrome and Matt Black columns side by side"
     />
   );
 }

@@ -15,7 +15,7 @@ interface CollectionItem {
 
 const collections: CollectionItem[] = [
   {
-    image: "/images/carousel/shower-product.png",
+    image: "/images/webp_1200/tts-chrome.webp",
     overline: "Shower Systems",
     title: "Tap-to-Shower Collection",
     description:

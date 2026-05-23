@@ -22,7 +22,7 @@ export default function Footer() {
               className="inline-block"
             >
               <img
-                src="/images/Company%20Logo/BSC%20Logo%20on%20transparent%20background.png"
+                src="/images/bsc-logo.png"
                 alt="BSC"
                 className="h-8 md:h-10 w-auto object-contain brightness-0 invert"
               />

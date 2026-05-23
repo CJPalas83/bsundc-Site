@@ -97,8 +97,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <EditorialImage
-              src="/images/shower.png"
-              alt="BSC premium rain shower system"
+              src="/images/webp_1920/tts-chrome.webp"
+              alt="Tap-to-Shower Chrome — full installed shower column"
               aspect="3/4"
               className="w-full"
             />

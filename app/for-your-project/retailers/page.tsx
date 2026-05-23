@@ -20,6 +20,8 @@ export default function RetailersPage() {
       ]}
       ctaLabel="Ask About Retail Packages"
       ctaHref="/contact?type=retail"
+      image="/images/webp_1200/tts-kit.webp"
+      imageAlt="Complete Tap-to-Shower kit — tap, connection set, and instant water heater laid out together"
     />
   );
 }

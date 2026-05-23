@@ -20,6 +20,8 @@ export default function ArchitectsPage() {
       ]}
       ctaLabel="Request Specification Support"
       ctaHref="/contact?type=architect"
+      image="/images/webp_cutouts/tts-chrome-tap-body.webp"
+      imageAlt="Tap-to-Shower chrome tap body with spout — close-up cutout"
     />
   );
 }

@@ -88,7 +88,7 @@ export default function Navbar() {
           className="flex items-center"
         >
           <img
-            src="/images/Company%20Logo/BSC%20Logo%20on%20transparent%20background.png"
+            src="/images/bsc-logo.png"
             alt="BSC"
             className="h-12 md:h-16 w-auto object-contain"
           />

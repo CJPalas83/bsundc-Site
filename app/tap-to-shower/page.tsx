@@ -189,9 +189,9 @@ export default function TapToShowerCollection() {
             <div className="lg:col-span-6">
               <motion.div variants={revealImage} className="relative overflow-hidden w-full aspect-[4/5]">
                 <EditorialImage
-                  src="/images/shower.png"
-                  alt="Tap-to-Shower retrofit system installed in a bathroom"
-                  aspect="16/9"
+                  src="/images/webp_1920/tts-chrome-mattblack-2.webp"
+                  alt="Tap-to-Shower in Chrome and Matt Black — installed shower columns in a real bathroom"
+                  aspect="4/5"
                   priority
                   className="object-cover"
                 />
@@ -217,8 +217,8 @@ export default function TapToShowerCollection() {
                 Tap-to-Shower is a retrofit system. An external PEX line and a specialised connection kit convert a single cold-water line into a hot and cold shower without concealing new plumbing behind walls. Hot and cold water mixed and controlled at the tap.
               </motion.p>
             </motion.div>
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="relative aspect-square">
-              <EditorialImage src="/images/carousel/shower-product.png" alt="Tap to Shower Concept" aspect="1/1" className="object-cover rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.1)]" />
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="relative aspect-square bg-bg-alt">
+              <EditorialImage src="/images/webp_cutouts/tts-connection-set.webp" alt="Tap-to-Shower connection set — PEX tube, push connectors, and brackets" aspect="1/1" className="object-contain p-12" />
             </motion.div>
           </div>
         </SectionWrapper>
@@ -276,7 +276,7 @@ export default function TapToShowerCollection() {
               </div>
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="lg:col-span-7 aspect-square">
-              <EditorialImage src="/images/carousel/fittings.png" alt="Installation process" aspect="1/1" className="opacity-90 rounded-sm" />
+              <EditorialImage src="/images/webp_1200/tts-kit.webp" alt="Tap-to-Shower kit — tap, connection set, and water heater laid out together" aspect="1/1" className="opacity-90 rounded-sm" />
             </motion.div>
           </div>
         </SectionWrapper>
@@ -365,14 +365,7 @@ export default function TapToShowerCollection() {
         <SectionWrapper id="why-this-system">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="lg:col-span-6 relative">
-              <div className="aspect-square bg-bg-alt flex items-center justify-center p-12 border border-text-main/5">
-                <ShieldCheck className="w-full h-full max-w-[240px] text-text-main/5" strokeWidth={0.5} />
-                <div className="absolute inset-0 flex items-center justify-center p-8 text-center backdrop-blur-sm">
-                  <p className="font-heading text-4xl md:text-5xl text-text-main max-w-sm tracking-tight leading-tight">
-                    Worldbex. <br />Three years.
-                  </p>
-                </div>
-              </div>
+              <EditorialImage src="/images/webp_1200/tts-matt-black.webp" alt="Tap-to-Shower in Matt Black — full installed shower column" aspect="4/5" className="object-cover" />
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-6">
               <motion.div variants={fadeUp}><Overline withLine className="mb-6">Trust Signals</Overline></motion.div>
@@ -406,17 +399,17 @@ export default function TapToShowerCollection() {
                    Previous alt text fabricated a step-by-step install sequence
                    that didn't match the images (generic product/lifestyle shots). */}
               {[
-                { src: "/images/shower.png", alt: "Tap-to-Shower system in a finished bathroom" },
-                { src: "/images/carousel/fittings.png", alt: "Tap-to-Shower PEX fittings and connection components" },
-                { src: "/images/carousel/shower-product.png", alt: "Tap-to-Shower tap and column assembly" },
-                { src: "/images/hero.png", alt: "Tap-to-Shower installed and operational" }
+                { src: "/images/webp_1200/tts-chrome-tap-body.webp", alt: "Tap-to-Shower chrome tap body with spout" },
+                { src: "/images/webp_1200/tts-chrome-hand-shower.webp", alt: "Tap-to-Shower chrome hand shower detail" },
+                { src: "/images/webp_1200/tts-chrome-overhead.webp", alt: "Tap-to-Shower chrome overhead shower detail" },
+                { src: "/images/webp_1200/tts-connection-set.webp", alt: "Tap-to-Shower connection set — PEX tube, push connectors, and brackets" }
               ].map((img, i) => (
                 <motion.div key={i} variants={fadeUp} className="aspect-square bg-bg-alt relative overflow-hidden group">
                   <EditorialImage
                     src={img.src}
                     alt={img.alt}
                     aspect="1/1"
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-600"
+                    className="object-cover w-full h-full"
                   />
                 </motion.div>
               ))}

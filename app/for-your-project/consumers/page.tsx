@@ -20,6 +20,8 @@ export default function ConsumersPage() {
       ]}
       ctaLabel="Request Information"
       ctaHref="/contact?type=consumer"
+      image="/images/webp_1200/tts-chrome.webp"
+      imageAlt="Tap-to-Shower Chrome — full installed shower column"
     />
   );
 }
