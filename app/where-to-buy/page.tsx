@@ -47,8 +47,7 @@ export default function WhereToBuy() {
               variants={fadeUp}
               className="font-heading text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-8 text-text-main"
             >
-              Retail and Distribution{" "}
-              <em className="text-accent italic">Availability</em>
+              Retail and Distribution Availability
             </motion.h1>
 
             <motion.p

@@ -33,26 +33,6 @@ const fadeUp = {
 };
 
 /* ==============================
-   DATA
-   ============================== */
-
-// [CJ] — Replaced the old stats block. Previous entries were filler-shaped
-//        ("30+ Years of Experience", "DE German Engineering"). Each new entry
-//        is anchored to a verifiable product fact: install time, warranty term,
-//        engineering origin, catalogue scale.
-const proofStats = [
-  { number: "30–45", unit: "min", label: "Install Time" },
-  { number: "3", unit: "yr", label: "Limited Warranty" },
-  { number: "DE · DK", unit: "", label: "Engineered" },
-  { number: "11", unit: "", label: "Collections" },
-];
-
-// [CJ] — Cert-mark strip beneath the stats. Only certifications confirmed in
-//        BSC's product documentation are listed. ISO 9001 / ISO 14001 pulled
-//        pending written confirmation from BSC that they hold these.
-const certMarks = ["CB IEC 60335*", "Worldbex 2026"];
-
-/* ==============================
    PAGE
    ============================== */
 export default function Home() {
@@ -81,7 +61,7 @@ export default function Home() {
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-8 text-text-main">
                   European Bathroom and Kitchen Solutions{" "}
                   <br />
-                  for <em className="text-accent italic">Southeast Asian Markets.</em>
+                  for Southeast Asian Markets.
                 </h1>
 
                 <p className="font-body text-base md:text-lg text-text-body leading-relaxed max-w-2xl mb-10">
@@ -143,7 +123,7 @@ export default function Home() {
               variants={fadeUp}
               className="font-heading text-3xl sm:text-4xl leading-[0.95] tracking-tight text-text-white mb-4"
             >
-              Tap-to-<em className="text-accent italic">Shower™</em>
+              Tap-to-Shower™
               <br />
               Collection
             </motion.h2>
@@ -228,7 +208,7 @@ export default function Home() {
                   variants={fadeUp}
                   className="font-heading text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8 text-text-main"
                 >
-                  Tap-to-<em className="text-accent italic">Shower™</em>
+                  Tap-to-Shower™
                   <br />
                   Collection
                 </motion.h2>
@@ -300,7 +280,7 @@ export default function Home() {
               variants={fadeUp}
               className="font-heading text-4xl md:text-5xl lg:text-6xl tracking-tight text-text-main"
             >
-              Four Reasons to <em className="text-accent italic">Choose</em>
+              Four Reasons to Choose
             </motion.h2>
           </motion.div>
           <motion.div
@@ -349,7 +329,7 @@ export default function Home() {
               variants={fadeUp}
               className="font-heading text-4xl md:text-5xl lg:text-6xl tracking-tight text-text-main"
             >
-              Who We <em className="text-accent italic">Serve</em>
+              Who We Serve
             </motion.h2>
           </motion.div>
 
@@ -377,26 +357,6 @@ export default function Home() {
                 <p className="font-body text-sm text-text-body italic mb-5">
                   For shelves that don&apos;t need explaining.
                 </p>
-                <ul className="space-y-2.5 mb-5">
-                  <li className="flex items-start gap-3 font-body text-sm text-text-main/85">
-                    <span className="block w-1 h-1 mt-2 bg-accent shrink-0" />
-                    <span>
-                      <strong className="font-medium">Tap-to-Shower™</strong> — single-line shower retrofit. 3-year warranty.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3 font-body text-sm text-text-main/85">
-                    <span className="block w-1 h-1 mt-2 bg-accent shrink-0" />
-                    <span>
-                      <strong className="font-medium">S2 Faucets</strong> — chrome and brushed core line. Residential and light commercial.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3 font-body text-sm text-text-main/85">
-                    <span className="block w-1 h-1 mt-2 bg-accent shrink-0" />
-                    <span>
-                      <strong className="font-medium">Sensor Products</strong> — touchless taps and flush valves. Commercial and hospitality.
-                    </span>
-                  </li>
-                </ul>
                 <p className="font-body text-xs text-text-body/70 mb-5">
                   Verified warranty terms. Ready packaging. No assembly, no staff training.
                 </p>
@@ -502,7 +462,7 @@ export default function Home() {
             className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
           >
             <h2 className="font-heading text-4xl md:text-5xl lg:text-7xl leading-[0.95] tracking-tight text-text-main">
-              The <em className="text-accent italic">Collections</em>
+              The Collections
             </h2>
             <p className="font-body text-sm md:text-base text-text-body/60 max-w-sm leading-relaxed">
               Each collection is a distinct expression of our design philosophy
@@ -513,77 +473,6 @@ export default function Home() {
 
         <CollectionCarousel />
       </SectionWrapper>
-
-      {/* ===== PROOF BLOCK ===== */}
-      <section className="bg-bg-alt border-t border-b border-text-main/10 px-6 md:px-16 py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px]">
-          <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-14 md:mb-16"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={stagger}
-          >
-            {proofStats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeUp}
-                className={`text-center ${
-                  i < proofStats.length - 1
-                    ? "lg:border-r lg:border-text-main/10"
-                    : ""
-                }`}
-              >
-                <span className="block font-heading text-5xl md:text-6xl lg:text-7xl text-text-main tracking-tight leading-none mb-3">
-                  {stat.number}
-                  {stat.unit && (
-                    <span className="font-heading text-2xl md:text-3xl lg:text-4xl ml-1 text-accent">
-                      {stat.unit}
-                    </span>
-                  )}
-                </span>
-                <span className="font-body text-[10px] md:text-xs uppercase tracking-[0.25em] text-text-body">
-                  {stat.label}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={stagger}
-            className="border-t border-text-main/10 pt-10"
-          >
-            <motion.p
-              variants={fadeUp}
-              className="font-body text-[10px] uppercase tracking-[0.25em] text-text-body/50 text-center mb-6"
-            >
-              Certified to
-            </motion.p>
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-wrap items-center justify-center gap-3 md:gap-4"
-            >
-              {certMarks.map((mark) => (
-                <span
-                  key={mark}
-                  className="font-body text-xs font-medium uppercase tracking-[0.2em] text-text-main border border-text-main/20 px-4 py-2"
-                >
-                  {mark}
-                </span>
-              ))}
-            </motion.div>
-            <motion.p
-              variants={fadeUp}
-              className="font-body text-[10px] text-text-body/40 text-center mt-4"
-            >
-              *Compatible instant water heater models may be supplied with CB certification according to IEC 60335-2-35, subject to model and market.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
 
       <Footer />
     </>

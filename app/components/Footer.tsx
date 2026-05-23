@@ -21,10 +21,10 @@ export default function Footer() {
               href="/"
               className="inline-block"
             >
-              <img 
-                src="/images/BSC%20Background%20Removed.png" 
-                alt="BSC" 
-                className="h-8 md:h-10 w-auto object-contain brightness-0 invert" 
+              <img
+                src="/images/Company%20Logo/BSC%20Logo%20on%20transparent%20background.png"
+                alt="BSC"
+                className="h-8 md:h-10 w-auto object-contain brightness-0 invert"
               />
             </Link>
             {/* [CJ] — Tagline corrected: BSC = Bathroom and Kitchen Solutions.

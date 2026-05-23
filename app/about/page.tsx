@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar";
 import SectionWrapper from "../components/SectionWrapper";
 import Overline from "../components/Overline";
 import Footer from "../components/Footer";
-import { Leaf, Zap, Sparkles } from "lucide-react";
 
 /* ==============================
    ANIMATION VARIANTS
@@ -76,9 +75,9 @@ export default function AboutPage() {
               className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-text-main"
             >
               European Bathroom and Kitchen{" "}
-              <em className="text-accent italic">Product Development</em>
+              Product Development
               <br />
-              for Southeast Asian <em className="text-accent italic">Markets</em>
+              for Southeast Asian Markets
             </motion.h1>
 
             <motion.p
@@ -118,7 +117,7 @@ export default function AboutPage() {
               variants={fadeUp}
               className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-text-main"
             >
-              About <em className="text-accent italic">BSC</em>
+              About BSC
             </motion.h2>
           </motion.div>
 
@@ -191,129 +190,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== MISSION — TOMORROW'S TREND ===== */}
-      <SectionWrapper id="mission" className="border-b border-text-main/10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* Left — large visual accent */}
-          <motion.div
-            className="lg:col-span-5 relative"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <div className="relative aspect-4/5 bg-bg-feature overflow-hidden">
-              {/* Decorative geometric pattern */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  {/* Concentric rings */}
-                  <div className="absolute inset-[10%] border border-accent/10 rounded-full" />
-                  <div className="absolute inset-[20%] border border-accent/15 rounded-full" />
-                  <div className="absolute inset-[30%] border border-accent/20 rounded-full" />
-                  <div className="absolute inset-[40%] border border-accent/30 rounded-full" />
-
-                  {/* Center icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 md:w-28 md:h-28 bg-accent/10 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-10 h-10 md:w-14 md:h-14 text-accent"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Inner border */}
-              <div
-                className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]"
-                aria-hidden="true"
-              />
-            </div>
-
-            <span className="hidden lg:block vertical-text absolute -right-10 top-8 font-body text-[10px] uppercase tracking-[0.3em] text-text-body/40">
-              Mission / Innovation
-            </span>
-          </motion.div>
-
-          {/* Right — Copy */}
-          <motion.div
-            className="lg:col-span-6 lg:col-start-7"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
-          >
-            <motion.div variants={fadeUp}>
-              <Overline withLine className="mb-6">
-                Our Mission
-              </Overline>
-            </motion.div>
-
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8 text-text-main"
-            >
-              Practical Innovation for
-              <br />
-              Real Market <em className="text-accent italic">Needs</em>
-            </motion.h2>
-
-            <motion.p
-              variants={fadeUp}
-              className="font-body text-base md:text-lg text-text-body leading-relaxed mb-8"
-            >
-              BSC’s mission is to develop and supply dependable bathroom and
-              kitchen products that meet the practical requirements of
-              Southeast Asian building projects. The company is committed to
-              consistent quality, efficient production, and functional design
-              that performs reliably across residential, commercial, and
-              hospitality applications.
-            </motion.p>
-
-            <motion.p
-              variants={fadeUp}
-              className="font-body text-base md:text-lg text-text-body leading-relaxed mb-10"
-            >
-              By maintaining close control over engineering standards and
-              production processes, BSC works to deliver measurable value
-              to its partners and end users.
-            </motion.p>
-
-            {/* Key pillars */}
-            <motion.div
-              variants={fadeUp}
-              className="grid grid-cols-3 gap-6 pt-8 border-t border-text-main/10"
-            >
-              {[
-                { label: "Sustainability", icon: Leaf },
-                { label: "Efficiency", icon: Zap },
-                { label: "Design", icon: Sparkles },
-              ].map((pillar) => (
-                <div
-                  key={pillar.label}
-                  className="text-center flex flex-col items-center gap-2"
-                >
-                  <pillar.icon className="text-2xl" />
-                  <span className="font-body text-[10px] md:text-xs uppercase tracking-[0.25em] text-text-body">
-                    {pillar.label}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </SectionWrapper>
-
       {/* ===== COMPANY INFORMATION / FOUNDER ===== */}
       <section className="bg-bg-main border-b border-text-main/10">
         <div className="mx-auto max-w-400 px-6 md:px-16 py-20 md:py-32">
@@ -368,7 +244,7 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-10 text-text-main"
               >
-                Built on <em className="text-accent italic">Experience</em>
+                Built on Experience
               </motion.h2>
 
               <motion.p
@@ -422,39 +298,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-
-      {/* ===== STATS BAR ===== */}
-      <section className="bg-text-main px-6 md:px-16 py-16 md:py-24">
-        <div className="mx-auto max-w-400">
-          <motion.div
-            className="grid grid-cols-2 gap-8 md:gap-12"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={stagger}
-          >
-            {[
-              { number: "5+", label: "Countries Served" },
-              { number: "ODM", label: "& OEM Solutions" },
-            ].map((stat, i, arr) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeUp}
-                className={`text-center ${
-                  i < arr.length - 1 ? "lg:border-r lg:border-bg-main/10" : ""
-                }`}
-              >
-                <span className="block font-heading text-4xl md:text-5xl lg:text-6xl text-bg-main tracking-tight leading-none mb-3">
-                  {stat.number}
-                </span>
-                <span className="font-body text-[10px] md:text-xs uppercase tracking-[0.25em] text-bg-main/50">
-                  {stat.label}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
       <Footer />
     </>

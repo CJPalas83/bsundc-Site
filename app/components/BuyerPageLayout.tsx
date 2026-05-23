@@ -56,7 +56,7 @@ export default function BuyerPageLayout({
 
       <main className="bg-bg-main min-h-screen pt-20 lg:pt-24">
         {/* ===== HERO ===== */}
-        <SectionWrapper pt="pt-8 lg:pt-12" className="pb-16 lg:pb-28">
+        <SectionWrapper rhythm="hero">
           <motion.div
             initial="hidden"
             animate="show"

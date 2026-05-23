@@ -14,7 +14,7 @@ export default function NotFound() {
           Error 404
         </p>
         <h1 className="font-heading text-5xl md:text-7xl leading-[0.95] tracking-tight text-text-main mb-6">
-          Page <em className="text-accent italic">not found</em>
+          Page not found
         </h1>
         <p className="font-body text-base text-text-body leading-relaxed mb-10">
           The page you&apos;re looking for has been moved, renamed, or

@@ -87,10 +87,10 @@ export default function Navbar() {
           href="/"
           className="flex items-center"
         >
-          <img 
-            src="/images/BSC%20Background%20Removed.png" 
-            alt="BSC" 
-            className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_1px_5px_rgba(0,0,0,0.8)]" 
+          <img
+            src="/images/Company%20Logo/BSC%20Logo%20on%20transparent%20background.png"
+            alt="BSC"
+            className="h-12 md:h-16 w-auto object-contain"
           />
         </a>
 

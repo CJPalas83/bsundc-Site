@@ -122,7 +122,7 @@ export default function ContactPage() {
               className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-text-main"
             >
               Let&apos;s{" "}
-              <em className="text-accent not-italic italic">Talk</em>
+              Talk
             </motion.h1>
 
             <motion.p
@@ -163,8 +163,7 @@ export default function ContactPage() {
                 variants={fadeUp}
                 className="font-heading text-3xl md:text-4xl leading-[0.95] tracking-tight text-text-main mb-10"
               >
-                Send us an{" "}
-                <em className="text-accent italic">Enquiry</em>
+                Send us an Enquiry
               </motion.h2>
 
               <motion.div variants={fadeUp} className="space-y-8">

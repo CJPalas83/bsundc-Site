@@ -22,7 +22,7 @@ export default function PrivacyPage() {
             Legal
           </p>
           <h1 className="font-heading text-5xl md:text-7xl leading-[0.95] tracking-tight text-text-main mb-6">
-            Privacy <em className="text-accent italic">Policy</em>
+            Privacy Policy
           </h1>
           <p className="font-body text-sm text-text-body/60">
             Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}

@@ -24,7 +24,7 @@ export default function Error({
           Something went wrong
         </p>
         <h1 className="font-heading text-5xl md:text-7xl leading-[0.95] tracking-tight text-text-main mb-6">
-          Unexpected <em className="text-accent italic">error</em>
+          Unexpected error
         </h1>
         <p className="font-body text-base text-text-body leading-relaxed mb-10">
           We&apos;ve hit an unexpected issue. You can try again, or head back

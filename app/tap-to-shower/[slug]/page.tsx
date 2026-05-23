@@ -231,7 +231,7 @@ export default function ProductDetailPage() {
               <motion.div variants={fadeUp} className="mb-20">
                 <Overline withLine className="mb-4">Technical Details</Overline>
                 <h2 className="font-heading text-4xl md:text-5xl tracking-tight text-text-main">
-                  Product <em className="text-accent italic">Specifications</em>
+                  Product Specifications
                 </h2>
               </motion.div>
 
@@ -353,7 +353,7 @@ export default function ProductDetailPage() {
               <div className="max-w-2xl">
                  <Overline withLine className="mb-6">Global Sales</Overline>
                  <h2 className="font-heading text-4xl md:text-6xl text-text-main tracking-tight mb-4">
-                    Request <em className="text-accent italic">Information</em>
+                    Request Information
                  </h2>
                  <p className="font-body text-text-body text-lg">
                     Interested in {product.name} for your project? Contact our sales team for pricing and availability.
