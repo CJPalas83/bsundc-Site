@@ -3,15 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import Navbar from "./components/Navbar";
 import SectionWrapper from "./components/SectionWrapper";
-import EditorialImage from "./components/EditorialImage";
 import Overline from "./components/Overline";
-import Button from "./components/Button";
-import VideoShowcase from "./components/VideoShowcase";
-import CollectionCarousel from "./components/CollectionCarousel";
 import Footer from "./components/Footer";
-import Link from "next/link";
 
 /* ==============================
    ANIMATION VARIANTS
@@ -33,6 +30,30 @@ const fadeUp = {
 };
 
 /* ==============================
+   DATA
+   ============================== */
+const featuredCollections = [
+  {
+    href: "/tap-to-shower",
+    image: "/images/webp_1200/tts-chrome.webp",
+    overline: "Flagship",
+    title: "Tap-to-Shower™",
+  },
+  {
+    href: "/collections/s2",
+    image: "/images/carousel/s2.png",
+    overline: "Residential",
+    title: "S2 Collection",
+  },
+  {
+    href: "/collections/bathroom",
+    image: "/images/carousel/bathroom.png",
+    overline: "Bathroom Ceramics",
+    title: "Bathroom Collection",
+  },
+];
+
+/* ==============================
    PAGE
    ============================== */
 export default function Home() {
@@ -40,280 +61,130 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* ===== 1. BROAD BSC HERO ===== */}
-      <section className="relative lg:min-h-screen flex items-center overflow-hidden">
-        <div className="mx-auto max-w-[1600px] w-full px-6 md:px-16 pb-16 md:pb-24 pt-28 lg:pt-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 lg:items-start">
-            <div className="lg:col-span-7 lg:col-start-1">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.2,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-              >
-                <Overline withLine className="mb-6">
-                  Bathroom and Kitchen Solutions
-                </Overline>
+      {/* ===== 1. VIDEO HERO ===== */}
+      <section className="relative h-[100svh] min-h-[560px] w-full overflow-hidden bg-text-main">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/webp_1920/tts-chrome-mattblack-1.webp"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/tts-hero.mp4" type="video/mp4" />
+        </video>
 
-                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-8 text-text-main">
-                  European Bathroom and Kitchen Solutions{" "}
-                  <br />
-                  for Southeast Asian Markets.
-                </h1>
+        {/* Subtle gradient overlay for caption legibility */}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none"
+          aria-hidden="true"
+        />
 
-                <p className="font-body text-base md:text-lg text-text-body leading-relaxed max-w-2xl mb-10">
-                  BSC develops, engineers, and supplies bathroom, kitchen, and retrofit shower solutions — designed in Germany and Denmark, produced through qualified partners in China.
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <Link href="/tap-to-shower" className="w-full sm:w-auto">
-                    <Button variant="primary" size="lg" className="w-full sm:w-auto">
-                      Discover Tap-to-Shower™
-                    </Button>
-                  </Link>
-                  <Link href="/contact" className="w-full sm:w-auto">
-                    <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-                      Contact Us
-                    </Button>
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
+        {/* Caption — editorial bottom-left */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="absolute inset-x-0 bottom-0 px-6 md:px-16 pb-12 md:pb-20"
+        >
+          <div className="mx-auto max-w-[1600px]">
+            <p className="font-body text-text-white/95 text-lg md:text-[21px] leading-snug tracking-tight max-w-xl">
+              Engineered in Germany and Denmark.
+            </p>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Vertical hairline label */}
+        <span className="hidden lg:block vertical-text absolute right-8 bottom-12 font-body text-[10px] uppercase tracking-[0.3em] text-text-white/40">
+          Flagship / Tap-to-Shower
+        </span>
       </section>
 
-      {/* ===== 2. FLAGSHIP PRODUCT — TAP-TO-SHOWER ===== */}
-      <section className="border-t border-text-main/10">
-        {/* MOBILE: image with text overlay */}
-        <div className="lg:hidden relative">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <EditorialImage
-              src="/images/webp_1920/tts-chrome.webp"
-              alt="Tap-to-Shower Chrome — full installed shower column"
-              aspect="3/4"
-              className="w-full"
-            />
+      {/* ===== 2. FEATURED COLLECTIONS (TRIPTYCH) ===== */}
+      <SectionWrapper
+        id="collections"
+        className="bg-bg-feature border-t border-text-main/10"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={stagger}
+        >
+          <motion.div variants={fadeUp}>
+            <Overline withLine className="mb-6">
+              Product Lines
+            </Overline>
           </motion.div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-
           <motion.div
-            className="absolute inset-x-0 bottom-0 p-6 pb-10"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={stagger}
+            variants={fadeUp}
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16"
           >
-            <motion.div variants={fadeUp}>
-              <Overline withLine dark className="mb-4">
-                Flagship
-              </Overline>
-            </motion.div>
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-text-main">
+              The <em className="text-accent">Collections</em>
+            </h2>
+            <p className="font-body text-sm md:text-base text-text-body/70 max-w-sm leading-relaxed">
+              Engineering precision across bathroom, kitchen, and retrofit
+              shower lines.
+            </p>
+          </motion.div>
+        </motion.div>
 
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-3xl sm:text-4xl leading-[0.95] tracking-tight text-text-white mb-4"
-            >
-              Tap-to-Shower™
-              <br />
-              Collection
-            </motion.h2>
-
-            <motion.p
-              variants={fadeUp}
-              className="font-body text-sm text-text-white md:text-text-body  leading-relaxed mb-6 max-w-sm"
-            >
-              Tap-to-Shower™ turns a single-line (cold-only) bathroom
-              into a hot and cold shower without concealed plumbing or wall
-              work. Engineered in Germany and Denmark.
-            </motion.p>
-
-            <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.4,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-                className="flex flex-col items-center text-center lg:items-start lg:text-left">
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
-                  <a href="/tap-to-shower" className="w-full sm:w-auto">
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="group w-full sm:w-auto"
-                    >
-                      Discover Tap-to-Shower™
-                    </Button>
-                  </a>
-                  <a href="/tap-to-shower#inquiry" className="w-full sm:w-auto">
-                    <Button variant="secondary" size="lg" onDark className="w-full sm:w-auto">
-                      Request Information
-                    </Button>
-                  </a>
+        {/* Triptych */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={stagger}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10"
+        >
+          {featuredCollections.map((c) => (
+            <motion.div key={c.href} variants={fadeUp}>
+              <Link
+                href={c.href}
+                className="group block bg-bg-main border border-text-main/10 overflow-hidden hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-shadow duration-500"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden bg-bg-feature">
+                  <Image
+                    src={c.image}
+                    alt={c.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
                 </div>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* DESKTOP: side-by-side layout */}
-        <div className="hidden lg:block">
-          <div className="mx-auto max-w-[1600px] px-16 py-24">
-            <div className="grid grid-cols-12 gap-16 items-center">
-              <motion.div
-                className="col-span-6 col-start-1 relative"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{
-                  duration: 0.6,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-              >
-                <EditorialImage
-                  src="/images/shower.png"
-                  alt="BSC premium rain shower system"
-                  aspect="5/6"
-                  className="shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
-                />
-                <span className="vertical-text absolute -right-10 top-8 font-body text-[10px] uppercase tracking-[0.3em] text-text-body/40">
-                  Flagship / Tap-to-Shower
-                </span>
-              </motion.div>
-
-              <motion.div
-                className="col-span-5 col-start-8"
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-80px" }}
-                variants={stagger}
-              >
-                <motion.div variants={fadeUp}>
-                  <Overline withLine className="mb-6">
-                    Flagship
-                  </Overline>
-                </motion.div>
-
-                <motion.h2
-                  variants={fadeUp}
-                  className="font-heading text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8 text-text-main"
-                >
-                  Tap-to-Shower™
-                  <br />
-                  Collection
-                </motion.h2>
-
-                <motion.p
-                  variants={fadeUp}
-                  className="font-body text-lg text-text-body leading-relaxed mb-8 max-w-md"
-                >
-                  Tap-to-Shower™ turns a single-line (cold-only) bathroom
-                  into a hot and cold shower without concealed plumbing or wall
-                  work. Engineered in Germany and Denmark.
-                </motion.p>
-
-                <motion.ul variants={fadeUp} className="space-y-4 mb-10">
-                  {[
-                    "Complete Tap-to-Shower Kit",
-                    "Tap-to-Shower Tap Only",
-                    "Tap-to-Shower Upgrade Kit",
-                    "Tap-to-Shower Connection Set",
-                    "Instant Water Heater",
-                  ].map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <span className="block w-1.5 h-1.5 mt-2 bg-accent shrink-0" />
-                      <span className="font-body text-sm text-text-main/80 leading-relaxed">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </motion.ul>
-
-                <motion.div variants={fadeUp}>
-                  <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
-                  <Link href="/tap-to-shower" className="w-full sm:w-auto">
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="group w-full sm:w-auto"
-                    >
-                      Discover Tap-to-Shower™
-                    </Button>
-                  </Link>
-                  <Link href="/tap-to-shower#inquiry" className="w-full sm:w-auto">
-                    <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-                      Request Information
-                    </Button>
-                  </Link>
+                <div className="p-6 md:p-7">
+                  <Overline className="mb-3">{c.overline}</Overline>
+                  <h3 className="font-heading text-xl md:text-2xl text-text-main group-hover:text-accent transition-colors duration-300">
+                    {c.title}
+                  </h3>
                 </div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 3. BENEFIT CARDS ===== */}
-      <section className="bg-bg-alt border-t border-b border-text-main/10 px-6 md:px-16 py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px]">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={stagger}
-            className="text-center mb-16"
-          >
-            <motion.div variants={fadeUp} className="flex justify-center mb-6">
-              <Overline withLine>Why Tap-to-Shower™</Overline>
+              </Link>
             </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-4xl md:text-5xl lg:text-6xl tracking-tight text-text-main"
-            >
-              Four Reasons to Choose
-            </motion.h2>
-          </motion.div>
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={stagger}
-          >
-            {[
-              { title: "Easy Upgrade", desc: "Retrofit any single-line bathroom without concealed pipework or wall work." },
-              { title: "Hot & Cold Control", desc: "Single lever ceramic cartridge controls temperature at the shower point." },
-              { title: "Clean Installation", desc: "PEX tube routes neatly along the wall surface with included brackets and clips." },
-              { title: "Value for Money", desc: "Available as tap only, connection set, or complete kit with water heater." },
-            ].map((card, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                className="bg-bg-main p-8 border border-text-main/10 hover:border-accent/30 transition-colors duration-300"
-              >
-                <span className="block font-heading text-5xl text-accent/20 mb-4 leading-none">
-                  0{i + 1}
-                </span>
-                <h3 className="font-heading text-xl text-text-main mb-3">{card.title}</h3>
-                <p className="font-body text-sm text-text-body leading-relaxed">{card.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+          ))}
+        </motion.div>
 
-      {/* ===== 4. AUDIENCE PATHS ===== */}
-      <section className="px-6 md:px-16 py-20 md:py-28">
+        {/* See more */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6 }}
+          className="border-t border-text-main/10 pt-6"
+        >
+          <Link
+            href="/collections/kitchen"
+            className="group inline-flex items-center gap-2 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent hover:gap-3 transition-all duration-200"
+          >
+            See all collections
+            <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+          </Link>
+        </motion.div>
+      </SectionWrapper>
+
+      {/* ===== 3. AUDIENCE PATHS — moved to last per pivot ===== */}
+      <section className="px-6 md:px-16 py-20 md:py-28 border-t border-text-main/10">
         <div className="mx-auto max-w-[1600px]">
           <motion.div
             initial="hidden"
@@ -323,13 +194,15 @@ export default function Home() {
             className="mb-12"
           >
             <motion.div variants={fadeUp}>
-              <Overline withLine className="mb-6">Find Your Path</Overline>
+              <Overline withLine className="mb-6">
+                Find Your Path
+              </Overline>
             </motion.div>
             <motion.h2
               variants={fadeUp}
               className="font-heading text-4xl md:text-5xl lg:text-6xl tracking-tight text-text-main"
             >
-              Who We Serve
+              Who We <em className="text-accent">Serve</em>
             </motion.h2>
           </motion.div>
 
@@ -358,10 +231,12 @@ export default function Home() {
                   For shelves that don&apos;t need explaining.
                 </p>
                 <p className="font-body text-xs text-text-body/70 mb-5">
-                  Verified warranty terms. Ready packaging. No assembly, no staff training.
+                  Verified warranty terms. Ready packaging. No assembly, no
+                  staff training.
                 </p>
                 <span className="inline-flex items-center gap-2 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent group-hover:gap-3 transition-all duration-200">
-                  Ask About Retail Packages <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                  Ask About Retail Packages
+                  <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </span>
               </Link>
             </motion.div>
@@ -384,10 +259,13 @@ export default function Home() {
                   For projects that already have enough variables.
                 </p>
                 <p className="font-body text-sm text-text-body/85 mb-4 leading-relaxed">
-                  Bathroom and kitchen systems specifiable without redesign or plumbing rework. Single-line retrofit available for cold-water markets.
+                  Bathroom and kitchen systems specifiable without redesign or
+                  plumbing rework. Single-line retrofit available for
+                  cold-water markets.
                 </p>
                 <span className="inline-flex items-center gap-2 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent group-hover:gap-3 transition-all duration-200">
-                  Ask About Project Solutions <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                  Ask About Project Solutions
+                  <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </span>
               </Link>
             </motion.div>
@@ -410,10 +288,14 @@ export default function Home() {
                   For documents that go straight in.
                 </p>
                 <p className="font-body text-sm text-text-body/85 mb-3 leading-relaxed">
-                  Full datasheets, dimensional drawings, CAD and BIM files. Compatible water heaters may be supplied with CB certification according to IEC 60335-2-35, subject to model and market.
+                  Full datasheets, dimensional drawings, CAD and BIM files.
+                  Compatible water heaters may be supplied with CB
+                  certification according to IEC 60335-2-35, subject to model
+                  and market.
                 </p>
                 <span className="inline-flex items-center gap-2 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent group-hover:gap-3 transition-all duration-200">
-                  Request Specification Support <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                  Request Specification Support
+                  <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </span>
               </Link>
             </motion.div>
@@ -434,7 +316,8 @@ export default function Home() {
                     </p>
                   </div>
                   <span className="inline-flex items-center gap-1.5 font-body text-[10px] font-medium uppercase tracking-[0.2em] text-accent shrink-0 group-hover:gap-2 transition-all duration-200">
-                    Request Information <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
+                    Request Information
+                    <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>
@@ -442,37 +325,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-      {/* ===== 5. FEATURED COLLECTIONS ===== */}
-      <SectionWrapper id="collections" className="bg-bg-feature">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={stagger}
-        >
-          <motion.div variants={fadeUp}>
-            <Overline withLine className="mb-6">
-              Product Lines
-            </Overline>
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp}
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
-          >
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-7xl leading-[0.95] tracking-tight text-text-main">
-              The Collections
-            </h2>
-            <p className="font-body text-sm md:text-base text-text-body/60 max-w-sm leading-relaxed">
-              Each collection is a distinct expression of our design philosophy
-              — unified by engineering precision, differentiated by purpose.
-            </p>
-          </motion.div>
-        </motion.div>
-
-        <CollectionCarousel />
-      </SectionWrapper>
 
       <Footer />
     </>

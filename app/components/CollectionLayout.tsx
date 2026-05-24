@@ -151,7 +151,7 @@ export default function CollectionLayout({ config }: { config: CollectionConfig 
               className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-text-main"
             >
               {config.title}{" "}
-              {config.titleAccent}
+              <em className="text-accent">{config.titleAccent}</em>
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -209,12 +209,12 @@ export default function CollectionLayout({ config }: { config: CollectionConfig 
                   <>
                     {section.title.split("—")[0]}
                     <br className="hidden md:block" />
-                    — {section.title.split("—")[1]}
+                    <em className="text-accent">— {section.title.split("—")[1]}</em>
                   </>
                 ) : (
                   <>
                     {section.title}{" "}
-                    Products
+                    <em className="text-accent">Products</em>
                   </>
                 )}
               </motion.h2>

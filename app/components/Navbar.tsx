@@ -10,18 +10,6 @@ const navLinks = [
     href: "/",
   },
   {
-    label: "Tap-to-Shower™",
-    href: "/tap-to-shower",
-    items: [
-      { label: "Overview", href: "/tap-to-shower" },
-      { label: "Complete Kit", href: "/tap-to-shower/complete-kit" },
-      { label: "Tap Only", href: "/tap-to-shower/tap-only" },
-      { label: "Upgrade Kit", href: "/tap-to-shower/upgrade-kit" },
-      { label: "Connection Set", href: "/tap-to-shower/connection-set" },
-      { label: "Instant Water Heater", href: "/tap-to-shower/instant-heater" },
-    ],
-  },
-  {
     label: "For Your Project",
     href: "/for-your-project/retailers",
     items: [
@@ -35,6 +23,7 @@ const navLinks = [
     label: "Product Range",
     href: "/collections",
     items: [
+      { label: "Tap-to-Shower™", href: "/tap-to-shower" },
       { label: "S2 Collection", href: "/collections/s2" },
       { label: "SUS Collection", href: "/collections/sus" },
       { label: "LINE Collection", href: "/collections/line" },
@@ -90,7 +79,7 @@ export default function Navbar() {
           <img
             src="/images/bsc-logo.png"
             alt="BSC"
-            className="h-12 md:h-16 w-auto object-contain"
+            className="h-10 md:h-12 w-auto object-contain"
           />
         </a>
 
@@ -104,7 +93,7 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               {link.items ? (
-                <span className="flex items-center gap-1.5 font-body text-[11px] font-medium uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors duration-500 cursor-default select-none">
+                <span className="flex items-center gap-1.5 font-body text-[13px] font-medium uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors duration-500 cursor-default select-none">
                   {link.label}
                   <ChevronDown
                     className={`w-3 h-3 transition-transform duration-500 ${activeDropdown === link.label ? "rotate-180" : ""}`}
@@ -113,7 +102,7 @@ export default function Navbar() {
               ) : (
                 <a
                   href={link.href}
-                  className="flex items-center gap-1.5 font-body text-[11px] font-medium uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors duration-500"
+                  className="flex items-center gap-1.5 font-body text-[13px] font-medium uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors duration-500"
                 >
                   {link.label}
                 </a>

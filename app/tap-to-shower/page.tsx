@@ -157,7 +157,7 @@ export default function TapToShowerCollection() {
                 className="font-heading text-5xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tight mb-8 text-text-main"
               >
                 Turn a Cold Tap{" "}
-                into a Hot Shower.
+                into a <em className="text-accent">Hot</em> Shower.
               </motion.h1>
 
               <motion.p
@@ -206,7 +206,7 @@ export default function TapToShowerCollection() {
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               <motion.div variants={fadeUp}><Overline withLine className="mb-6">The Concept</Overline></motion.div>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-6 text-text-main">
-                What is Tap-to-Shower™?
+                What is <em className="text-accent">Tap-to-Shower™</em>?
               </motion.h2>
               <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed mb-6">
                 Most Philippine bathrooms have a single cold-water line. Upgrading to a hot and cold shower has traditionally meant breaking tiles, rerouting pipes, and weeks of renovation.
@@ -228,7 +228,7 @@ export default function TapToShowerCollection() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Facts</Overline></motion.div>
             <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
-              Five Things to Know
+              Five Things to <em className="text-accent">Know</em>
             </motion.h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -256,7 +256,7 @@ export default function TapToShowerCollection() {
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-5">
               <motion.div variants={fadeUp}><Overline withLine dark className="mb-6">Installation</Overline></motion.div>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-6 text-bg-main">
-                How It Works
+                How It <em className="text-accent">Works</em>
               </motion.h2>
               <motion.p variants={fadeUp} className="font-body text-lg text-bg-main/70 leading-relaxed mb-10">
                 The PEX retrofit connection set is designed for professional installation in 30 to 45 minutes. No concealed plumbing required.
@@ -286,7 +286,7 @@ export default function TapToShowerCollection() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>For You</Overline></motion.div>
             <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
-              Who It&apos;s For
+              Who It&apos;s <em className="text-accent">For</em>
             </motion.h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -370,7 +370,7 @@ export default function TapToShowerCollection() {
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-6">
               <motion.div variants={fadeUp}><Overline withLine className="mb-6">Trust Signals</Overline></motion.div>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl tracking-tight mb-10 text-text-main">
-                Why This System
+                Why This <em className="text-accent">System</em>
               </motion.h2>
               <div className="space-y-8">
                 {[
@@ -422,7 +422,7 @@ export default function TapToShowerCollection() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Difference</Overline></motion.div>
             <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-8 text-text-main">
-              Not Just a Heater. A Complete Shower Solution.
+              Not Just a Heater. A Complete Shower <em className="text-accent">Solution.</em>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
               A standard instant water heater typically provides one outlet — usually a hand shower. Tap-to-Shower™ creates a more complete hot and cold shower solution: tap control, overhead shower, hand shower, and a cleaner visual result for single-line bathrooms. The difference is not the heat source. It is the shower experience it makes possible.
@@ -436,7 +436,7 @@ export default function TapToShowerCollection() {
             <motion.div variants={fadeUp} className="text-center mb-16">
               <Overline withLine className="mb-6 justify-center">Support</Overline>
               <h2 className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
-                Frequently Asked Questions
+                Frequently Asked <em className="text-accent">Questions</em>
               </h2>
             </motion.div>
             <div className="space-y-4">
@@ -465,7 +465,7 @@ export default function TapToShowerCollection() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>Suitability</Overline></motion.div>
             <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-8 text-text-main">
-              Before You Specify or Install
+              Before You Specify or <em className="text-accent">Install</em>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
               Tap-to-Shower™ requires a minimum water pressure suitable for the connected instant water heater. It is not suitable for very low pressure supplies or rooftop gravity-tank-fed installations unless a specific approved configuration is confirmed. It is not suitable for booster-pump configured instant heaters unless approved. Electrical installation of the water heater must be carried out by a qualified person.
@@ -488,7 +488,7 @@ export default function TapToShowerCollection() {
                   <Overline withLine className="mb-6">Get In Touch</Overline>
                 </motion.div>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-main tracking-tight mb-8">
-                  Submit an Enquiry
+                  Submit an <em className="text-accent">Enquiry</em>
                 </motion.h2>
                 <motion.p variants={fadeUp} className="font-body text-text-body text-lg mb-10 leading-relaxed">
                   Specifications, technical drawings, and project pricing available on request. Submit an enquiry below or contact info@bsundc.com directly.

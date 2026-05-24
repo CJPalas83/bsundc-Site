@@ -75,9 +75,9 @@ export default function AboutPage() {
               className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-text-main"
             >
               European Bathroom and Kitchen{" "}
-              Product Development
+              <em className="text-accent">Product Development</em>
               <br />
-              for Southeast Asian Markets
+              for Southeast Asian <em className="text-accent">Markets</em>
             </motion.h1>
 
             <motion.p
@@ -117,7 +117,7 @@ export default function AboutPage() {
               variants={fadeUp}
               className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-text-main"
             >
-              About BSC
+              About <em className="text-accent">BSC</em>
             </motion.h2>
           </motion.div>
 
@@ -244,7 +244,7 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-10 text-text-main"
               >
-                Built on Experience
+                Built on <em className="text-accent">Experience</em>
               </motion.h2>
 
               <motion.p
