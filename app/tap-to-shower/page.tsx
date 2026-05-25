@@ -156,10 +156,10 @@ export default function TapToShowerCollection() {
             <div className="lg:col-span-6">
               <motion.h1
                 variants={fadeUp}
-                className="font-heading text-4xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 text-text-main"
+                className="font-heading text-3xl md:text-5xl lg:text-6xl leading-[0.9] tracking-tight mb-6 text-text-main"
               >
                 Turn a Cold Tap{" "}
-                into a <em className="text-accent">Hot</em> Shower.
+                into a <span className="text-accent">Real</span> Shower.
               </motion.h1>
 
               <motion.p
@@ -173,7 +173,7 @@ export default function TapToShowerCollection() {
                 variants={fadeUp}
                 className="font-body text-sm text-text-body/60 mb-10"
               >
-                Engineered in Germany and Denmark. Available across the Philippines.
+                Engineered in Germany and Denmark. Available across Southeast Asia.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
@@ -203,7 +203,7 @@ export default function TapToShowerCollection() {
         </SectionWrapper>
 
         {/* ===== 1. WHAT IS TTS ===== */}
-        <SectionWrapper id="what-is-tts" className="bg-bg-alt border-t border-text-main/10">
+        <SectionWrapper id="what-is-tts" rhythm="secondary" className="bg-bg-alt border-t border-text-main/10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               <motion.div variants={fadeUp}><Overline withLine className="mb-6">The Concept</Overline></motion.div>
@@ -226,7 +226,7 @@ export default function TapToShowerCollection() {
         </SectionWrapper>
 
         {/* ===== 2. THE FACTS ===== */}
-        <SectionWrapper id="features">
+        <SectionWrapper id="features" rhythm="secondary">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Facts</Overline></motion.div>
             <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight text-text-main">
@@ -253,7 +253,7 @@ export default function TapToShowerCollection() {
         </SectionWrapper>
 
         {/* ===== 3. HOW IT WORKS ===== */}
-        <SectionWrapper id="how-it-works" className="bg-text-main text-bg-main" dark>
+        <SectionWrapper id="how-it-works" rhythm="secondary" className="bg-text-main text-bg-main" dark>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-5">
               <motion.div variants={fadeUp}><Overline withLine dark className="mb-6">Installation</Overline></motion.div>
@@ -284,7 +284,7 @@ export default function TapToShowerCollection() {
         </SectionWrapper>
 
         {/* ===== 4. WHO IT'S FOR ===== */}
-        <SectionWrapper id="who-its-for" className="bg-bg-feature border-y border-text-main/10">
+        <SectionWrapper id="who-its-for" rhythm="secondary" className="bg-bg-feature border-y border-text-main/10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>For You</Overline></motion.div>
             <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight text-text-main">
@@ -364,7 +364,7 @@ export default function TapToShowerCollection() {
         </SectionWrapper>
 
         {/* ===== 5. WHY THIS SYSTEM ===== */}
-        <SectionWrapper id="why-this-system">
+        <SectionWrapper id="why-this-system" rhythm="secondary">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="lg:col-span-6 relative">
               <EditorialImage src="/images/webp_1200/tts-matt-black.webp" alt="Tap-to-Shower in Matt Black — full installed shower column" aspect="4/5" className="object-cover" />
@@ -420,7 +420,7 @@ export default function TapToShowerCollection() {
         </SectionWrapper>
 
         {/* ===== DIFFERENTIATOR (F06) ===== */}
-        <SectionWrapper id="differentiator" className="border-t border-text-main/10">
+        <SectionWrapper id="differentiator" rhythm="secondary" className="border-t border-text-main/10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Difference</Overline></motion.div>
             <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-8 text-text-main">
@@ -433,7 +433,7 @@ export default function TapToShowerCollection() {
         </SectionWrapper>
 
         {/* ===== 7. FAQ ===== */}
-        <SectionWrapper id="faq" className="bg-bg-alt border-t border-text-main/10 mt-1">
+        <SectionWrapper id="faq" rhythm="secondary" className="bg-bg-alt border-t border-text-main/10 mt-1">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-4xl mx-auto">
             <motion.div variants={fadeUp} className="text-center mb-16">
               <Overline withLine className="mb-6 justify-center">Support</Overline>
@@ -463,7 +463,7 @@ export default function TapToShowerCollection() {
         </SectionWrapper>
 
         {/* ===== SUITABILITY ===== */}
-        <SectionWrapper id="suitability" className="border-t border-text-main/10">
+        <SectionWrapper id="suitability" rhythm="secondary" className="border-t border-text-main/10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>Suitability</Overline></motion.div>
             <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-8 text-text-main">
