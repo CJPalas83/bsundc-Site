@@ -3,14 +3,15 @@
 import React, { useState } from "react";
 import { useParams, notFound } from "next/navigation";
 import Image from "next/image";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import SectionWrapper from "../../components/SectionWrapper";
 import EditorialImage from "../../components/EditorialImage";
 import Overline from "../../components/Overline";
 import Button from "../../components/Button";
-import { ttsCollections, SpecGroup, ProductVariant } from "../data";
+import { ttsCollections, SpecGroup } from "../data";
 import { ImageComparisonSlider } from "@/components/ui/image-comparison-slider-horizontal";
 
 /* ==============================
@@ -114,13 +115,13 @@ export default function ProductDetailPage() {
             {/* Left Content */}
             <div className="lg:col-span-6">
               <motion.div variants={fadeUp} className="mb-12">
-                <a 
-                  href="/tap-to-shower" 
+                <Link
+                  href="/tap-to-shower"
                   className="group inline-flex items-center gap-2 font-body text-[10px] uppercase tracking-[0.2em] text-text-body hover:text-text-main transition-colors duration-300"
                 >
                   <span className="group-hover:-translate-x-1 transition-transform duration-300">←</span>
                   Back to Collection
-                </a>
+                </Link>
               </motion.div>
 
               <motion.div variants={fadeUp}>
@@ -361,15 +362,15 @@ export default function ProductDetailPage() {
               </div>
               <div className="flex gap-4">
                  <Button size="lg">Submit Enquiry</Button>
-                 <a href="/tap-to-shower">
-                   <Button 
-                    variant="secondary" 
-                    size="lg" 
+                 <Link href="/tap-to-shower">
+                   <Button
+                    variant="secondary"
+                    size="lg"
                     className="border-text-main/20 text-text-main hover:bg-text-main hover:text-bg-main whitespace-nowrap"
                    >
                       View Collection
                    </Button>
-                 </a>
+                 </Link>
               </div>
            </div>
         </SectionWrapper>

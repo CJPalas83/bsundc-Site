@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -72,7 +73,7 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-400 flex items-center justify-between px-6 md:px-16 h-16 md:h-20">
         {/* Logo */}
-        <a
+        <Link
           href="/"
           className="flex items-center"
         >
@@ -81,7 +82,7 @@ export default function Navbar() {
             alt="BSC"
             className="h-10 md:h-12 w-auto object-contain"
           />
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10">

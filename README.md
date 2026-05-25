@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BSC (Bastian Schaefer Consultancy) — bsundc.com
 
-## Getting Started
+Next.js site for BSC: European-designed bathroom and kitchen product
+development for Southeast Asian markets. Flagship line is Tap-to-Shower™ —
+a retrofit hot/cold shower system for single-line bathrooms.
 
-First, run the development server:
+## Stack
+
+- **Framework:** Next.js 16 (App Router, Turbopack)
+- **UI:** React 19, TypeScript, Tailwind CSS v4
+- **Animation:** framer-motion
+- **Icons:** lucide-react
+- **Email:** Resend (contact form delivery)
+
+## Setup
 
 ```bash
+# 1. Install deps
+npm install
+
+# 2. Create a local env file from the template
+cp .env.example .env.local
+# then fill in values — RESEND_API_KEY at minimum
+
+# 3. Run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See `.env.example` for the canonical list. The contact form (`app/api/contact/route.ts`) gracefully degrades if `RESEND_API_KEY` is missing — submissions return a "service not configured" message rather than 500ing.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command          | What it does                                    |
+| ---------------- | ----------------------------------------------- |
+| `npm run dev`    | Start dev server with Turbopack on :3000        |
+| `npm run build`  | Production build                                |
+| `npm run start`  | Serve the production build                      |
+| `npm run lint`   | ESLint                                          |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Repo layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+├── page.tsx                    # Homepage (video hero + triptych + audience paths)
+├── about/                      # About BS&C
+├── contact/                    # Contact form (submits to /api/contact)
+├── api/contact/route.ts        # Resend backend
+├── tap-to-shower/              # TTS landing page
+│   ├── data.ts                 # Product catalog (kits, taps, heater, etc.)
+│   └── [slug]/                 # Per-product detail pages
+├── collections/                # Other product collections (S2, SUS, LINE, ...)
+├── for-your-project/           # Buyer-type landing pages (retailers, developers,
+│                                 architects, consumers)
+├── where-to-buy/               # Distribution availability page
+├── privacy/                    # Privacy policy
+├── error.tsx                   # Global error boundary
+├── not-found.tsx               # 404 page
+├── layout.tsx                  # Root layout (metadata, fonts)
+├── globals.css                 # Design tokens (colors, typography scale, motion)
+└── components/                 # Shared components
+    ├── Navbar.tsx
+    ├── Footer.tsx
+    ├── SectionWrapper.tsx      # Section rhythm primitive (hero/primary/secondary)
+    ├── CollectionLayout.tsx    # Used by all collection sub-pages
+    ├── BuyerPageLayout.tsx     # Used by the 4 for-your-project pages
+    ├── Button.tsx · Overline.tsx · EditorialImage.tsx · ...
+public/
+├── images/                     # Production-ready imagery (webp, png)
+└── videos/                     # Hero clips (tts-hero.mp4, showcase.mp4)
+```
 
-## Deploy on Vercel
+Heavy raw assets (uncompressed photos, source videos, design files) live in
+`_source-assets/` at the repo root and are gitignored — they're for local
+working only, never shipped.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design system in brief
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The "north star" is **quiet / held / confident** — restraint over flourish.
+Headings use a measured scale from `globals.css` (`--text-h1` through
+`--text-small`), and section rhythm flows through three tokens on
+`SectionWrapper`: `hero`, `primary`, `secondary`. The accent colour
+(`--color-accent`, a deep teal) appears sparingly on inline `<em>` accents
+and overlines; never on body copy.
+
+## Deploy
+
+Standard Next.js deployment. The site is statically rendered where possible
+(see `next build` output for the static/dynamic split). The only dynamic
+routes are `/api/contact` and `/tap-to-shower/[slug]` (reads URL params).
+
+Before deploying:
+
+1. Set `RESEND_API_KEY`, `RESEND_FROM`, `CONTACT_TO` on the host
+2. Verify a sending domain in Resend so `RESEND_FROM` can use a real
+   `@bsundc.com` address rather than the sandbox

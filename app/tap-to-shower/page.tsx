@@ -88,6 +88,8 @@ export default function TapToShowerCollection() {
         consumer: "consumer",
       };
       const mapped = typeMap[type] || "";
+      // Reading window.location.search must happen post-mount to avoid SSR
+      // hydration mismatch — setState here is intentional, runs once on mount.
       setBuyerType(mapped);
       setShowCompany(mapped !== "consumer");
     }

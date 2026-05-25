@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local agent worktrees + session state — gitignored, not part of the project.
+    ".claude/**",
   ]),
 ]);
 
