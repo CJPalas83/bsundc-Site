@@ -54,7 +54,7 @@ export default function BuyerPageLayout({
     <>
       <Navbar />
 
-      <main className="bg-bg-main min-h-screen pt-20 lg:pt-24">
+      <main className="bg-bg-main min-h-screen pt-16 lg:pt-20">
         {/* ===== HERO ===== */}
         <SectionWrapper rhythm="hero">
           <motion.div
@@ -71,7 +71,7 @@ export default function BuyerPageLayout({
 
               <motion.h1
                 variants={fadeUp}
-                className="font-heading text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-10 text-text-main"
+                className="font-heading text-3xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8 text-text-main"
               >
                 {h1}
               </motion.h1>
@@ -126,7 +126,7 @@ export default function BuyerPageLayout({
             <p className="font-body text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
               Part of the Tap-to-Shower™ system
             </p>
-            <h2 className="font-heading text-3xl md:text-4xl tracking-tight text-text-main mb-8">
+            <h2 className="font-heading text-2xl md:text-3xl tracking-tight text-text-main mb-6">
               One single-line hot &amp; cold shower upgrade.
             </h2>
             <Link href="/tap-to-shower" className="inline-flex">

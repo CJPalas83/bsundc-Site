@@ -18,12 +18,12 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-bg-main px-6 py-24">
+    <main className="min-h-screen flex items-center justify-center bg-bg-main px-6 py-16 md:py-20">
       <div className="max-w-xl w-full text-center">
         <p className="font-body text-[10px] uppercase tracking-[0.3em] text-text-body/50 mb-6">
           Something went wrong
         </p>
-        <h1 className="font-heading text-5xl md:text-7xl leading-[0.95] tracking-tight text-text-main mb-6">
+        <h1 className="font-heading text-4xl md:text-6xl leading-[0.95] tracking-tight text-text-main mb-6">
           Unexpected <em className="text-accent">error</em>
         </h1>
         <p className="font-body text-base text-text-body leading-relaxed mb-10">

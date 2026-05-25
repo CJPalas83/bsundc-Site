@@ -144,9 +144,9 @@ export default function TapToShowerCollection() {
     <>
       <Navbar />
 
-      <main className="bg-bg-main min-h-screen pt-20 lg:pt-24">
+      <main className="bg-bg-main min-h-screen pt-16 lg:pt-20">
         {/* ===== HERO SECTION ===== */}
-        <SectionWrapper id="tts-hero" pt="pt-8 lg:pt-12" className="pb-16 lg:pb-32">
+        <SectionWrapper id="tts-hero" pt="pt-6 lg:pt-10" className="pb-12 lg:pb-20">
           <motion.div
             initial="hidden"
             animate="show"
@@ -156,7 +156,7 @@ export default function TapToShowerCollection() {
             <div className="lg:col-span-6">
               <motion.h1
                 variants={fadeUp}
-                className="font-heading text-5xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tight mb-8 text-text-main"
+                className="font-heading text-4xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 text-text-main"
               >
                 Turn a Cold Tap{" "}
                 into a <em className="text-accent">Hot</em> Shower.
@@ -207,7 +207,7 @@ export default function TapToShowerCollection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               <motion.div variants={fadeUp}><Overline withLine className="mb-6">The Concept</Overline></motion.div>
-              <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-6 text-text-main">
+              <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-6 text-text-main">
                 What is <em className="text-accent">Tap-to-Shower™</em>?
               </motion.h2>
               <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed mb-6">
@@ -229,7 +229,7 @@ export default function TapToShowerCollection() {
         <SectionWrapper id="features">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Facts</Overline></motion.div>
-            <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
+            <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight text-text-main">
               Five Things to <em className="text-accent">Know</em>
             </motion.h2>
           </motion.div>
@@ -257,7 +257,7 @@ export default function TapToShowerCollection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-5">
               <motion.div variants={fadeUp}><Overline withLine dark className="mb-6">Installation</Overline></motion.div>
-              <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-6 text-bg-main">
+              <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-6 text-bg-main">
                 How It <em className="text-accent">Works</em>
               </motion.h2>
               <motion.p variants={fadeUp} className="font-body text-lg text-bg-main/70 leading-relaxed mb-10">
@@ -287,7 +287,7 @@ export default function TapToShowerCollection() {
         <SectionWrapper id="who-its-for" className="bg-bg-feature border-y border-text-main/10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>For You</Overline></motion.div>
-            <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
+            <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight text-text-main">
               Who It&apos;s <em className="text-accent">For</em>
             </motion.h2>
           </motion.div>
@@ -371,7 +371,7 @@ export default function TapToShowerCollection() {
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-6">
               <motion.div variants={fadeUp}><Overline withLine className="mb-6">Trust Signals</Overline></motion.div>
-              <motion.h2 variants={fadeUp} className="font-heading text-4xl tracking-tight mb-10 text-text-main">
+              <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-8 text-text-main">
                 Why This <em className="text-accent">System</em>
               </motion.h2>
               <div className="space-y-8">
@@ -423,7 +423,7 @@ export default function TapToShowerCollection() {
         <SectionWrapper id="differentiator" className="border-t border-text-main/10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Difference</Overline></motion.div>
-            <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-8 text-text-main">
+            <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-8 text-text-main">
               Not Just a Heater. A Complete Shower <em className="text-accent">Solution.</em>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
@@ -437,7 +437,7 @@ export default function TapToShowerCollection() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-4xl mx-auto">
             <motion.div variants={fadeUp} className="text-center mb-16">
               <Overline withLine className="mb-6 justify-center">Support</Overline>
-              <h2 className="font-heading text-4xl lg:text-5xl tracking-tight text-text-main">
+              <h2 className="font-heading text-3xl lg:text-4xl tracking-tight text-text-main">
                 Frequently Asked <em className="text-accent">Questions</em>
               </h2>
             </motion.div>
@@ -466,7 +466,7 @@ export default function TapToShowerCollection() {
         <SectionWrapper id="suitability" className="border-t border-text-main/10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
             <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>Suitability</Overline></motion.div>
-            <motion.h2 variants={fadeUp} className="font-heading text-4xl lg:text-5xl tracking-tight mb-8 text-text-main">
+            <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-8 text-text-main">
               Before You Specify or <em className="text-accent">Install</em>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
@@ -477,7 +477,7 @@ export default function TapToShowerCollection() {
 
         {/* ===== 7. LEAD CAPTURE FORM ===== */}
         <section id="inquiry" className="bg-bg-alt border-t border-text-main/10">
-          <SectionWrapper pt="pt-24 lg:pt-32" pb="pb-24 lg:pb-32">
+          <SectionWrapper pt="pt-14 lg:pt-20" pb="pb-14 lg:pb-20">
             <div className="relative z-10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
               <motion.div
                 initial="hidden"
@@ -489,7 +489,7 @@ export default function TapToShowerCollection() {
                 <motion.div variants={fadeUp}>
                   <Overline withLine className="mb-6">Get In Touch</Overline>
                 </motion.div>
-                <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl lg:text-6xl text-text-main tracking-tight mb-8">
+                <motion.h2 variants={fadeUp} className="font-heading text-3xl md:text-4xl lg:text-5xl text-text-main tracking-tight mb-6">
                   Submit an <em className="text-accent">Enquiry</em>
                 </motion.h2>
                 <motion.p variants={fadeUp} className="font-body text-text-body text-lg mb-10 leading-relaxed">

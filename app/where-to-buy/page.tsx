@@ -29,8 +29,8 @@ export default function WhereToBuy() {
     <>
       <Navbar />
 
-      <main className="bg-bg-main min-h-screen pt-20 lg:pt-24">
-        <SectionWrapper pt="pt-16 lg:pt-24" pb="pb-24 lg:pb-40">
+      <main className="bg-bg-main min-h-screen pt-16 lg:pt-20">
+        <SectionWrapper pt="pt-12 lg:pt-16" pb="pb-16 lg:pb-24">
           <motion.div
             initial="hidden"
             animate="show"
@@ -45,7 +45,7 @@ export default function WhereToBuy() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-heading text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-8 text-text-main"
+              className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.9] tracking-tight mb-6 text-text-main"
             >
               Retail and Distribution <em className="text-accent">Availability</em>
             </motion.h1>

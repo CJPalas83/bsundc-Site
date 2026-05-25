@@ -49,15 +49,15 @@ export default function AboutPage() {
       <Navbar />
 
       {/* ===== HERO ===== */}
-      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[60vh] lg:min-h-[70vh]">
+      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[50vh] lg:min-h-[60vh]">
         {/* Decorative large text background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-          <span className="font-heading text-[20vw] lg:text-[16vw] font-bold tracking-tighter text-text-main/3 leading-none">
+          <span className="font-heading text-[16vw] lg:text-[12vw] font-bold tracking-tighter text-text-main/3 leading-none">
             BSC
           </span>
         </div>
 
-        <div className="mx-auto max-w-400 w-full px-6 md:px-16 pb-16 md:pb-24 pt-32 lg:pt-40">
+        <div className="mx-auto max-w-400 w-full px-6 md:px-16 pb-12 md:pb-16 pt-24 lg:pt-32">
           <motion.div
             initial="hidden"
             animate="show"
@@ -72,7 +72,7 @@ export default function AboutPage() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-text-main"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 text-text-main"
             >
               European Bathroom and Kitchen{" "}
               <em className="text-accent">Product Development</em>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             </motion.div>
             <motion.h2
               variants={fadeUp}
-              className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight text-text-main"
+              className="font-heading text-3xl md:text-4xl lg:text-5xl leading-[0.95] tracking-tight text-text-main"
             >
               About <em className="text-accent">BSC</em>
             </motion.h2>
@@ -192,7 +192,7 @@ export default function AboutPage() {
 
       {/* ===== COMPANY INFORMATION / FOUNDER ===== */}
       <section className="bg-bg-main border-b border-text-main/10">
-        <div className="mx-auto max-w-400 px-6 md:px-16 py-20 md:py-32">
+        <div className="mx-auto max-w-400 px-6 md:px-16 py-14 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
             {/* Right image — portrait */}
             <motion.div
@@ -242,7 +242,7 @@ export default function AboutPage() {
 
               <motion.h2
                 variants={fadeUp}
-                className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-10 text-text-main"
+                className="font-heading text-3xl md:text-4xl lg:text-5xl leading-[0.95] tracking-tight mb-8 text-text-main"
               >
                 Built on <em className="text-accent">Experience</em>
               </motion.h2>

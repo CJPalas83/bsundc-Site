@@ -16,12 +16,12 @@ export default function PrivacyPage() {
       <Navbar />
       <main className="bg-bg-main">
       {/* ===== HEADER ===== */}
-      <section className="border-b border-text-main/10 pt-32 lg:pt-40 pb-16">
+      <section className="border-b border-text-main/10 pt-24 lg:pt-32 pb-12">
         <div className="mx-auto max-w-[900px] px-6 md:px-16">
           <p className="font-body text-[10px] uppercase tracking-[0.3em] text-text-body/50 mb-6">
             Legal
           </p>
-          <h1 className="font-heading text-5xl md:text-7xl leading-[0.95] tracking-tight text-text-main mb-6">
+          <h1 className="font-heading text-4xl md:text-6xl leading-[0.95] tracking-tight text-text-main mb-6">
             Privacy <em className="text-accent">Policy</em>
           </h1>
           <p className="font-body text-sm text-text-body/60">
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
       </section>
 
       {/* ===== BODY ===== */}
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-[760px] px-6 md:px-16 space-y-10 font-body text-base text-text-body leading-relaxed">
 
           <div>

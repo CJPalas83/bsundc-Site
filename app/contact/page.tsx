@@ -96,15 +96,15 @@ export default function ContactPage() {
       <Navbar />
 
       {/* ===== HERO ===== */}
-      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[50vh] lg:min-h-[60vh]">
+      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[40vh] lg:min-h-[50vh]">
         {/* Decorative large text background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-          <span className="font-heading text-[18vw] lg:text-[14vw] font-normal tracking-tighter text-text-main/[0.03] leading-none">
+          <span className="font-heading text-[16vw] lg:text-[12vw] font-normal tracking-tighter text-text-main/[0.03] leading-none">
             CONTACT
           </span>
         </div>
 
-        <div className="mx-auto max-w-[1600px] w-full px-6 md:px-16 pb-16 md:pb-24 pt-32 lg:pt-40">
+        <div className="mx-auto max-w-[1600px] w-full px-6 md:px-16 pb-12 md:pb-16 pt-24 lg:pt-32">
           <motion.div
             initial="hidden"
             animate="show"
@@ -119,7 +119,7 @@ export default function ContactPage() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-text-main"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 text-text-main"
             >
               Let&apos;s{" "}
               <em className="text-accent">Talk</em>
@@ -143,7 +143,7 @@ export default function ContactPage() {
 
       {/* ===== FORM SECTION ===== */}
       <section className="bg-bg-alt border-t border-text-main/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-16 py-20 md:py-32">
+        <div className="mx-auto max-w-[1600px] px-6 md:px-16 py-14 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
             {/* Left — Sidebar info */}
             <motion.aside

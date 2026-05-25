@@ -71,7 +71,7 @@ export default function Navbar() {
           : "bg-bg-main/40 backdrop-blur-md border-b border-text-main/5"
       }`}
     >
-      <div className="mx-auto max-w-400 flex items-center justify-between px-6 md:px-16 h-16 md:h-20">
+      <div className="mx-auto max-w-400 flex items-center justify-between px-6 md:px-16 h-14 md:h-16">
         {/* Logo */}
         <Link
           href="/"
@@ -80,7 +80,7 @@ export default function Navbar() {
           <img
             src="/images/bsc-logo.png"
             alt="BSC"
-            className="h-10 md:h-12 w-auto object-contain"
+            className="h-8 md:h-10 w-auto object-contain"
           />
         </Link>
 
@@ -94,7 +94,7 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               {link.items ? (
-                <span className="flex items-center gap-1.5 font-body text-[13px] font-medium uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors duration-500 cursor-default select-none">
+                <span className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main hover:text-accent transition-colors duration-500 cursor-default select-none">
                   {link.label}
                   <ChevronDown
                     className={`w-3 h-3 transition-transform duration-500 ${activeDropdown === link.label ? "rotate-180" : ""}`}
@@ -103,7 +103,7 @@ export default function Navbar() {
               ) : (
                 <a
                   href={link.href}
-                  className="flex items-center gap-1.5 font-body text-[13px] font-medium uppercase tracking-[0.2em] text-text-main hover:text-accent transition-colors duration-500"
+                  className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main hover:text-accent transition-colors duration-500"
                 >
                   {link.label}
                 </a>

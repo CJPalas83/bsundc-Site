@@ -103,9 +103,9 @@ export default function ProductDetailPage() {
     <>
       <Navbar />
 
-      <main className="bg-bg-main min-h-screen pt-20 lg:pt-24">
+      <main className="bg-bg-main min-h-screen pt-16 lg:pt-20">
         {/* ===== HERO OVERVIEW ===== */}
-        <SectionWrapper id="product-hero" pt="pt-8 lg:pt-12" className="pb-16 lg:pb-24">
+        <SectionWrapper id="product-hero" pt="pt-6 lg:pt-10" className="pb-12 lg:pb-16">
           <motion.div
             initial="hidden"
             animate="show"
@@ -130,9 +130,9 @@ export default function ProductDetailPage() {
                 </Overline>
               </motion.div>
 
-              <motion.h1 
+              <motion.h1
                 variants={fadeUp}
-                className="font-heading text-5xl md:text-7xl tracking-tight mb-8 text-text-main"
+                className="font-heading text-4xl md:text-6xl tracking-tight mb-6 text-text-main"
               >
                 {product.name}
               </motion.h1>
@@ -222,7 +222,7 @@ export default function ProductDetailPage() {
 
         {/* ===== SPECIFICATIONS SECTION ===== */}
         <section className="bg-bg-feature">
-          <SectionWrapper id="specifications" pt="pt-24 lg:pt-36" pb="pb-24 lg:pb-36">
+          <SectionWrapper id="specifications" pt="pt-14 lg:pt-20" pb="pb-14 lg:pb-20">
             <motion.div
               initial="hidden"
               whileInView="show"
@@ -353,7 +353,7 @@ export default function ProductDetailPage() {
            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
               <div className="max-w-2xl">
                  <Overline withLine className="mb-6">Global Sales</Overline>
-                 <h2 className="font-heading text-4xl md:text-6xl text-text-main tracking-tight mb-4">
+                 <h2 className="font-heading text-3xl md:text-5xl text-text-main tracking-tight mb-4">
                     Request <em className="text-accent">Information</em>
                  </h2>
                  <p className="font-body text-text-body text-lg">

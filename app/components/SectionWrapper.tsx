@@ -17,11 +17,11 @@ interface SectionWrapperProps {
   rhythm?: Rhythm;
 }
 
-// Hero sky 120/80; primary 96/64; secondary 64/48 (top/bottom, desktop minimums per the brief).
+// Desktop-tightened rhythm (2026-05-25 recalibration). Mobile floors kept ample.
 const rhythmClasses: Record<Rhythm, { pt: string; pb: string }> = {
-  hero: { pt: "pt-20 md:pt-30", pb: "pb-16 md:pb-24" },
-  primary: { pt: "pt-16 md:pt-24", pb: "pb-16 md:pb-24" },
-  secondary: { pt: "pt-12 md:pt-16", pb: "pb-12 md:pb-16" },
+  hero: { pt: "pt-14 md:pt-20", pb: "pb-12 md:pb-16" },
+  primary: { pt: "pt-12 md:pt-18", pb: "pb-12 md:pb-18" },
+  secondary: { pt: "pt-10 md:pt-14", pb: "pb-10 md:pb-14" },
 };
 
 export default function SectionWrapper({
@@ -34,8 +34,8 @@ export default function SectionWrapper({
   pb,
   rhythm,
 }: SectionWrapperProps) {
-  const rhythmPt = rhythm ? rhythmClasses[rhythm].pt : pt || "pt-20 md:pt-32";
-  const rhythmPb = rhythm ? rhythmClasses[rhythm].pb : pb || "pb-20 md:pb-32";
+  const rhythmPt = rhythm ? rhythmClasses[rhythm].pt : pt || "pt-14 md:pt-20";
+  const rhythmPb = rhythm ? rhythmClasses[rhythm].pb : pb || "pb-14 md:pb-20";
   return (
     <motion.section
       id={id}

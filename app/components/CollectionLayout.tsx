@@ -135,20 +135,20 @@ export default function CollectionLayout({ config }: { config: CollectionConfig 
       <Navbar />
 
       {/* Hero */}
-      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[55vh] lg:min-h-[65vh]">
+      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[45vh] lg:min-h-[55vh]">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-          <span className="font-heading text-[18vw] lg:text-[14vw] font-bold tracking-tighter text-text-main/[0.03] leading-none">
+          <span className="font-heading text-[16vw] lg:text-[12vw] font-bold tracking-tighter text-text-main/[0.03] leading-none">
             {config.bgText}
           </span>
         </div>
-        <div className="mx-auto max-w-[1600px] w-full px-6 md:px-16 pb-16 md:pb-24 pt-32 lg:pt-40">
+        <div className="mx-auto max-w-[1600px] w-full px-6 md:px-16 pb-12 md:pb-16 pt-24 lg:pt-32">
           <motion.div initial="hidden" animate="show" variants={stagger} className="max-w-3xl">
             <motion.div variants={fadeUp}>
               <Overline withLine className="mb-6">Products Collection</Overline>
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-text-main"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 text-text-main"
             >
               {config.title}{" "}
               <em className="text-accent">{config.titleAccent}</em>
@@ -167,7 +167,7 @@ export default function CollectionLayout({ config }: { config: CollectionConfig 
       </section>
 
       {/* Section Nav */}
-      <nav className="sticky top-16 md:top-20 z-20 bg-bg-main/95 backdrop-blur-sm border-t border-b border-text-main/10">
+      <nav className="sticky top-14 md:top-16 z-20 bg-bg-main/95 backdrop-blur-sm border-t border-b border-text-main/10">
         <div className="mx-auto max-w-[1600px] px-6 md:px-16">
           <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-3 -mx-2">
             {config.sections.map((s) => (

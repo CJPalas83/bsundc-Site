@@ -211,7 +211,7 @@ export default function Home() {
       </SectionWrapper>
 
       {/* ===== 3. AUDIENCE PATHS — moved to last per pivot ===== */}
-      <section className="px-6 md:px-16 py-16 md:py-20 border-t border-text-main/10">
+      <section className="px-6 md:px-16 py-12 md:py-16 border-t border-text-main/10">
         <div className="mx-auto max-w-[1600px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             {/* Left — heading */}
