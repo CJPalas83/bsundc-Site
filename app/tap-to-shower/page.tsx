@@ -9,6 +9,7 @@ import SectionWrapper from "../components/SectionWrapper";
 import EditorialImage from "../components/EditorialImage";
 import Overline from "../components/Overline";
 import Button from "../components/Button";
+import TapToShowerNav from "./TapToShowerNav";
 
 /* ==============================
    ANIMATION VARIANTS
@@ -143,6 +144,7 @@ export default function TapToShowerCollection() {
   return (
     <>
       <Navbar />
+      <TapToShowerNav />
 
       <main className="bg-bg-main min-h-screen pt-16 lg:pt-20">
         {/* ===== HERO SECTION ===== */}
