@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronUp } from "lucide-react";
 
 /**
  * In-page section compass for the Tap-to-Shower page.
@@ -113,12 +113,12 @@ export default function TapToShowerNav() {
       {isVisible && (
         <motion.nav
           ref={widgetRef}
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 20 }}
+          exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           aria-label="Tap-to-Shower section navigation"
-          className="fixed z-20 right-4 bottom-6 md:right-8 md:bottom-auto md:top-1/2 md:-translate-y-1/2"
+          className="fixed z-20 left-4 bottom-6 md:left-8 md:bottom-8"
         >
           <AnimatePresence mode="wait" initial={false}>
             {!isOpen ? (
@@ -150,7 +150,7 @@ export default function TapToShowerNav() {
                     {activeLabel}
                   </motion.span>
                 </AnimatePresence>
-                <ChevronDown
+                <ChevronUp
                   className="w-3 h-3 text-text-body/60 group-hover:text-accent transition-colors duration-300 shrink-0"
                   aria-hidden="true"
                 />
