@@ -167,7 +167,7 @@ export default function CollectionLayout({ config }: { config: CollectionConfig 
       </section>
 
       {/* Section Nav */}
-      <nav className="sticky top-14 md:top-16 z-20 bg-bg-main/95 backdrop-blur-sm border-t border-b border-text-main/10">
+      <nav className="sticky top-[50px] md:top-[58px] z-20 bg-bg-main/95 backdrop-blur-sm border-t border-b border-text-main/10">
         <div className="mx-auto max-w-[1600px] px-6 md:px-16">
           <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-3 -mx-2">
             {config.sections.map((s) => (

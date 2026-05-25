@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import Navbar from "./Navbar";
@@ -34,6 +35,8 @@ const revealImage: Variants = {
 export interface BuyerPageProps {
   overline: string;
   h1: string;
+  /** Optional substring of h1 to wrap in the accent color. Must appear in h1. */
+  h1Accent?: string;
   bullets: string[];
   ctaLabel: string;
   ctaHref: string;
@@ -41,9 +44,23 @@ export interface BuyerPageProps {
   imageAlt?: string;
 }
 
+function renderH1(h1: string, accent?: string): React.ReactNode {
+  if (!accent) return h1;
+  const idx = h1.indexOf(accent);
+  if (idx === -1) return h1;
+  return (
+    <>
+      {h1.slice(0, idx)}
+      <em className="text-accent">{accent}</em>
+      {h1.slice(idx + accent.length)}
+    </>
+  );
+}
+
 export default function BuyerPageLayout({
   overline,
   h1,
+  h1Accent,
   bullets,
   ctaLabel,
   ctaHref,
@@ -73,7 +90,7 @@ export default function BuyerPageLayout({
                 variants={fadeUp}
                 className="font-heading text-3xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-8 text-text-main"
               >
-                {h1}
+                {renderH1(h1, h1Accent)}
               </motion.h1>
 
               <motion.ul variants={fadeUp} className="space-y-4 mb-10 measure-body">

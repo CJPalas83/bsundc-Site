@@ -214,9 +214,9 @@ export default function Home() {
       <section className="px-6 md:px-16 py-12 md:py-16 border-t border-text-main/10">
         <div className="mx-auto max-w-[1600px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            {/* Left — heading */}
+            {/* Left — heading (sticky on desktop) */}
             <motion.div
-              className="lg:col-span-4"
+              className="lg:col-span-4 lg:sticky lg:top-24 lg:self-start"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}

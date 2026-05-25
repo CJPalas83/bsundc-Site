@@ -12,6 +12,7 @@ export default function DevelopersPage() {
     <BuyerPageLayout
       overline="For Developers & Builders"
       h1="Project-ready at turnover. Owner can upgrade later."
+      h1Accent="upgrade"
       bullets={[
         "Single-line bathroom compatibility — no floor plan redesign or concealed plumbing rework",
         "Standardised upgrade package across units; consistent cost and installation logic",

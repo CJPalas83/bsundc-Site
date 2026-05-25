@@ -12,6 +12,7 @@ export default function RetailersPage() {
     <BuyerPageLayout
       overline="For Retailers & Distributors"
       h1="Add a hot & cold shower upgrade to your range."
+      h1Accent="range"
       bullets={[
         "Ready retail package — tap only, connection set, or complete kit with heater",
         "Shelf-ready with clear value-for-money story; no staff training required",

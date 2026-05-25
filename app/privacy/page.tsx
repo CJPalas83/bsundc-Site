@@ -25,7 +25,7 @@ export default function PrivacyPage() {
             Privacy <em className="text-accent">Policy</em>
           </h1>
           <p className="font-body text-sm text-text-body/60">
-            Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            Last updated: May 25, 2026
           </p>
         </div>
       </section>

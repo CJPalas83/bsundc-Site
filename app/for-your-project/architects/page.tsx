@@ -12,6 +12,7 @@ export default function ArchitectsPage() {
     <BuyerPageLayout
       overline="For Architects & Specifiers"
       h1="A smart specification choice for single-line supply."
+      h1Accent="supply"
       bullets={[
         "Retrofit-compatible shower system for single-line bathroom layouts",
         "Neat visible PEX tube routing — no concealed pipe requirement, no wall opening",

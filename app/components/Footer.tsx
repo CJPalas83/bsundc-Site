@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const footerLinks = [
   { label: "About", href: "/about" },
@@ -11,6 +11,14 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  // Year is initialized to a fixed fallback so SSR and the client's first
+  // render match; useEffect then updates to the actual current year after
+  // mount. Avoids the hydration mismatch from inline new Date().getFullYear().
+  const [year, setYear] = useState(2026);
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="bg-text-main text-bg-main border-t border-bg-main/10">
       <div className="mx-auto max-w-[1600px] px-6 md:px-16 py-12 md:py-16">
@@ -53,7 +61,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-bg-main/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="font-body text-[10px] text-bg-main/30 tracking-wider">
-            © {new Date().getFullYear()} BSC. All rights reserved.
+            © {year} BSC. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link

@@ -12,6 +12,7 @@ export default function ConsumersPage() {
     <BuyerPageLayout
       overline="For Homeowners"
       h1="Hot and cold shower comfort without a full bathroom renovation."
+      h1Accent="renovation"
       bullets={[
         "Connects to your existing single cold-water outlet — no major plumbing changes",
         "Hot and cold water controlled at the tap; set the heater once, adjust comfort daily",

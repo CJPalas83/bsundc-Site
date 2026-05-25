@@ -71,7 +71,7 @@ export default function Navbar() {
           : "bg-bg-main/40 backdrop-blur-md border-b border-text-main/5"
       }`}
     >
-      <div className="mx-auto max-w-400 flex items-center justify-between px-6 md:px-16 h-14 md:h-16">
+      <div className="mx-auto max-w-400 flex items-center justify-between px-6 md:px-16 h-[50px] md:h-[58px]">
         {/* Logo */}
         <Link
           href="/"
