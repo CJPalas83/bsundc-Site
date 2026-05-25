@@ -49,7 +49,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* ===== HERO ===== */}
-      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[50vh] lg:min-h-[60vh]">
+      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[50vh]">
         {/* Decorative large text background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
           <span className="font-heading text-[16vw] lg:text-[12vw] font-bold tracking-tighter text-text-main/3 leading-none">
@@ -74,10 +74,9 @@ export default function AboutPage() {
               variants={fadeUp}
               className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 text-text-main"
             >
-              European Bathroom and Kitchen{" "}
-              <em className="text-accent">Product Development</em>
+              Engineered in Europe.
               <br />
-              for Southeast Asian <em className="text-accent">Markets</em>
+              Built for <em className="text-accent">Southeast Asia</em>.
             </motion.h1>
 
             <motion.p
