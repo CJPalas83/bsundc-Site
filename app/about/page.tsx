@@ -49,7 +49,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* ===== HERO ===== */}
-      <section className="relative flex items-end bg-bg-main overflow-hidden min-h-[50vh]">
+      <section className="relative flex items-end bg-bg-main overflow-hidden">
         {/* Decorative large text background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
           <span className="font-heading text-[16vw] lg:text-[12vw] font-bold tracking-tighter text-text-main/3 leading-none">
@@ -57,7 +57,7 @@ export default function AboutPage() {
           </span>
         </div>
 
-        <div className="mx-auto max-w-400 w-full px-6 md:px-16 pb-12 md:pb-16 pt-24 lg:pt-32">
+        <div className="mx-auto max-w-400 w-full px-6 md:px-16 pb-10 md:pb-12 pt-20 lg:pt-24">
           <motion.div
             initial="hidden"
             animate="show"
