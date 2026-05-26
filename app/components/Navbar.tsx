@@ -165,7 +165,7 @@ export default function Navbar() {
       >
         <div className="px-6 py-8 flex flex-col gap-6">
           {navLinks.map((link) => (
-            <div key={link.label} className="flex flex-col gap-4">
+            <div key={link.label} className="flex flex-col">
               <div className="flex items-center justify-between">
                 {link.items ? (
                   <button
@@ -199,6 +199,7 @@ export default function Navbar() {
                   animate={{
                     height: mobileExpanded === link.label ? "auto" : 0,
                     opacity: mobileExpanded === link.label ? 1 : 0,
+                    marginTop: mobileExpanded === link.label ? 16 : 0,
                     marginBottom: mobileExpanded === link.label ? 8 : 0,
                   }}
                   className="overflow-hidden flex flex-col gap-3 pl-4 border-l border-text-main/5"
