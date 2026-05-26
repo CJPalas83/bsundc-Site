@@ -92,7 +92,7 @@ function ProductCard({
     <motion.article variants={fadeUp}>
       <Link
         href={`/collections/${collectionSlug}/${encodeURIComponent(product.code)}`}
-        className="group block bg-bg-main border border-text-main/5 shadow-[0_1px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+        className="group block bg-bg-main border border-text-main/5 shadow-[0_1px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-200 overflow-hidden"
       >
         {/* Product Image */}
         <div className="relative aspect-square bg-bg-feature border-b border-text-main/5 flex flex-col items-center justify-center gap-2 overflow-hidden">
@@ -101,11 +101,11 @@ function ProductCard({
               src={product.image}
               alt={product.name}
               fill
-              className="object-contain  group-hover:scale-105 transition-transform duration-700"
+              className="object-contain group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
             <>
-              <div className="w-9 h-9 rounded-full bg-text-main/5 flex items-center justify-center text-text-body/30 group-hover:text-accent/50 transition-colors duration-500">
+              <div className="w-9 h-9 rounded-full bg-text-main/5 flex items-center justify-center text-text-body/30 group-hover:text-accent/50 transition-colors duration-200">
                 {imgIcon}
               </div>
               <span className="font-body text-[8px] uppercase tracking-[0.2em] text-text-body/30">

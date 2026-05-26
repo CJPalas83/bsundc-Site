@@ -37,7 +37,7 @@ export default function CollectionCard({
         src={image}
         alt={title}
         aspect="4/5"
-        className="mb-6 shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-shadow duration-700 group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
+        className="mb-6 shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-shadow duration-300 group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
       />
 
       {/* Content */}
@@ -45,7 +45,7 @@ export default function CollectionCard({
         {overline}
       </Overline>
 
-      <h3 className="font-heading text-xl md:text-2xl text-text-main mb-2 transition-colors duration-500 group-hover:text-accent">
+      <h3 className="font-heading text-xl md:text-2xl text-text-main mb-2 transition-colors duration-200 group-hover:text-accent">
         {title}
       </h3>
 

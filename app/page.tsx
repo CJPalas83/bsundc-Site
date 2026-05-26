@@ -138,7 +138,7 @@ export default function Home() {
             <motion.div key={c.href} variants={fadeUp}>
               <Link
                 href={c.href}
-                className="group block bg-bg-main border border-text-main/10 overflow-hidden hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-shadow duration-500"
+                className="group block bg-bg-main border border-text-main/10 overflow-hidden hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-shadow duration-200"
               >
                 <div className="relative aspect-square overflow-hidden bg-bg-feature">
                   <Image
@@ -146,7 +146,7 @@ export default function Home() {
                     alt={c.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="p-5 md:p-6">

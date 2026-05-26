@@ -49,7 +49,7 @@ export default function Footer() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="font-body text-xs font-medium uppercase tracking-[0.2em] text-bg-main/80 hover:text-accent transition-colors duration-500"
+                  className="font-body text-xs font-medium uppercase tracking-[0.2em] text-bg-main/80 hover:text-accent transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
@@ -66,7 +66,7 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="mailto:info@bsundc.com"
-              className="font-body text-[10px] text-bg-main/30 hover:text-accent transition-colors duration-500 tracking-wider"
+              className="font-body text-[10px] text-bg-main/30 hover:text-accent transition-colors duration-200 tracking-wider"
             >
               info@bsundc.com
             </Link>

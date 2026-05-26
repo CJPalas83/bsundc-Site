@@ -7,10 +7,6 @@ import { ChevronDown } from "lucide-react";
 
 const navLinks = [
   {
-    label: "Home",
-    href: "/",
-  },
-  {
     label: "For Your Project",
     href: "/for-your-project/retailers",
     items: [
@@ -94,16 +90,16 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               {link.items ? (
-                <span className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main hover:text-accent transition-colors duration-500 cursor-default select-none">
+                <span className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main hover:text-accent transition-colors duration-200 cursor-default select-none">
                   {link.label}
                   <ChevronDown
-                    className={`w-3 h-3 transition-transform duration-500 ${activeDropdown === link.label ? "rotate-180" : ""}`}
+                    className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.label ? "rotate-180" : ""}`}
                   />
                 </span>
               ) : (
                 <a
                   href={link.href}
-                  className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main hover:text-accent transition-colors duration-500"
+                  className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main hover:text-accent transition-colors duration-200"
                 >
                   {link.label}
                 </a>
@@ -145,12 +141,12 @@ export default function Navbar() {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
           <span
-            className={`block h-px bg-text-main transition-all duration-500 ${
+            className={`block h-px bg-text-main transition-all duration-300 ${
               menuOpen ? "w-5 rotate-45 translate-y-[3px]" : "w-5"
             }`}
           />
           <span
-            className={`block h-px bg-text-main transition-all duration-500 ${
+            className={`block h-px bg-text-main transition-all duration-300 ${
               menuOpen ? "w-5 -rotate-45 -translate-y-[3px]" : "w-4"
             }`}
           />
@@ -178,18 +174,18 @@ export default function Navbar() {
                         mobileExpanded === link.label ? null : link.label,
                       )
                     }
-                    className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-text-main transition-colors duration-500 flex items-center gap-2"
+                    className="font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main transition-colors duration-200 flex items-center gap-2"
                   >
                     {link.label}
                     <ChevronDown
-                      className={`w-4 h-4 text-text-main/40 transition-transform duration-500 ${mobileExpanded === link.label ? "rotate-180" : ""}`}
+                      className={`w-4 h-4 text-text-main/40 transition-transform duration-300 ${mobileExpanded === link.label ? "rotate-180" : ""}`}
                     />
                   </button>
                 ) : (
                   <a
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-text-main transition-colors duration-500"
+                    className="font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main transition-colors duration-200"
                   >
                     {link.label}
                   </a>

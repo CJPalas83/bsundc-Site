@@ -40,7 +40,7 @@ const SpecificationGrid = ({ groups }: { groups: SpecGroup[] }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
     {groups.map((group) => (
       <motion.div key={group.title} variants={fadeUp} className="group">
-        <h3 className="font-heading text-xl mb-6 pb-4 border-b border-text-main/10 group-hover:border-accent transition-colors duration-500 text-text-main">
+        <h3 className="font-heading text-xl mb-6 pb-4 border-b border-text-main/10 group-hover:border-accent transition-colors duration-200 text-text-main">
           {group.title}
         </h3>
         <ul className="space-y-4">
@@ -64,7 +64,7 @@ const VerticalSpecificationList = ({ groups }: { groups: SpecGroup[] }) => (
   <div className="space-y-16">
     {groups.map((group) => (
       <motion.div key={group.title} variants={fadeUp} className="group">
-        <h3 className="font-heading text-2xl mb-8 pb-4 border-b border-text-main/10 group-hover:border-accent transition-colors duration-500 text-text-main">
+        <h3 className="font-heading text-2xl mb-8 pb-4 border-b border-text-main/10 group-hover:border-accent transition-colors duration-200 text-text-main">
           {group.title}
         </h3>
         <ul className="space-y-5">
@@ -195,7 +195,7 @@ export default function ProductDetailPage() {
                       <button
                         key={variant.name}
                         onClick={() => setActiveVariant(index)}
-                        className={`px-8 py-3 rounded-full font-body text-xs uppercase tracking-widest transition-all duration-500 ${
+                        className={`px-8 py-3 rounded-full font-body text-xs uppercase tracking-widest transition-all duration-200 ${
                           activeVariant === index 
                             ? "bg-text-main text-bg-main shadow-lg" 
                             : "text-text-main/60 hover:text-text-main"

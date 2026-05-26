@@ -207,11 +207,11 @@ export default function AboutPage() {
                   alt="Bastian Schaefer — Founder of BSC"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover grayscale transition-all duration-1500 ease-out group-hover:grayscale-0 group-hover:scale-105"
+                  className="object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:scale-105"
                 />
                 {/* Inner border */}
                 <div
-                  className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)] transition-shadow duration-700 group-hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)]"
+                  className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)] transition-shadow duration-300 group-hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)]"
                   aria-hidden="true"
                 />
               </div>
@@ -285,7 +285,7 @@ export default function AboutPage() {
                   {brands.map((brand) => (
                     <span
                       key={brand}
-                      className="font-heading text-xl md:text-2xl tracking-tight text-text-main/20 hover:text-text-main/60 transition-colors duration-500"
+                      className="font-heading text-xl md:text-2xl tracking-tight text-text-main/20 hover:text-text-main/60 transition-colors duration-200"
                     >
                       {brand}
                     </span>

@@ -200,7 +200,7 @@ export default function CollectionCarousel() {
                     src={item.image}
                     alt={item.title}
                     aspect="4/5"
-                    className="shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-shadow duration-700 group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
+                    className="shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-shadow duration-300 group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
                   />
                 </div>
 
@@ -209,7 +209,7 @@ export default function CollectionCarousel() {
                   {item.overline}
                 </Overline>
 
-                <h3 className="font-heading text-lg md:text-xl text-text-main mb-1.5 transition-colors duration-500 group-hover:text-accent">
+                <h3 className="font-heading text-lg md:text-xl text-text-main mb-1.5 transition-colors duration-200 group-hover:text-accent">
                   {item.title}
                 </h3>
 

@@ -23,13 +23,13 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-8 py-3 bg-text-main text-bg-main font-body text-xs uppercase tracking-[0.2em] hover:bg-accent transition-colors duration-500"
+            className="inline-flex items-center justify-center px-8 py-3 bg-text-main text-bg-main font-body text-xs uppercase tracking-[0.2em] hover:bg-accent transition-colors duration-200"
           >
             Return Home
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3 border border-text-main/20 text-text-main font-body text-xs uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors duration-500"
+            className="inline-flex items-center justify-center px-8 py-3 border border-text-main/20 text-text-main font-body text-xs uppercase tracking-[0.2em] hover:border-accent hover:text-accent transition-colors duration-200"
           >
             Contact Us
           </Link>

@@ -36,11 +36,11 @@ export default function EditorialImage({
         fill
         priority={priority}
         sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover grayscale transition-all duration-[1500ms] ease-out group-hover:grayscale-0 group-hover:scale-105"
+        className="object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:scale-105"
       />
       {/* Inner border */}
       <div
-        className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)] transition-shadow duration-700 group-hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)]"
+        className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)] transition-shadow duration-300 group-hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)]"
         aria-hidden="true"
       />
     </div>

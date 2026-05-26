@@ -113,7 +113,7 @@ export default function ProductDetailPage() {
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-contain group-hover:scale-105 transition-transform duration-500"
+                  className="object-contain group-hover:scale-105 transition-transform duration-300"
                   priority
                 />
               ) : (
