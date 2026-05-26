@@ -214,9 +214,9 @@ function WhoWeServeMobile() {
   return (
     <section
       ref={ref}
-      className="md:hidden relative h-[250vh] border-t border-text-main/10 bg-bg-main"
+      className="md:hidden relative h-[200vh] border-t border-text-main/10 bg-bg-main"
     >
-      <div className="sticky top-[50px] h-[calc(100vh-50px)] flex flex-col">
+      <div className="sticky top-[50px] flex flex-col">
         {/* Heading */}
         <div className="px-6 pt-5 pb-3">
           <Overline withLine className="mb-3">Find Your Path</Overline>
@@ -226,13 +226,13 @@ function WhoWeServeMobile() {
         </div>
 
         {/* Track */}
-        <div className="flex-1 overflow-hidden">
-          <motion.div className="flex h-full" style={{ x }}>
+        <div className="overflow-hidden">
+          <motion.div className="flex" style={{ x }}>
             {buyerTiles.map((t) => (
               <div key={t.href} className="w-screen shrink-0 px-6 pb-5">
                 <Link
                   href={t.href}
-                  className="block h-full bg-bg-main border border-text-main/15 hover:border-accent/50 transition-all duration-200 p-5 flex flex-col"
+                  className="block bg-bg-main border border-text-main/15 hover:border-accent/50 transition-all duration-200 p-5"
                 >
                   <div className="flex items-baseline justify-between mb-2 gap-3">
                     <h3 className="font-heading text-lg text-text-main">
@@ -245,7 +245,7 @@ function WhoWeServeMobile() {
                   <p className="font-body text-sm text-text-body italic mb-3">
                     {t.tagline}
                   </p>
-                  <p className="font-body text-xs text-text-body/70 mb-4 flex-1">
+                  <p className="font-body text-xs text-text-body/70 mb-4">
                     {t.body}
                   </p>
                   <span className="inline-flex items-center gap-2 font-body text-xs font-medium uppercase tracking-[0.2em] text-accent">
