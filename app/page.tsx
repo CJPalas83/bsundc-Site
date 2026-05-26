@@ -108,7 +108,7 @@ function CollectionsMobile() {
       ref={ref}
       className="md:hidden relative h-[200vh] bg-bg-feature border-t border-text-main/10"
     >
-      <div className="sticky top-[50px] h-[50vh] flex flex-col">
+      <div className="sticky top-[50px] h-[calc(100vh-50px)] flex flex-col">
         {/* Heading */}
         <div className="px-6 pt-5 pb-3">
           <Overline withLine className="mb-3">Product Lines</Overline>
@@ -216,7 +216,7 @@ function WhoWeServeMobile() {
       ref={ref}
       className="md:hidden relative h-[250vh] border-t border-text-main/10 bg-bg-main"
     >
-      <div className="sticky top-[50px] h-[50vh] flex flex-col">
+      <div className="sticky top-[50px] h-[calc(100vh-50px)] flex flex-col">
         {/* Heading */}
         <div className="px-6 pt-5 pb-3">
           <Overline withLine className="mb-3">Find Your Path</Overline>
