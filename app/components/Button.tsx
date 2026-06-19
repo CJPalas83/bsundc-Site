@@ -2,6 +2,7 @@
 
 import { twMerge } from "tailwind-merge";
 import { clsx, type ClassValue } from "clsx";
+import { trackEvent } from "../../lib/analytics";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -19,6 +20,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   inverse?: boolean;
   /** Append an arrow icon after children */
   withArrow?: boolean;
+  /** Analytics tracking event payload */
+  trackingEvent?: { name: string; properties?: Record<string, string | number | boolean | null> };
   children: React.ReactNode;
 }
 
@@ -34,12 +37,22 @@ export default function Button({
   onDark = false,
   inverse = false,
   withArrow = false,
+  trackingEvent,
   children,
   className = "",
   ...props
 }: ButtonProps) {
   // Consolidate: onDark takes precedence, inverse is legacy alias
   const dark = onDark || inverse;
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (trackingEvent) {
+      trackEvent(trackingEvent.name, trackingEvent.properties);
+    }
+    if (props.onClick) {
+      props.onClick(e);
+    }
+  };
 
   const baseClasses =
     "relative inline-flex items-center justify-center font-body font-medium uppercase tracking-[0.2em] transition-all duration-200 ease-out cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-text-main disabled:opacity-50 disabled:pointer-events-none";
@@ -69,6 +82,7 @@ export default function Button({
           className
         )}
         {...props}
+        onClick={handleClick}
       >
         {children}
         {arrowIcon}
@@ -88,6 +102,7 @@ export default function Button({
           className
         )}
         {...props}
+        onClick={handleClick}
       >
         {children}
         {arrowIcon}
@@ -106,6 +121,7 @@ export default function Button({
         className
       )}
       {...props}
+      onClick={handleClick}
     >
       {/* Accent overlay slides from left */}
       <span

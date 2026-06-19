@@ -24,15 +24,13 @@ interface SectionDef {
 }
 
 const sections: SectionDef[] = [
+  { id: "problem", label: "The Challenge" },
   { id: "what-is-tts", label: "The Concept" },
-  { id: "features", label: "The Facts" },
+  { id: "more-than-heater", label: "The Difference" },
   { id: "how-it-works", label: "How It Works" },
   { id: "who-its-for", label: "Who It's For" },
-  { id: "why-this-system", label: "Why This System" },
-  { id: "install-gallery", label: "Gallery" },
-  { id: "differentiator", label: "The Difference" },
+  { id: "features", label: "What to Know" },
   { id: "faq", label: "FAQ" },
-  { id: "suitability", label: "Suitability" },
   { id: "inquiry", label: "Enquiry" },
 ];
 

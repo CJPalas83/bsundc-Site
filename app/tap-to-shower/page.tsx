@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { ChevronDown, Clock, ShieldCheck, Wrench, Layers, Palette, ArrowRight, CheckCircle2 } from "lucide-react";
 import Navbar from "../components/Navbar";
@@ -10,6 +11,9 @@ import EditorialImage from "../components/EditorialImage";
 import Overline from "../components/Overline";
 import Button from "../components/Button";
 import TapToShowerNav from "./TapToShowerNav";
+import { trackEvent } from "../lib/analytics";
+import Card from "../components/Card";
+import Heading from "../components/Heading";
 
 /* ==============================
    ANIMATION VARIANTS
@@ -109,9 +113,11 @@ export default function TapToShowerCollection() {
       retail: "retailer",
       developer: "developer",
       architect: "architect",
+      consumer: "consumer",
     };
-    setBuyerType(typeMap[type] || "");
-    setShowCompany(true);
+    const mapped = typeMap[type] || "";
+    setBuyerType(mapped);
+    setShowCompany(mapped !== "consumer");
     document.getElementById("inquiry")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -136,6 +142,7 @@ export default function TapToShowerCollection() {
       });
       if (!res.ok) throw new Error();
       setInquiryStatus("success");
+      trackEvent("form_submit", { type: buyerType || "general", page: "tap-to-shower" });
     } catch {
       setInquiryStatus("error");
     }
@@ -156,34 +163,35 @@ export default function TapToShowerCollection() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
           >
             <div className="lg:col-span-6">
-              <motion.h1
-                variants={fadeUp}
-                className="font-heading text-3xl md:text-5xl lg:text-6xl leading-[0.9] tracking-tight mb-6 text-text-main"
+              <Heading
+                level="h1"
+                className="leading-[0.95] tracking-tight mb-6"
               >
-                Turn a Cold Tap{" "}
-                into a <span className="text-accent">Real</span> Shower.
-              </motion.h1>
+                The Hot &amp; Cold Shower Experience. <span className="text-accent">Without</span> the Bathroom Renovation.
+              </Heading>
 
               <motion.p
                 variants={fadeUp}
                 className="font-body text-lg md:text-xl text-text-body leading-relaxed max-w-lg mb-3"
               >
-                Retrofit any single-line bathroom in 30 to 45 minutes — no concealed plumbing, no wall work.
+                Upgrade your bathroom with complete temperature control and high-flow overhead performance — directly from your existing cold-water line.
               </motion.p>
 
               <motion.p
                 variants={fadeUp}
                 className="font-body text-sm text-text-body/60 mb-10"
               >
-                Engineered in Germany and Denmark. Available across Southeast Asia.
+                European know-how. Available across Southeast Asia.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-                <a href="#inquiry" className="w-full sm:w-auto">
-                  <Button variant="primary" className="w-full">Request Product Information</Button>
-                </a>
-                {/* [CJ] — Changed from "Watch How It Works": no video exists at destination,
-                     label was a broken promise. "How It Works" matches the section accurately. */}
+                <Button 
+                  variant="primary" 
+                  className="w-full sm:w-auto"
+                  onClick={() => scrollToInquiry("general")}
+                >
+                  Request Product Information
+                </Button>
                 <a href="#how-it-works" className="w-full sm:w-auto">
                   <Button variant="secondary" className="w-full">How It Works</Button>
                 </a>
@@ -204,73 +212,100 @@ export default function TapToShowerCollection() {
           </motion.div>
         </SectionWrapper>
 
-        {/* ===== 1. WHAT IS TTS ===== */}
-        <SectionWrapper id="what-is-tts" rhythm="secondary" className="bg-bg-alt border-t border-text-main/10">
+        {/* ===== PROBLEM SECTION ===== */}
+        <SectionWrapper id="problem" rhythm="secondary" className="bg-bg-alt border-t border-text-main/10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
-              <motion.div variants={fadeUp}><Overline withLine className="mb-6">The Concept</Overline></motion.div>
-              <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-6 text-text-main">
-                What is <em className="text-accent">Tap-to-Shower™</em>?
-              </motion.h2>
+              <motion.div variants={fadeUp}><Overline withLine className="mb-6">The Challenge</Overline></motion.div>
+              <Heading level="h2" className="mb-6">
+                The Single-Line Bathroom <span className="text-accent">Problem</span>
+              </Heading>
               <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed mb-6">
-                Most Philippine bathrooms have a single cold-water line. Upgrading to a hot and cold shower has traditionally meant breaking tiles, rerouting pipes, and weeks of renovation.
+                Most bathrooms in the region start with a single cold-water outlet. Upgrading to a hot and cold shower traditionally requires breaking open tiled walls, rerouting concealed pipes, and weeks of messy, expensive renovations.
               </motion.p>
-              {/* [CJ] — ™ dropped on second mention per house style:
-                   ™ on first mention per section only (first mention is the H2 above). */}
               <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
-                Tap-to-Shower is a retrofit system. An external PEX line and a specialised connection kit convert a single cold-water line into a hot and cold shower without concealing new plumbing behind walls. Hot and cold water mixed and controlled at the tap.
+                For developers, builders, and homeowners alike, upgrading single-line layouts has been an all-or-nothing plumbing project. Until now.
               </motion.p>
             </motion.div>
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="relative aspect-square bg-bg-alt">
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="relative aspect-[4/3] bg-bg-alt overflow-hidden">
+              <EditorialImage src="/images/webp_1920/tts-chrome-mattblack-1.webp" alt="Single-line bathroom plumbing challenge illustration" aspect="16/9" className="object-cover w-full h-full" />
+            </motion.div>
+          </div>
+        </SectionWrapper>
+
+        {/* ===== CONCEPT SECTION ===== */}
+        <SectionWrapper id="what-is-tts" rhythm="secondary" className="border-t border-text-main/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:order-2">
+              <motion.div variants={fadeUp}><Overline withLine className="mb-6">The Concept</Overline></motion.div>
+              <Heading level="h2" className="mb-6">
+                Introducing <span className="text-accent">Tap-to-Shower™</span>
+              </Heading>
+              <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed mb-6">
+                Tap-to-Shower mixes hot and cold water and controls flow directly at the tap point. It connects to a single-point instant water heater via a neat, surface-mounted PEX connection set.
+              </motion.p>
+              <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
+                You get the convenience of a modern overhead rain shower and hand shower combo with complete temperature mixing, while leaving your tiled walls completely intact.
+              </motion.p>
+            </motion.div>
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="relative aspect-square bg-bg-alt lg:order-1">
               <EditorialImage src="/images/webp_cutouts/tts-connection-set.webp" alt="Tap-to-Shower connection set — PEX tube, push connectors, and brackets" aspect="1/1" className="object-contain p-12" />
             </motion.div>
           </div>
         </SectionWrapper>
 
-        {/* ===== 2. THE FACTS ===== */}
-        <SectionWrapper id="features" rhythm="secondary">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
-            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Facts</Overline></motion.div>
-            <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight text-text-main">
-              Five Things to <em className="text-accent">Know</em>
-            </motion.h2>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              { icon: Clock, title: "30–45 Min Install" },
-              { icon: ShieldCheck, title: "3-Year Limited Warranty" },
-              { icon: Layers, title: "CB Certified Heater*" },
-              { icon: Wrench, title: "Single-Line PEX Retrofit" },
-              { icon: Palette, title: "Chrome · Black · Brushed SS" }
-            ].map((feat, i) => (
-              <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="bg-bg-alt p-8 border border-text-main/5 hover:border-accent/20 transition-colors duration-200 text-center">
-                <feat.icon className="w-7 h-7 text-accent mb-4 mx-auto" strokeWidth={1.5} />
-                <h3 className="font-heading text-base text-text-main">{feat.title}</h3>
+        {/* ===== DIFFERENTIATOR SECTION ===== */}
+        <SectionWrapper id="more-than-heater" rhythm="secondary" className="bg-bg-feature border-t border-text-main/10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-5">
+              <motion.div variants={fadeUp}><Overline withLine className="mb-6">The Difference</Overline></motion.div>
+              <Heading level="h2" className="mb-6">
+                More Than a Heater with a Hand <span className="text-accent">Shower</span>
+              </Heading>
+              <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed mb-8">
+                A basic instant water heater typically provides only a single hand shower outlet and requires adjustments directly on the heater unit. Tap-to-Shower replaces that basic interface with a premium, fully integrated system.
+              </motion.p>
+              <motion.div variants={revealImage} className="relative overflow-hidden w-full aspect-[4/5] rounded-sm">
+                <EditorialImage src="/images/webp_1200/tts-matt-black.webp" alt="Tap-to-Shower in Matt Black — full installed shower column" aspect="4/5" className="object-cover" />
               </motion.div>
-            ))}
+            </motion.div>
+
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-7 space-y-8 lg:pt-24">
+              {[
+                { title: "Tap Control & Temperature Mixing", desc: "Set the water heater operating temperature once at installation. Adjust daily comfort and mix hot/cold water directly at the single-lever tap point." },
+                { title: "Overhead Rain & Hand Shower", desc: "A premium column rail carrying both a generous overhead rain shower and a flexible hand shower outlet, easily switchable." },
+                { title: "Clean Surface Routing", desc: "Specially designed brackets route PEX tubing flush to the wall, creating a clean, professional, and secure visual result." },
+                { title: "Complete Integrated Package", desc: "A single SKU delivers the column, valve, connection set, and optional compatible high-performance instant heater." }
+              ].map((item, i) => (
+                <motion.div key={i} variants={fadeUp} className="flex gap-5">
+                  <CheckCircle2 className="w-6 h-6 text-accent shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-body font-medium text-text-main text-lg mb-2">{item.title}</h4>
+                    <p className="font-body text-text-body leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-          <p className="font-body text-[10px] text-text-body/50 text-center mt-6">
-            * Compatible instant water heater models may be supplied with CB certification according to IEC 60335-2-35, subject to model and market.
-          </p>
         </SectionWrapper>
 
-        {/* ===== 3. HOW IT WORKS ===== */}
+        {/* ===== HOW IT WORKS ===== */}
         <SectionWrapper id="how-it-works" rhythm="secondary" className="bg-text-main text-bg-main" dark>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-16">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-5">
               <motion.div variants={fadeUp}><Overline withLine dark className="mb-6">Installation</Overline></motion.div>
-              <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-6 text-bg-main">
-                How It <em className="text-accent">Works</em>
-              </motion.h2>
+              <Heading level="h2" className="mb-6 text-bg-main">
+                How It <span className="text-accent">Works</span>
+              </Heading>
               <motion.p variants={fadeUp} className="font-body text-lg text-bg-main/70 leading-relaxed mb-10">
-                The PEX retrofit connection set is designed for professional installation in 30 to 45 minutes. No concealed plumbing required.
+                The PEX retrofit connection set is designed for professional installation with no concealed plumbing or wall opening required.
               </motion.p>
               <div className="space-y-8">
                 {[
                   "The Tap-to-Shower™ column mounts to the existing G½″ cold-water outlet.",
                   "The instant water heater installs wall-hung, with a 6m cuttable PEX tube run to the column.",
                   "Push connectors and a safety valve complete the connection.",
-                  "The retrofit is complete. Hot and cold water at the tap."
+                  "The retrofit is complete. Hot and cold water mixed at the tap."
                 ].map((step, i) => (
                   <motion.div key={i} variants={fadeUp} className="flex gap-6 items-start">
                     <span className="font-heading text-3xl text-accent leading-none">0{i + 1}</span>
@@ -283,125 +318,10 @@ export default function TapToShowerCollection() {
               <EditorialImage src="/images/webp_1200/tts-kit.webp" alt="Tap-to-Shower kit — tap, connection set, and water heater laid out together" aspect="1/1" className="opacity-90 rounded-sm" />
             </motion.div>
           </div>
-        </SectionWrapper>
 
-        {/* ===== 4. WHO IT'S FOR ===== */}
-        <SectionWrapper id="who-its-for" rhythm="secondary" className="bg-bg-feature border-y border-text-main/10">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
-            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>For You</Overline></motion.div>
-            <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight text-text-main">
-              Who It&apos;s <em className="text-accent">For</em>
-            </motion.h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Retailers / Distributors",
-                headline: "Stock a Product That Explains Itself at the Shelf",
-                bullets: [
-                  "Ready retail package with clear value-for-money story",
-                  "Strong shelf-level product explanation — no staff training required",
-                  "Margin and turnover relevance in cold-water bathroom markets"
-                ],
-                cta: "Ask About Retail Packages",
-                type: "retail"
-              },
-              {
-                title: "Developers / Builders",
-                headline: "Specify Now. Let Buyers Upgrade Later.",
-                bullets: [
-                  "Single-line bathroom compatibility — no floor plan redesign",
-                  "No additional plumbing runs or concealed pipework required",
-                  "Cost and project simplicity with optional buyer upgrade logic"
-                ],
-                cta: "Ask About Project Solutions",
-                type: "developer"
-              },
-              {
-                title: "Architects / Specifiers",
-                headline: "No Need to Redraw Single-Line Bathroom Concepts",
-                bullets: [
-                  "Specification-friendly — suitable for homes, condos, and hospitality",
-                  "Clean and compact installation with no concealed pipe requirement",
-                  "Technical support, dimensional drawings, and datasheets available"
-                ],
-                cta: "Request Specification Support",
-                type: "architect"
-              },
-              {
-                title: "End Consumers",
-                headline: "Hot Shower Comfort Without Opening Your Wall",
-                bullets: [
-                  "Neat visible installation in approximately 30 to 45 minutes",
-                  "Available in Chrome, Matt Black, and Brushed Stainless Steel",
-                  "3-year limited warranty on the tap"
-                ],
-                cta: "Request Information",
-                type: "consumer"
-              }
-            ].map((group, i) => (
-              <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="bg-bg-main p-8 border border-text-main/10 flex flex-col h-full shadow-sm hover:shadow-md transition-shadow duration-200">
-                <h3 className="font-heading text-2xl text-text-main mb-2">{group.title}</h3>
-                <p className="font-body text-sm font-medium text-accent mb-4 italic">{group.headline}</p>
-                <ul className="space-y-2 mb-8 flex-grow">
-                  {group.bullets.map((bullet, bi) => (
-                    <li key={bi} className="flex items-start gap-3">
-                      <span className="block w-1.5 h-1.5 mt-2 bg-accent shrink-0" />
-                      <span className="font-body text-sm text-text-body leading-relaxed">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={group.type === "consumer" ? "/contact?type=consumer" : "#inquiry"}
-                  onClick={group.type !== "consumer" ? (e) => { e.preventDefault(); scrollToInquiry(group.type); } : undefined}
-                  className="mt-auto inline-flex w-fit"
-                >
-                  <Button variant="link" className="group/btn !p-0 !h-auto flex items-center gap-2 text-accent">
-                    {group.cta} <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                  </Button>
-                </a>
-              </motion.div>
-            ))}
-          </div>
-        </SectionWrapper>
-
-        {/* ===== 5. WHY THIS SYSTEM ===== */}
-        <SectionWrapper id="why-this-system" rhythm="secondary">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={revealImage} className="lg:col-span-6 relative">
-              <EditorialImage src="/images/webp_1200/tts-matt-black.webp" alt="Tap-to-Shower in Matt Black — full installed shower column" aspect="4/5" className="object-cover" />
-            </motion.div>
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="lg:col-span-6">
-              <motion.div variants={fadeUp}><Overline withLine className="mb-6">Trust Signals</Overline></motion.div>
-              <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-8 text-text-main">
-                Why This <em className="text-accent">System</em>
-              </motion.h2>
-              <div className="space-y-8">
-                {[
-                  { title: "3-year limited warranty", desc: "Brass HP59 body and ceramic cartridges, covered for three years from date of purchase." },
-                  { title: "CB Certified Heater*", desc: "Compatible instant water heater models may be supplied with CB certification according to IEC 60335-2-35, subject to model and market." },
-                  { title: "Worldbex 2026", desc: "Featured exhibitor at Worldbex 2026, SMX Convention Center, Pasay City, Philippines." }
-                ].map((signal, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex gap-5">
-                    <CheckCircle2 className="w-6 h-6 text-accent shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-body font-medium text-text-main text-lg mb-2">{signal.title}</h4>
-                      <p className="font-body text-text-body leading-relaxed">{signal.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </SectionWrapper>
-
-        {/* ===== 6. INSTALL SEQUENCE GALLERY (inside How It Works arc) ===== */}
-        <SectionWrapper id="install-gallery" className="bg-bg-main pb-0" pt="pt-0" noPadding>
+          {/* GALLERY EMBEDDED IN INSTALL ARC */}
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="w-full">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2">
-              {/* [CJ] — Alt text rewritten to describe actual image content.
-                   Previous alt text fabricated a step-by-step install sequence
-                   that didn't match the images (generic product/lifestyle shots). */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
               {[
                 { src: "/images/webp_1200/tts-chrome-tap-body.webp", alt: "Tap-to-Shower chrome tap body with spout" },
                 { src: "/images/webp_1200/tts-chrome-hand-shower.webp", alt: "Tap-to-Shower chrome hand shower detail" },
@@ -421,59 +341,169 @@ export default function TapToShowerCollection() {
           </motion.div>
         </SectionWrapper>
 
-        {/* ===== DIFFERENTIATOR (F06) ===== */}
-        <SectionWrapper id="differentiator" rhythm="secondary" className="border-t border-text-main/10">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
-            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>The Difference</Overline></motion.div>
-            <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-8 text-text-main">
-              Not Just a Heater. A Complete Shower <em className="text-accent">Solution.</em>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
-              A standard instant water heater typically provides one outlet — usually a hand shower. Tap-to-Shower™ creates a more complete hot and cold shower solution: tap control, overhead shower, hand shower, and a cleaner visual result for single-line bathrooms. The difference is not the heat source. It is the shower experience it makes possible.
-            </motion.p>
+        {/* ===== WHO WE SERVE / BUYER GATEWAY ===== */}
+        <SectionWrapper id="who-its-for" rhythm="secondary" className="bg-bg-feature border-y border-text-main/10">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
+            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>For You</Overline></motion.div>
+            <Heading level="h2" className="mb-4">
+              Who We <span className="text-accent">Serve</span>
+            </Heading>
           </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Retailers / Distributors",
+                headline: "Stock a Product That Explains Itself at the Shelf",
+                bullets: [
+                  "Ready retail package with clear value-for-money story",
+                  "Strong shelf-level product explanation — no staff training required",
+                  "Margin and turnover relevance in cold-water markets"
+                ],
+                cta: "Ask About Retail Packages",
+                href: "/for-your-project/retailers"
+              },
+              {
+                title: "Developers / Builders",
+                headline: "Specify Now. Let Buyers Upgrade Later.",
+                bullets: [
+                  "Single-line bathroom compatibility — no floor plan redesign",
+                  "No additional plumbing runs or concealed pipework required",
+                  "Cost and project simplicity with optional buyer upgrade logic"
+                ],
+                cta: "Ask About Project Solutions",
+                href: "/for-your-project/developers"
+              },
+              {
+                title: "Architects / Specifiers",
+                headline: "No Need to Redraw Single-Line Bathroom Concepts",
+                bullets: [
+                  "Specification-friendly — suitable for homes, condos, and hospitality",
+                  "Clean and compact installation with no concealed pipe requirement",
+                  "Technical support, dimensional drawings, and datasheets available"
+                ],
+                cta: "Request Specification Support",
+                href: "/for-your-project/architects"
+              },
+              {
+                title: "End Consumers",
+                headline: "Hot Shower Comfort Without Opening Your Wall",
+                bullets: [
+                  "Neat visible installation suited for various site layouts",
+                  "Available in Chrome, Matt Black, and Brushed Stainless Steel",
+                  "3-year limited warranty on the tap"
+                ],
+                cta: "Request Information",
+                href: "/for-your-project/consumers"
+              }
+            ].map((group, i) => (
+              <Card key={i} className="flex flex-col h-full bg-bg-main" hoverable>
+                <Heading level="h3" className="mb-2">{group.title}</Heading>
+                <p className="font-body text-sm font-medium text-accent mb-4 italic">{group.headline}</p>
+                <ul className="space-y-2 mb-8 flex-grow">
+                  {group.bullets.map((bullet, bi) => (
+                    <li key={bi} className="flex items-start gap-3">
+                      <span className="block w-1.5 h-1.5 mt-2 bg-accent shrink-0" />
+                      <span className="font-body text-sm text-text-body leading-relaxed">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href={group.href} className="mt-auto">
+                  <Button
+                    variant="link"
+                    className="group/btn !p-0 !h-auto flex items-center gap-2 text-accent"
+                  >
+                    {group.cta} <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                  </Button>
+                </Link>
+              </Card>
+            ))}
+          </div>
         </SectionWrapper>
 
-        {/* ===== 7. FAQ ===== */}
+        {/* ===== WHAT TO KNOW BEFORE CHOOSING ===== */}
+        <SectionWrapper id="features" rhythm="secondary">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="text-center max-w-3xl mx-auto mb-16">
+            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>Technical Details</Overline></motion.div>
+            <Heading level="h2">
+              What to Know Before <span className="text-accent">Choosing</span>
+            </Heading>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {[
+              { 
+                icon: Clock, 
+                title: "Tap Control, External Heater",
+                desc: "The single-lever tap controls water mixing and flow. Water heating is performed by a connected separate single-point water heater (tap body itself does not heat)." 
+              },
+              { 
+                icon: Wrench, 
+                title: "Professional Installation", 
+                desc: "Designed for simple surface-mount installation by a qualified plumber. Actual setup times will vary based on layout and wall materials." 
+              },
+              { 
+                icon: ShieldCheck, 
+                title: "Single-Line Supply Connection", 
+                desc: "Connects directly to your existing single G½″ cold-water outlet without wall restructuring or internal pipe modifications." 
+              },
+              { 
+                icon: Layers, 
+                title: "Model-Specific Certification", 
+                desc: "Compatible water heaters may carry CB certification under IEC 60335-2-35. Certification compliance is subject to specific heater models and local market requirements." 
+              },
+              { 
+                icon: Palette, 
+                title: "Tap Warranty & Finishes", 
+                desc: "The tap carries a 3-year limited warranty and is available in Chrome, Matt Black, and Brushed Stainless Steel. Water heater warranty depends on the package." 
+              }
+            ].map((feat, i) => (
+              <Card key={i} className="flex flex-col h-full bg-bg-alt text-center" hoverable={false}>
+                <feat.icon className="w-7 h-7 text-accent mb-4 mx-auto" strokeWidth={1.5} />
+                <Heading level="h3" className="text-base text-text-main mb-3">{feat.title}</Heading>
+                <p className="font-body text-xs text-text-body/80 leading-relaxed mt-auto">{feat.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </SectionWrapper>
+
+        {/* ===== FAQ SECTION ===== */}
         <SectionWrapper id="faq" rhythm="secondary" className="bg-bg-alt border-t border-text-main/10 mt-1">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-4xl mx-auto">
             <motion.div variants={fadeUp} className="text-center mb-16">
               <Overline withLine className="mb-6 justify-center">Support</Overline>
-              <h2 className="font-heading text-3xl lg:text-4xl tracking-tight text-text-main">
-                Frequently Asked <em className="text-accent">Questions</em>
-              </h2>
+              <Heading level="h2" className="text-center">
+                Frequently Asked <span className="text-accent">Questions</span>
+              </Heading>
             </motion.div>
             <div className="space-y-4">
               {[
-                { q: "What is Tap-to-Shower™?", a: "Tap-to-Shower™ is a shower concept for single-line (cold-water only) bathrooms. When connected to a suitable instant single-point water heater, it allows hot and cold water to be controlled at the tap without opening the wall or adding concealed pipework." },
-                { q: "How is it different from a normal instant water heater shower?", a: "A standard instant water heater typically provides one outlet — a hand shower. Tap-to-Shower™ provides the complete shower interface: tap control, overhead shower, hand shower, and a column rail — with temperature and flow adjusted at the tap, not the heater." },
-                { q: "Do I need to open the wall or change concealed plumbing?", a: "No concealed pipe rerouting or wall opening is required under suitable site conditions. The PEX tube routes neatly along the wall surface and is fixed with included brackets and clips." },
-                { q: "What heater type is suitable?", a: "Tap-to-Shower™ is compatible with suitable instant single-point water heaters with a G½\" connection. Booster-pump configured heaters are generally not suitable." },
-                { q: "How does the user adjust temperature and flow?", a: "Set the water heater to its operating temperature once at installation. After that, open the tap and adjust both flow and temperature at the shower point — from cold to hot — just like a conventional mixer shower." },
-                { q: "Can it be sold with or without a heater?", a: "Yes. Tap-to-Shower™ is available as a tap only (TTS-01), a connection set (TF01-C), or as a complete kit with a compatible water heater." },
-                { q: "What finishes are available?", a: "Chrome, Matt Black, and Brushed Stainless Steel." },
-                { q: "What water pressure is required?", a: "The system requires a minimum water pressure suitable for the connected instant water heater. Very low pressure and rooftop tank-fed installations are generally not suitable unless a specific approved configuration is confirmed." },
-                { q: "Is it suitable for rooftop tank-fed installations?", a: "Generally not suitable. Rooftop gravity-fed systems typically do not produce the minimum pressure required for the instant water heater to operate correctly." },
-                { q: "Can it be used with booster-pump configured instant heaters?", a: "Not unless a specific approved package is confirmed. Booster-pump heater configurations can affect flow and pressure compatibility." },
-                { q: "What warranty is available?", a: "The Tap-to-Shower™ tap carries a 3-year limited warranty. Compatible instant water heater models may carry their own warranty — confirm with BSC at time of order." },
-                { q: "Where can retailers, developers, or homeowners enquire?", a: "Contact BSC directly through the enquiry form on this page or via the Contact page. Enquiry type selection routes your message to the right person." }
+                { 
+                  q: "What is Tap-to-Shower™?", 
+                  a: "Tap-to-Shower™ is a retrofitting shower system for single-line (cold-water only) bathrooms. When paired with a compatible single-point instant water heater, it allows hot and cold water to be mixed and controlled directly at the tap body without opening your walls or modifying concealed pipework." 
+                },
+                { 
+                  q: "How is it different from a standard instant water heater setup?", 
+                  a: "A typical instant water heater provides only a single hand shower outlet and requires you to adjust temperature at the heater unit itself. Tap-to-Shower™ provides a complete dual-outlet shower interface (overhead rain shower and hand shower) with volume and temperature mixed right at the tap lever." 
+                },
+                { 
+                  q: "Do I need to break tiles or change concealed plumbing?", 
+                  a: "No wall opening or tile breakages are required under suitable site conditions. The connection set routes PEX tubing cleanly along the surface of your wall, secured with the included mounting brackets." 
+                },
+                { 
+                  q: "What water pressure is required and is it gravity-fed friendly?", 
+                  a: "The system requires water pressure that matches the operating threshold of the connected instant water heater. Rooftop gravity-tank-fed supplies typically do not produce sufficient pressure to trigger instant heaters and are not suitable unless a specific approved configuration is confirmed." 
+                },
+                { 
+                  q: "Can it be used with booster-pump heaters?", 
+                  a: "Compatibility with booster-pump heaters depends on the specific pump and flow ratings. Standard booster-pump configurations can affect flow compatibility, so only approved packages should be utilized." 
+                },
+                { 
+                  q: "What warranty coverage is included?", 
+                  a: "The Tap-to-Shower™ tap body and cartridges are covered by a 3-year limited warranty. Connected instant water heater units carry their own separate manufacturer warranty (confirm specific package details with BSC at time of purchase)." 
+                }
               ].map((faq, i) => (
                 <FAQAccordion key={i} question={faq.q} answer={faq.a} />
               ))}
             </div>
-          </motion.div>
-        </SectionWrapper>
-
-        {/* ===== SUITABILITY ===== */}
-        <SectionWrapper id="suitability" rhythm="secondary" className="border-t border-text-main/10">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="max-w-3xl mx-auto text-center">
-            <motion.div variants={fadeUp} className="flex justify-center mb-6"><Overline withLine>Suitability</Overline></motion.div>
-            <motion.h2 variants={fadeUp} className="font-heading text-3xl lg:text-4xl tracking-tight mb-8 text-text-main">
-              Before You Specify or <em className="text-accent">Install</em>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="font-body text-lg text-text-body leading-relaxed">
-              Tap-to-Shower™ requires a minimum water pressure suitable for the connected instant water heater. It is not suitable for very low pressure supplies or rooftop gravity-tank-fed installations unless a specific approved configuration is confirmed. It is not suitable for booster-pump configured instant heaters unless approved. Electrical installation of the water heater must be carried out by a qualified person.
-            </motion.p>
           </motion.div>
         </SectionWrapper>
 

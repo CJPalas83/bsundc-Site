@@ -20,7 +20,7 @@ export default function RetailersPage() {
         "3-year limited warranty on the tap; trade enquiry and quotation on request",
       ]}
       ctaLabel="Ask About Retail Packages"
-      ctaHref="/contact?type=retail"
+      ctaHref="/tap-to-shower?type=retail#inquiry"
       image="/images/webp_1200/tts-kit.webp"
       imageAlt="Complete Tap-to-Shower kit — tap, connection set, and instant water heater laid out together"
     />

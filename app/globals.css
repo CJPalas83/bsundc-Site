@@ -21,6 +21,15 @@
   --color-alabaster: var(--color-bg-main);
   --color-gold: var(--color-accent);
 
+  /* Semantic color mappings */
+  --color-surface: var(--color-bg-main);
+  --color-surface-alt: var(--color-bg-alt);
+  --color-ink: var(--color-text-main);
+  --color-ink-muted: var(--color-text-body);
+  --color-ink-secondary: var(--color-text-secondary);
+  --color-line: rgba(26, 26, 26, 0.1);
+  --color-line-hover: rgba(15, 94, 138, 0.4);
+
   /* Typography — Calibri stack */
   --font-sans: "Calibri", "Segoe UI", Candara, Segoe, Optima, Arial, sans-serif;
   --font-heading: var(--font-sans);
@@ -30,16 +39,61 @@
   --duration-state: 200ms;   /* hover, focus, color changes */
   --duration-reveal: 600ms;  /* scroll-in, entrance animations */
   --ease-default: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Radii */
+  --radius-card: var(--radius-card);
+  --radius-button: var(--radius-button);
+  --radius-input: var(--radius-input);
+
+  /* Shadows */
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
 }
 
-/* ===== TYPOGRAPHY SCALE (fixed reference; matches the revision spec) ===== */
+/* ===== TYPOGRAPHY SCALE & GLOBAL VARS ===== */
 :root {
-  --text-h1: 44px;    --lh-h1: 1.15;
-  --text-h2: 32px;    --lh-h2: 1.20;
-  --text-h3: 24px;    --lh-h3: 1.25;
-  --text-intro: 21px; --lh-intro: 1.45;
-  --text-body: 17px;  --lh-body: 1.55;
-  --text-small: 14px; --lh-small: 1.45;
+  --text-h1: 48px;    --lh-h1: 1.10;
+  --text-h2: 36px;    --lh-h2: 1.15;
+  --text-h3: 26px;    --lh-h3: 1.20;
+  --text-intro: 22px; --lh-intro: 1.50;
+  --text-body: 17px;  --lh-body: 1.65;
+  --text-small: 15px; --lh-small: 1.50;
+
+  /* Letter-spacing scale — intentionally restrained */
+  --ls-tight: -0.01em;   /* headings */
+  --ls-normal: 0em;      /* body copy */
+  --ls-label: 0.06em;    /* UI labels, overlines */
+  --ls-caps: 0.10em;     /* ALL-CAPS badges, tiny labels */
+
+  /* Spacing Scale (section padding, card padding, gap sizes) */
+  --spacing-section-py-desktop: 96px;
+  --spacing-section-py-mobile: 64px;
+  --spacing-card-p: 24px;
+  --spacing-gap-sm: 8px;
+  --spacing-gap-md: 16px;
+  --spacing-gap-lg: 32px;
+  --spacing-gap-xl: 64px;
+
+  /* Radii defaults */
+  --radius-card: 0px;
+  --radius-button: 0px;
+  --radius-input: 0px;
+
+  /* Shadows defaults */
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive typography scale overrides (mobile) */
+@media (max-width: 768px) {
+  :root {
+    --text-h1: 34px;    --lh-h1: 1.15;
+    --text-h2: 26px;    --lh-h2: 1.20;
+    --text-h3: 21px;    --lh-h3: 1.25;
+    --text-intro: 19px; --lh-intro: 1.50;
+    --text-body: 16px;  --lh-body: 1.65;
+    --text-small: 14px; --lh-small: 1.50;
+  }
 }
 
 /* ===== BASE STYLES ===== */
@@ -62,11 +116,17 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-body);
   line-height: var(--lh-body);
+  letter-spacing: var(--ls-normal);
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  letter-spacing: var(--ls-tight);
+}
+
+p {
+  max-width: 72ch;
 }
 
 ::selection {
@@ -85,12 +145,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Fixed typography-scale helpers — for pages built/updated in this revision.
    Existing collection pages intentionally keep their own type. */
-.type-h1 { font-size: var(--text-h1); line-height: var(--lh-h1); }
-.type-h2 { font-size: var(--text-h2); line-height: var(--lh-h2); }
-.type-h3 { font-size: var(--text-h3); line-height: var(--lh-h3); }
-.type-intro { font-size: var(--text-intro); line-height: var(--lh-intro); }
-.type-body { font-size: var(--text-body); line-height: var(--lh-body); }
-.type-small { font-size: var(--text-small); line-height: var(--lh-small); }
+.type-h1  { font-size: var(--text-h1);    line-height: var(--lh-h1);    letter-spacing: var(--ls-tight); }
+.type-h2  { font-size: var(--text-h2);    line-height: var(--lh-h2);    letter-spacing: var(--ls-tight); }
+.type-h3  { font-size: var(--text-h3);    line-height: var(--lh-h3);    letter-spacing: var(--ls-tight); }
+.type-intro { font-size: var(--text-intro); line-height: var(--lh-intro); letter-spacing: var(--ls-normal); }
+.type-body  { font-size: var(--text-body);  line-height: var(--lh-body);  letter-spacing: var(--ls-normal); }
+.type-small { font-size: var(--text-small); line-height: var(--lh-small); letter-spacing: var(--ls-normal); }
+
+/* Label / overline caps — use sparingly */
+.type-label { font-size: 11px; line-height: 1.4; letter-spacing: var(--ls-label); text-transform: uppercase; font-weight: 500; }
+.type-caps  { font-size: 10px; line-height: 1.4; letter-spacing: var(--ls-caps);  text-transform: uppercase; font-weight: 500; }
 
 /* Body-copy line-length cap — stops text running too wide on large screens */
 .measure-body { max-width: 680px; }

@@ -20,7 +20,7 @@ export default function ArchitectsPage() {
         "Technical documentation and dimensional drawings available on request",
       ]}
       ctaLabel="Request Specification Support"
-      ctaHref="/contact?type=architect"
+      ctaHref="/tap-to-shower?type=architect#inquiry"
       image="/images/webp_cutouts/tts-chrome-tap-body.webp"
       imageAlt="Tap-to-Shower chrome tap body with spout — close-up cutout"
     />

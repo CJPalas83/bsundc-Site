@@ -7,20 +7,21 @@ import { ChevronDown } from "lucide-react";
 
 const navLinks = [
   {
-    label: "For Your Project",
-    href: "/for-your-project/retailers",
+    label: "Tap-to-Shower™",
+    href: "/tap-to-shower",
     items: [
+      { label: "Overview", href: "/tap-to-shower" },
       { label: "Retailers & Distributors", href: "/for-your-project/retailers" },
       { label: "Developers & Builders", href: "/for-your-project/developers" },
       { label: "Architects & Specifiers", href: "/for-your-project/architects" },
-      { label: "End Consumers / Homeowners", href: "/for-your-project/consumers" },
+      { label: "Homeowners", href: "/for-your-project/consumers" },
+      { label: "Enquire", href: "/tap-to-shower#inquiry" },
     ],
   },
   {
     label: "Product Range",
     href: "/collections",
     items: [
-      { label: "Tap-to-Shower™", href: "/tap-to-shower" },
       { label: "S2 Collection", href: "/collections/s2" },
       { label: "SUS Collection", href: "/collections/sus" },
       { label: "LINE Collection", href: "/collections/line" },
@@ -69,10 +70,7 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-400 flex items-center justify-between px-6 md:px-16 h-[50px] md:h-[58px]">
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center"
-        >
+        <Link href="/" className="flex items-center">
           <img
             src="/images/bsc-logo.png"
             alt="BSC"
@@ -90,16 +88,19 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               {link.items ? (
-                <span className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main hover:text-accent transition-colors duration-200 cursor-default select-none">
+                <Link
+                  href={link.href}
+                  className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.12em] text-text-main hover:text-accent transition-colors duration-200"
+                >
                   {link.label}
                   <ChevronDown
                     className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.label ? "rotate-180" : ""}`}
                   />
-                </span>
+                </Link>
               ) : (
                 <a
                   href={link.href}
-                  className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main hover:text-accent transition-colors duration-200"
+                  className="flex items-center gap-1.5 font-body text-[12px] font-medium uppercase tracking-[0.12em] text-text-main hover:text-accent transition-colors duration-200"
                 >
                   {link.label}
                 </a>
@@ -121,8 +122,8 @@ export default function Navbar() {
                         href={item.href}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.05 + 0.1 }}
-                        className="block px-6 py-3 font-body text-[10px] font-medium uppercase tracking-[0.15em] text-text-main/70 hover:text-accent hover:bg-accent/5 transition-all duration-300"
+                        transition={{ delay: idx * 0.04 + 0.05 }}
+                        className="block px-6 py-3 font-body text-[11px] font-medium uppercase tracking-[0.1em] text-text-main/70 hover:text-accent hover:bg-accent/5 transition-all duration-200"
                       >
                         {item.label}
                       </motion.a>
@@ -174,7 +175,7 @@ export default function Navbar() {
                         mobileExpanded === link.label ? null : link.label,
                       )
                     }
-                    className="font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main transition-colors duration-200 flex items-center gap-2"
+                    className="font-body text-[12px] font-medium uppercase tracking-[0.12em] text-text-main transition-colors duration-200 flex items-center gap-2"
                   >
                     {link.label}
                     <ChevronDown
@@ -185,7 +186,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="font-body text-[12px] font-medium uppercase tracking-[0.18em] text-text-main transition-colors duration-200"
+                    className="font-body text-[12px] font-medium uppercase tracking-[0.12em] text-text-main transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -209,7 +210,7 @@ export default function Navbar() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
-                      className="font-body text-[10px] font-medium uppercase tracking-[0.15em] text-text-main/60 hover:text-accent transition-colors duration-300 py-1"
+                      className="font-body text-[11px] font-medium uppercase tracking-[0.1em] text-text-main/60 hover:text-accent transition-colors duration-200 py-1"
                     >
                       {item.label}
                     </a>

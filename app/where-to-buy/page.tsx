@@ -63,12 +63,12 @@ export default function WhereToBuy() {
               variants={fadeUp}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Link href="/contact">
+              <Link href="/tap-to-shower?type=general#inquiry">
                 <Button variant="primary" size="lg">
                   Request Information
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/tap-to-shower?type=general#inquiry">
                 <Button variant="secondary" size="lg">
                   Ask About Availability
                 </Button>

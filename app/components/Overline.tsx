@@ -26,8 +26,8 @@ export default function Overline({
         />
       )}
       <span
-        className={`font-body text-[10px] md:text-xs font-medium uppercase tracking-[0.25em] ${
-          dark ? "text-bg-main/60" : "text-text-body"
+        className={`font-body text-[11px] md:text-[12px] font-medium uppercase tracking-[0.10em] ${
+          dark ? "text-bg-main/60" : "text-text-body/70"
         }`}
       >
         {children}

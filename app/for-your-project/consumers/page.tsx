@@ -20,7 +20,7 @@ export default function ConsumersPage() {
         "Available in Chrome, Matt Black, and Brushed Stainless Steel; 3-year limited tap warranty",
       ]}
       ctaLabel="Request Information"
-      ctaHref="/contact?type=consumer"
+      ctaHref="/tap-to-shower?type=consumer#inquiry"
       image="/images/webp_1200/tts-chrome.webp"
       imageAlt="Tap-to-Shower Chrome — full installed shower column"
     />
